@@ -17,7 +17,7 @@ public class class1034
 	{
 		if(var0 == null)
 		{
-			var0 = LauncherUtils.entry1015;
+			var0 = LauncherUtils.player;
 		}
 		int var2 = var0.getWidth() / 64;
 		int var3 = var0.getHeight() / 32;

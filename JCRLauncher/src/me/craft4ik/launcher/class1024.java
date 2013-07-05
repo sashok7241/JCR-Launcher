@@ -9,7 +9,7 @@ public class class1024
 		try
 		{
 			String var1 = LauncherGuard.getJarPath();
-			int var2 = LauncherUtils.entry1003("memory");
+			int var2 = LauncherUtils.getIntegerFromConfig("memory");
 			if(var2 == 0)
 			{
 				var2 = 1024;

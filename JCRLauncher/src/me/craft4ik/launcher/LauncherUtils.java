@@ -46,7 +46,7 @@ public class LauncherUtils
 	public static BufferedImage waitAnimation;
 	public static BufferedImage alertIcons;
 	public static BufferedImage bandColors;
-	public static BufferedImage entry1015;
+	public static BufferedImage player;
 	
 	public static final void delete(File file)
 	{
@@ -62,15 +62,15 @@ public class LauncherUtils
 				}
 			}
 			file.delete();
-		} catch(Exception var5)
+		} catch(Exception e)
 		{
 			LauncherAuthFrame.error("Удаление не удалось: " + file.toString());
 		}
 	}
 	
-	public static final void entry0(BufferedImage var0, int var1)
+	public static final void getCachedImage(BufferedImage cached, int index)
 	{
-		if(var0 == null && var1 == -1)
+		if(cached == null && index == -1)
 		{
 			iconImage = loadLocalImage(getSettings().getFaviconImage());
 			background = loadLocalImage(getSettings().getBackgroundImage());
@@ -90,77 +90,77 @@ public class LauncherUtils
 			bandColors = loadLocalImage(getSettings().getBandColorsImage());
 		} else
 		{
-			switch(var1)
+			switch(index)
 			{
 				case 0:
-					iconImage = var0;
+					iconImage = cached;
 				case 1:
-					background = var0;
+					background = cached;
 				case 2:
-					logotype = var0;
+					logotype = cached;
 				case 3:
-					elements = var0;
+					elements = cached;
 				case 4:
-					frameIcons = var0;
+					frameIcons = cached;
 				case 5:
-					button = var0;
+					button = cached;
 				case 6:
-					combobox = var0;
+					combobox = cached;
 				case 7:
-					checkbox = var0;
+					checkbox = cached;
 				case 8:
-					field = var0;
+					field = cached;
 				case 9:
-					progressbar = var0;
+					progressbar = cached;
 				case 10:
-					modalBackground = var0;
+					modalBackground = cached;
 				case 11:
-					newsBackground = var0;
+					newsBackground = cached;
 				case 12:
-					pressedBorder = var0;
+					pressedBorder = cached;
 				case 13:
-					waitAnimation = var0;
+					waitAnimation = cached;
 				case 14:
-					alertIcons = var0;
+					alertIcons = cached;
 				case 15:
-					bandColors = var0;
+					bandColors = cached;
 				default:
 					break;
 			}
 		}
-		entry1015 = loadLocalImage("char.png");
+		player = loadLocalImage("char.png");
 	}
 	
-	public static final void entry0(LauncherAuthFrame var0) throws UnsupportedEncodingException
+	public static final void entry0(LauncherAuthFrame frame) throws UnsupportedEncodingException
 	{
 		String var1 = class1000.entry1(entry1001("login"));
 		if(!var1.equals(""))
 		{
-			var0.login.setText(var1);
+			frame.login.setText(var1);
 		}
 		String var2 = class1000.entry1(entry1001("password"));
 		if(!var2.isEmpty())
 		{
-			var0.password.setText(var2);
+			frame.password.setText(var2);
 		}
-		int var5 = entry1003("server");
+		int var5 = getIntegerFromConfig("server");
 		if(entry10 != null && var5 <= entry10.length)
 		{
-			var0.entry1004.entry0(var5);
+			frame.entry1004.entry0(var5);
 		}
-		int var3 = entry1003("remember");
+		int var3 = getIntegerFromConfig("remember");
 		if(var3 != 0 && var3 != 1)
 		{
-			var0.savePassword.setSelected(false);
+			frame.savePassword.setSelected(false);
 		} else
 		{
-			var0.savePassword.setSelected(true);
+			frame.savePassword.setSelected(true);
 		}
-		var0.fullscreen.setSelected(entry1002("full_screen"));
-		int var4 = entry1003("memory");
+		frame.fullscreen.setSelected(entry1002("full_screen"));
+		int var4 = getIntegerFromConfig("memory");
 		if(var4 >= 256)
 		{
-			var0.memory.setText(var4 + "");
+			frame.memory.setText(var4 + "");
 		}
 	}
 	
@@ -187,18 +187,17 @@ public class LauncherUtils
 		return -1;
 	}
 	
-	public static final void entry1()
+	public static final void loadTheme()
 	{
-		String var0 = "jcr_theme.php?action=theme&version=v5.0&request=";
 		try
 		{
-			if(entry100())
+			if(isNeedLoadTheme())
 			{
 				LauncherAuthFrame.log("Загужаю online тему...");
-				String[] var1 = LauncherAuthFrame.entry1[1].split("<:i:>");
+				String[] var1 = LauncherAuthFrame.config[1].split("<:i:>");
 				for(int var2 = 0; var2 < var1.length; ++var2)
 				{
-					entry0(loadRemoteImage(resolveScript(var0), var1[var2]), var2);
+					getCachedImage(loadRemoteImage(resolveScript("jcr_theme.php?action=theme&version=v5.0&request="), var1[var2]), var2);
 					if(errorLoading)
 					{
 						break;
@@ -222,7 +221,7 @@ public class LauncherUtils
 		}
 		if(errorLoading)
 		{
-			entry0((BufferedImage) null, -1);
+			getCachedImage((BufferedImage) null, -1);
 			class1035.entry0 = Color.decode(getSettings().getColorScheme());
 		} else
 		{
@@ -258,11 +257,11 @@ public class LauncherUtils
 		}
 	}
 	
-	public static final boolean entry100()
+	public static final boolean isNeedLoadTheme()
 	{
 		try
 		{
-			return LauncherAuthFrame.entry1[0].equals("true");
+			return LauncherAuthFrame.config[0].equals("true");
 		} catch(Exception var1)
 		{
 			return false;
@@ -334,7 +333,7 @@ public class LauncherUtils
 		return resolveMinecraftDirectory(".qoob") + "";
 	}
 	
-	public static final int entry1003(String var0)
+	public static final int getIntegerFromConfig(String var0)
 	{
 		return entry1.entry100(var0).booleanValue() ? entry1.entry1(var0).intValue() : 0;
 	}

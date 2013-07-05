@@ -15,8 +15,8 @@ public class class1045 extends JFrame
 	
 	public class1045(String[] var1)
 	{
-		String var2 = LauncherAuthFrame.frame.offline.isSelected() ? "Player" : LauncherAuthFrame.frame.login.getText();
-		String var3 = LauncherAuthFrame.frame.offline.isSelected() ? "123456" : LauncherGuard.getMD5String(var1[7]);
+		String login = LauncherAuthFrame.frame.offline.isSelected() ? "Player" : LauncherAuthFrame.frame.login.getText();
+		String session = LauncherAuthFrame.frame.offline.isSelected() ? "123456" : LauncherGuard.getMD5String(var1[7]);
 		LauncherGuard.entry0(LauncherAuthFrame.settings, true);
 		new Timer(30000, new class1046(this)).start();
 		try
@@ -25,10 +25,10 @@ public class class1045 extends JFrame
 			String var4 = LauncherUtils.getMinecraftDirectory() + File.separator + "bin" + File.separator;
 			setForeground(Color.BLACK);
 			setBackground(Color.BLACK);
-			URL[] var5 = new URL[] { new File(var4, "minecraft.jar").toURI().toURL(), new File(var4, "lwjgl.jar").toURI().toURL(), new File(var4, "jinput.jar").toURI().toURL(), new File(var4, "lwjgl_util.jar").toURI().toURL() };
-			entry0 = new class1021(var4, var5);
-			entry0.entry0.put("username", var2);
-			entry0.entry0.put("sessionid", var3);
+			URL[] urls = new URL[] { new File(var4, "minecraft.jar").toURI().toURL(), new File(var4, "lwjgl.jar").toURI().toURL(), new File(var4, "jinput.jar").toURI().toURL(), new File(var4, "lwjgl_util.jar").toURI().toURL() };
+			entry0 = new class1021(var4, urls);
+			entry0.entry0.put("username", login);
+			entry0.entry0.put("sessionid", session);
 			entry0.entry0.put("stand-alone", "true");
 			if(!LauncherAuthFrame.frame.offline.isSelected())
 			{

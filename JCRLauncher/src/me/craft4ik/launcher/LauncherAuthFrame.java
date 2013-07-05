@@ -28,14 +28,14 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 {
 	private static final long serialVersionUID = 1L;
 	public static String[] settings = null;
-	public static String[] entry1 = null;
+	public static String[] config = null;
 	public static String entry10 = "";
 	public JButton entry100 = new JButton();
 	public JButton entry1000 = new JButton();
 	private int entry1020 = 0;
 	private int entry1021 = 0;
 	public static LauncherAuthFrame frame;
-	public LauncherGuard entry1002 = new LauncherGuard();
+	public LauncherGuard guard = new LauncherGuard();
 	public class1039 entry1003 = new class1039();
 	public class103 entry1004 = new class103((String[]) null, 324);
 	public JTextPane newsPane = new JTextPane();
@@ -373,8 +373,8 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 			log("Не удалось установить системный LnF");
 		}
 		class1008.entry10();
-		entry1 = LauncherUtils.entry10();
-		LauncherUtils.entry1();
+		config = LauncherUtils.entry10();
+		LauncherUtils.loadTheme();
 	}
 	
 	public static final void showLauncherFrame(LauncherSplashFrame var0) throws UnsupportedEncodingException
