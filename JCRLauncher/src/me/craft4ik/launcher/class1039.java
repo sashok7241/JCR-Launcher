@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.Color;
 import java.awt.FontFormatException;
 import java.awt.FontMetrics;
@@ -74,10 +75,10 @@ public class class1039 extends JPanel
 	
 	private void entry0(int var1, Graphics2D var2) throws NumberFormatException, FontFormatException
 	{
-		int var3 = new Integer(class1022.entry0[1]).intValue();
-		var2.setFont(class1009.entry0(var3, new Integer(class1022.entry0[2].replace("#", "")).intValue()));
+		int var3 = new Integer(LauncherSettignsStorage.version_settings[1]).intValue();
+		var2.setFont(class1009.entry0(var3, new Integer(LauncherSettignsStorage.version_settings[2].replace("#", "")).intValue()));
 		var2.setColor(new Color(0, 0, 0));
-		entry0(class1022.entry0[0], var1, 165, (Color) null, var2);
+		entry0(LauncherSettignsStorage.version_settings[0], var1, 165, (Color) null, var2);
 	}
 	
 	public final void entry0(int var1, int var2)

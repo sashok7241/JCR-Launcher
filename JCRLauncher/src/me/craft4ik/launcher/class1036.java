@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.image.BufferedImage;
 
 public class class1036

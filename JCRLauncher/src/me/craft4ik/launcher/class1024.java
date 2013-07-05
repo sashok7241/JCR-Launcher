@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.util.ArrayList;
 
 public class class1024

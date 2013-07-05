@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.FontFormatException;
 
 import javax.swing.JButton;
@@ -24,22 +25,6 @@ public class class1019 extends class100
 		return var2;
 	}
 	
-	public static final JButton entry1(ImageUtils var0) throws FontFormatException
-	{
-		class1027 var1 = new class1027(var0, "");
-		class1010 var2 = new class1010();
-		var1.addActionListener(var2);
-		return var1;
-	}
-	
-	public static final JButton entry1(ImageUtils var0, String var1) throws FontFormatException
-	{
-		class1027 var2 = new class1027(var0, var1);
-		class1015 var3 = new class1015();
-		var2.addActionListener(var3);
-		return var2;
-	}
-	
 	public static final void entry1(Frame var0) throws FontFormatException
 	{
 		var0.entry100 = entry1(class1035.entry1002);
@@ -59,6 +44,22 @@ public class class1019 extends class100
 		var0.entry1017 = new class1029(68, 240, 160, 16, var0.entry1017.getText(), var0.entry1017.isSelected());
 		var0.entry1018 = new class1029(68, 266, 119, 16, var0.entry1018.getText(), var0.entry1018.isSelected());
 		var0.entry1019 = new class1041(72, 292, 48, 18, var0.entry1019.getText(), 4, class1035.entry0);
+	}
+	
+	public static final JButton entry1(ImageUtils var0) throws FontFormatException
+	{
+		class1027 var1 = new class1027(var0, "");
+		class1010 var2 = new class1010();
+		var1.addActionListener(var2);
+		return var1;
+	}
+	
+	public static final JButton entry1(ImageUtils var0, String var1) throws FontFormatException
+	{
+		class1027 var2 = new class1027(var0, var1);
+		class1015 var3 = new class1015();
+		var2.addActionListener(var3);
+		return var2;
 	}
 	
 	public static final JButton entry1005(String var0) throws FontFormatException

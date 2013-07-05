@@ -1,16 +1,17 @@
 package me.craft4ik.launcher;
+
 import com.sun.awt.AWTUtilities;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
-public class class1050 extends JFrame
+public class LauncherFrame extends JFrame
 {
 	private static final long serialVersionUID = 1L;
 	private class1051 entry0 = new class1051();
 	
-	public class1050()
+	public LauncherFrame()
 	{
 		if(class100.entry1005() != 0)
 		{
@@ -22,7 +23,7 @@ public class class1050 extends JFrame
 		setTitle("qoobworld.ru :: v5.0");
 		setResizable(false);
 		setLocationRelativeTo((Component) null);
-		setIconImage(class100.entry0(class100.entry0().getFaviconImage()));
+		setIconImage(class100.loadLocalImage(class100.getSettings().getFaviconImage()));
 		setDefaultCloseOperation(2);
 		setLayout(new BorderLayout());
 		setContentPane(entry0);

@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 final class class1049 implements Runnable
 {
 	// $FF: synthetic field
@@ -11,6 +12,6 @@ final class class1049 implements Runnable
 	
 	@Override public final void run()
 	{
-		Launcher.entry1().entry0(entry0);
+		Launcher.getFrame().entry0(entry0);
 	}
 }

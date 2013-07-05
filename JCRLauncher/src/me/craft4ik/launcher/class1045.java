@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -38,7 +39,7 @@ public class class1045 extends JFrame
 			this.setSize(880, 520);
 			setLocationRelativeTo((Component) null);
 			setLayout(new BorderLayout());
-			setIconImage(class100.entry0(class100.entry0().getClientFaviconImage()));
+			setIconImage(class100.loadLocalImage(class100.getSettings().getClientFaviconImage()));
 			if(class100.entry1002("full_screen"))
 			{
 				setExtendedState(6);

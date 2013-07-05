@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.applet.Applet;
 import java.applet.AppletStub;
 import java.awt.BorderLayout;

@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.event.HyperlinkEvent;

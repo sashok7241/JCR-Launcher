@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.io.IOException;
 
 final class class1001 extends Thread

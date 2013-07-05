@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 

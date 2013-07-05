@@ -1,5 +1,6 @@
 package me.craft4ik.launcher;
-public class SettingsImpl implements Settings
+
+public class LauncherSettingsImpl implements LauncherSettings
 {
 	@Override public final String getAlertIconsImage()
 	{

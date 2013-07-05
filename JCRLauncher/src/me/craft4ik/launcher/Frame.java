@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import com.sun.awt.AWTUtilities;
 
 import java.awt.BorderLayout;
@@ -358,7 +359,7 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 		return var0.entry1020 = var1;
 	}
 	
-	public static final void entry0(class1050 var0) throws UnsupportedEncodingException
+	public static final void entry0(LauncherFrame var0) throws UnsupportedEncodingException
 	{
 		entry1001 = new Frame();
 		entry1001.entry1003.entry0();
@@ -367,10 +368,6 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 		class1008.entry1();
 		SwingUtilities.invokeLater(new class1030(var0));
 		entry1001.show();
-	}
-	
-	public static final void log(String var0)
-	{
 	}
 	
 	// $FF: synthetic method
@@ -386,6 +383,10 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 	}
 	
 	public static final void entry1(String var0)
+	{
+	}
+	
+	public static final void log(String var0)
 	{
 	}
 }

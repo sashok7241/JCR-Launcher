@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

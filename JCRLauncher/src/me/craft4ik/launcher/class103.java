@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Cursor;

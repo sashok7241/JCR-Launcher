@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.Color;
 import java.awt.FontFormatException;
 import java.awt.Graphics;

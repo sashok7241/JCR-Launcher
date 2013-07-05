@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;

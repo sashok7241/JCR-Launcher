@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.Color;
 
 public class class1035

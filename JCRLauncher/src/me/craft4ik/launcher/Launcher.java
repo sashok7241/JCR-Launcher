@@ -1,14 +1,14 @@
 package me.craft4ik.launcher;
+
 import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.SwingUtilities;
 
 public class Launcher
 {
-	private static class1050 entry0;
+	private static LauncherFrame entry0;
 	
-	// $FF: synthetic method
-	static final class1050 entry0(class1050 var0)
+	static final LauncherFrame entry0(LauncherFrame var0)
 	{
 		entry0 = var0;
 		return var0;
@@ -25,16 +25,10 @@ public class Launcher
 		}
 	}
 	
-	// $FF: synthetic method
-	static final class1050 entry1()
-	{
-		return entry0;
-	}
-	
 	private static final void entry10()
 	{
 		Frame.log("Подготовка к запуску программы...");
-		SwingUtilities.invokeLater(new class105());
+		SwingUtilities.invokeLater(new LauncherInitializer());
 	}
 	
 	private static final void entry100() throws InterruptedException
@@ -47,6 +41,12 @@ public class Launcher
 	private static final void entry1000()
 	{
 		SwingUtilities.invokeLater(new class1052());
+	}
+	
+	// $FF: synthetic method
+	static final LauncherFrame getFrame()
+	{
+		return entry0;
 	}
 	
 	public static final void start() throws InterruptedException

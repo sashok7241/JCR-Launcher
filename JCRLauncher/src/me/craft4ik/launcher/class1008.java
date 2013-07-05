@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 public class class1008
 {
 	public static Thread entry0 = null;

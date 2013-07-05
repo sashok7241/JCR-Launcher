@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.Color;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
@@ -14,7 +15,7 @@ public class class1051 extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 	public static String entry0 = "";
-	public static final BufferedImage entry1 = class100.entry0(class100.entry0().getSplashImage());
+	public static final BufferedImage entry1 = class100.loadLocalImage(class100.getSettings().getSplashImage());
 	
 	public class1051()
 	{

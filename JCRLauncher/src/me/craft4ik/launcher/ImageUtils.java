@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -107,15 +108,6 @@ public class ImageUtils
 		return result;
 	}
 	
-	public static final BufferedImage screenshot(JComponent comp)
-	{
-		BufferedImage image = new BufferedImage(comp.getWidth(), comp.getHeight(), 2);
-		Graphics2D graphics = image.createGraphics();
-		comp.paint(graphics);
-		graphics.dispose();
-		return image;
-	}
-	
 	public static final BufferedImage load(URL from, boolean debug)
 	{
 		try
@@ -134,5 +126,14 @@ public class ImageUtils
 			}
 			return null;
 		}
+	}
+	
+	public static final BufferedImage screenshot(JComponent comp)
+	{
+		BufferedImage image = new BufferedImage(comp.getWidth(), comp.getHeight(), 2);
+		Graphics2D graphics = image.createGraphics();
+		comp.paint(graphics);
+		graphics.dispose();
+		return image;
 	}
 }

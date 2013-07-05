@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 final class class1003 extends Thread
 {
 	@Override public final void run()

@@ -1,4 +1,5 @@
 package me.craft4ik.launcher;
+
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
@@ -47,31 +48,26 @@ public class class100
 	public static BufferedImage entry1014;
 	public static BufferedImage entry1015;
 	
-	public static final Settings entry0()
-	{
-		return class1022.entry1;
-	}
-	
 	public static final void entry0(BufferedImage var0, int var1)
 	{
 		if(var0 == null && var1 == -1)
 		{
-			entry1000 = entry0(entry0().getFaviconImage());
-			entry1001 = entry0(entry0().getBackgroundImage());
-			entry1002 = entry0(entry0().getLogotypeImage());
-			entry1003 = entry0(entry0().getAuthElementsImage());
-			entry1004 = entry0(entry0().getFrameIconsImage());
-			entry1005 = entry0(entry0().getButtonsImage());
-			entry1006 = entry0(entry0().getComboboxImage());
-			entry1007 = entry0(entry0().getCheckboxImage());
-			entry1008 = entry0(entry0().getFieldBackgroundImage());
-			entry1009 = entry0(entry0().getProgressbarImage());
-			entry101 = entry0(entry0().getModalBackgroundImage());
-			entry1010 = entry0(entry0().getNewsBackgroundImage());
-			entry1011 = entry0(entry0().getPressedBorderImage());
-			entry1012 = entry0(entry0().getWaitAntimationImage());
-			entry1013 = entry0(entry0().getAlertIconsImage());
-			entry1014 = entry0(entry0().getBandColorsImage());
+			entry1000 = loadLocalImage(getSettings().getFaviconImage());
+			entry1001 = loadLocalImage(getSettings().getBackgroundImage());
+			entry1002 = loadLocalImage(getSettings().getLogotypeImage());
+			entry1003 = loadLocalImage(getSettings().getAuthElementsImage());
+			entry1004 = loadLocalImage(getSettings().getFrameIconsImage());
+			entry1005 = loadLocalImage(getSettings().getButtonsImage());
+			entry1006 = loadLocalImage(getSettings().getComboboxImage());
+			entry1007 = loadLocalImage(getSettings().getCheckboxImage());
+			entry1008 = loadLocalImage(getSettings().getFieldBackgroundImage());
+			entry1009 = loadLocalImage(getSettings().getProgressbarImage());
+			entry101 = loadLocalImage(getSettings().getModalBackgroundImage());
+			entry1010 = loadLocalImage(getSettings().getNewsBackgroundImage());
+			entry1011 = loadLocalImage(getSettings().getPressedBorderImage());
+			entry1012 = loadLocalImage(getSettings().getWaitAntimationImage());
+			entry1013 = loadLocalImage(getSettings().getAlertIconsImage());
+			entry1014 = loadLocalImage(getSettings().getBandColorsImage());
 		} else
 		{
 			switch(var1)
@@ -112,40 +108,7 @@ public class class100
 					break;
 			}
 		}
-		entry1015 = entry0("char.png");
-	}
-	
-	public static final void entry0(Frame var0) throws UnsupportedEncodingException
-	{
-		String var1 = class1000.entry1(entry1001("login"));
-		if(!var1.equals(""))
-		{
-			var0.entry1007.setText(var1);
-		}
-		String var2 = class1000.entry1(entry1001("password"));
-		if(!var2.isEmpty())
-		{
-			var0.entry1008.setText(var2);
-		}
-		int var5 = entry1003("server");
-		if(entry10 != null && var5 <= entry10.length)
-		{
-			var0.entry1004.entry0(var5);
-		}
-		int var3 = entry1003("remember");
-		if(var3 != 0 && var3 != 1)
-		{
-			var0.entry1015.setSelected(false);
-		} else
-		{
-			var0.entry1015.setSelected(true);
-		}
-		var0.entry1017.setSelected(entry1002("full_screen"));
-		int var4 = entry1003("memory");
-		if(var4 >= 256)
-		{
-			var0.entry1019.setText(var4 + "");
-		}
+		entry1015 = loadLocalImage("char.png");
 	}
 	
 	public static final void entry0(double var0)
@@ -184,17 +147,36 @@ public class class100
 		}
 	}
 	
-	public static final BufferedImage entry0(String var0)
+	public static final void entry0(Frame var0) throws UnsupportedEncodingException
 	{
-		try
+		String var1 = class1000.entry1(entry1001("login"));
+		if(!var1.equals(""))
 		{
-			BufferedImage var1 = ImageIO.read(class100.class.getResource(entry0().getImagesDirectory() + var0));
-			Frame.log("Открыто локальное изображение: " + var0);
-			return var1;
-		} catch(Exception var2)
+			var0.entry1007.setText(var1);
+		}
+		String var2 = class1000.entry1(entry1001("password"));
+		if(!var2.isEmpty())
 		{
-			Frame.entry1("Ошибка при открытии изображения: " + var0);
-			return new BufferedImage(1, 1, 2);
+			var0.entry1008.setText(var2);
+		}
+		int var5 = entry1003("server");
+		if(entry10 != null && var5 <= entry10.length)
+		{
+			var0.entry1004.entry0(var5);
+		}
+		int var3 = entry1003("remember");
+		if(var3 != 0 && var3 != 1)
+		{
+			var0.entry1015.setSelected(false);
+		} else
+		{
+			var0.entry1015.setSelected(true);
+		}
+		var0.entry1017.setSelected(entry1002("full_screen"));
+		int var4 = entry1003("memory");
+		if(var4 >= 256)
+		{
+			var0.entry1019.setText(var4 + "");
 		}
 	}
 	
@@ -387,7 +369,7 @@ public class class100
 		if(entry100)
 		{
 			entry0((BufferedImage) null, -1);
-			class1035.entry0 = Color.decode(entry0().getColorScheme());
+			class1035.entry0 = Color.decode(getSettings().getColorScheme());
 		} else
 		{
 			class1035.entry0 = class1009.entry0();
@@ -742,6 +724,25 @@ public class class100
 			return;
 		}
 		System.exit(0);
+	}
+	
+	public static final LauncherSettings getSettings()
+	{
+		return LauncherSettignsStorage.settings;
+	}
+	
+	public static final BufferedImage loadLocalImage(String var0)
+	{
+		try
+		{
+			BufferedImage var1 = ImageIO.read(class100.class.getResource(getSettings().getImagesDirectory() + var0));
+			Frame.log("Открыто локальное изображение: " + var0);
+			return var1;
+		} catch(Exception var2)
+		{
+			Frame.entry1("Ошибка при открытии изображения: " + var0);
+			return new BufferedImage(1, 1, 2);
+		}
 	}
 	
 	static
