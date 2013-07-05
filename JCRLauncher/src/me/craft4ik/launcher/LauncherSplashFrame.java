@@ -6,14 +6,14 @@ import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
-public class LauncherFrame extends JFrame
+public class LauncherSplashFrame extends JFrame
 {
 	private static final long serialVersionUID = 1L;
-	private class1051 entry0 = new class1051();
+	private LauncherSplashPanel panel = new LauncherSplashPanel();
 	
-	public LauncherFrame()
+	public LauncherSplashFrame()
 	{
-		if(class100.entry1005() != 0)
+		if(LauncherUtils.getOS() != 0)
 		{
 			setUndecorated(true);
 			AWTUtilities.setWindowOpaque(this, false);
@@ -23,15 +23,15 @@ public class LauncherFrame extends JFrame
 		setTitle("qoobworld.ru :: v5.0");
 		setResizable(false);
 		setLocationRelativeTo((Component) null);
-		setIconImage(class100.loadLocalImage(class100.getSettings().getFaviconImage()));
+		setIconImage(LauncherUtils.loadLocalImage(LauncherUtils.getSettings().getFaviconImage()));
 		setDefaultCloseOperation(2);
 		setLayout(new BorderLayout());
-		setContentPane(entry0);
+		setContentPane(panel);
 	}
 	
-	public final void entry0(String var1)
+	public final void setState(String state)
 	{
-		class1051.entry0 = "Состояние: " + var1;
-		entry0.repaint();
+		LauncherSplashPanel.state = "Состояние: " + state;
+		panel.repaint();
 	}
 }

@@ -115,14 +115,14 @@ public class ImageUtils
 			BufferedImage var2 = ImageIO.read(from);
 			if(debug)
 			{
-				Frame.log("Загружено изображение: " + from.toString());
+				LauncherAuthFrame.log("Загружено изображение: " + from.toString());
 			}
 			return var2;
 		} catch(IOException e)
 		{
 			if(debug)
 			{
-				Frame.entry1("Не удалось загрузить изображение: " + from.toString());
+				LauncherAuthFrame.error("Не удалось загрузить изображение: " + from.toString());
 			}
 			return null;
 		}

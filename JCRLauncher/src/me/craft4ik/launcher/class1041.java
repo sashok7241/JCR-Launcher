@@ -30,7 +30,7 @@ public class class1041 extends JTextField
 		setSelectionColor(new Color(51, 153, 255));
 		setSelectedTextColor(Color.WHITE);
 		setHorizontalAlignment(2);
-		setFont(class1009.entry0(18.0F, 1));
+		setFont(LauncherFontManager.createFont(18.0F, 1));
 		this.setBounds(var1 + 16, var2, var3 - 32, var4);
 		entry10 = var3 - 32;
 		entry100 = var4;
@@ -49,11 +49,11 @@ public class class1041 extends JTextField
 		setSelectionColor(new Color(51, 153, 255));
 		setSelectedTextColor(Color.WHITE);
 		setHorizontalAlignment(0);
-		setFont(class1009.entry0(12.0F, 1));
+		setFont(LauncherFontManager.createFont(12.0F, 1));
 		this.setBounds(var1, var2, var3, var4);
 		setDocument(new class1042(this, var6));
 		setText(var5);
-		entry1 = class100.entry1008;
+		entry1 = LauncherUtils.entry1008;
 		entry10 = var3;
 		entry100 = var4;
 		entry1000 = var1;

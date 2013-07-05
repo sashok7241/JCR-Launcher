@@ -76,7 +76,7 @@ public class class1039 extends JPanel
 	private void entry0(int var1, Graphics2D var2) throws NumberFormatException, FontFormatException
 	{
 		int var3 = new Integer(LauncherSettignsStorage.version_settings[1]).intValue();
-		var2.setFont(class1009.entry0(var3, new Integer(LauncherSettignsStorage.version_settings[2].replace("#", "")).intValue()));
+		var2.setFont(LauncherFontManager.createFont(var3, new Integer(LauncherSettignsStorage.version_settings[2].replace("#", "")).intValue()));
 		var2.setColor(new Color(0, 0, 0));
 		entry0(LauncherSettignsStorage.version_settings[0], var1, 165, (Color) null, var2);
 	}
@@ -109,7 +109,7 @@ public class class1039 extends JPanel
 	
 	private void entry0(String var1, int var2, Graphics2D var3) throws FontFormatException
 	{
-		var3.setFont(class1009.entry0(36.0F, 2));
+		var3.setFont(LauncherFontManager.createFont(36.0F, 2));
 		var3.setColor(new Color(0, 72, 25, entry0(100)));
 		entry0(var1, var2, 117, (Color) null, var3);
 	}
@@ -176,8 +176,8 @@ public class class1039 extends JPanel
 	
 	public final void entry1001()
 	{
-		Frame.entry1001.setSize(346 + class100.entry1010.getWidth(), 498);
-		entry1015 = class100.entry1010.getWidth();
+		LauncherAuthFrame.entry1001.setSize(346 + LauncherUtils.entry1010.getWidth(), 498);
+		entry1015 = LauncherUtils.entry1010.getWidth();
 		entry1004 = true;
 		entry100 = new Timer(50, new class1025(this));
 		entry100.start();
@@ -208,9 +208,9 @@ public class class1039 extends JPanel
 		short var4 = 498;
 		if(entry1004)
 		{
-			var2.drawImage(class100.entry1010, 346 - entry1015, 0, (ImageObserver) null);
+			var2.drawImage(LauncherUtils.entry1010, 346 - entry1015, 0, (ImageObserver) null);
 		}
-		var2.drawImage(class100.entry1001, 0, 0, var3, var4, (ImageObserver) null);
+		var2.drawImage(LauncherUtils.entry1001, 0, 0, var3, var4, (ImageObserver) null);
 		if(entry10 == 0)
 		{
 			try
@@ -220,7 +220,7 @@ public class class1039 extends JPanel
 			{
 				e.printStackTrace();
 			}
-			entry0(class100.entry1002, var3, 67, Color.RED, var2);
+			entry0(LauncherUtils.entry1002, var3, 67, Color.RED, var2);
 			entry0(class1035.entry1.entry1000, var3, entry1013, Color.RED, var2);
 			entry0(class1035.entry10.entry1000, var3, entry1013 + entry1012, (Color) null, var2);
 			entry0(class1035.entry100.entry1000, var3, entry1014, Color.RED, var2);
@@ -241,11 +241,11 @@ public class class1039 extends JPanel
 				e.printStackTrace();
 			}
 			var2.setColor(new Color(0, 0, 0, entry0(5)));
-			entry0(ImageUtils.genPanel(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
+			entry0(ImageUtils.genPanel(232, 139, LauncherUtils.entry101), var3, 179, Color.BLACK, var2);
 			var2.setColor(new Color(0, 0, 0, entry0(100)));
 			try
 			{
-				var2.setFont(class1009.entry0(13.0F, 1));
+				var2.setFont(LauncherFontManager.createFont(13.0F, 1));
 			} catch(FontFormatException e)
 			{
 				e.printStackTrace();
@@ -261,7 +261,7 @@ public class class1039 extends JPanel
 			int var5 = 0;
 			try
 			{
-				var5 = (int) ((class100.entry0.entry1 - class100.entry0.entry10) / (class100.entry0.entry1000 * 100));
+				var5 = (int) ((LauncherUtils.entry0.entry1 - LauncherUtils.entry0.entry10) / (LauncherUtils.entry0.entry1000 * 100));
 			} catch(Exception var10)
 			{
 			}
@@ -280,35 +280,35 @@ public class class1039 extends JPanel
 				e.printStackTrace();
 			}
 			var2.setColor(new Color(0, 0, 0, entry0(5)));
-			entry0(ImageUtils.genPanel(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
+			entry0(ImageUtils.genPanel(232, 139, LauncherUtils.entry101), var3, 179, Color.BLACK, var2);
 			var2.setColor(new Color(0, 0, 0));
 			try
 			{
-				var2.setFont(class1009.entry0(13.0F, 1));
+				var2.setFont(LauncherFontManager.createFont(13.0F, 1));
 			} catch(FontFormatException e)
 			{
 				e.printStackTrace();
 			}
-			var2.drawString("Файл: " + class100.entry0.entry100, 66, 202);
-			var2.drawString("Скорость: " + class100.entry0.entry1000 + " kB/s", 66, 217);
-			var2.drawString("Состояние: " + class100.entry0.entry1002, 66, 232);
-			var2.drawString("Размер обновления: " + class100.entry0.entry1 / 1024L + " kB", 66, 260);
-			var2.drawString("Загружено: " + class100.entry0.entry10 / 1024L + " kB", 66, 275);
+			var2.drawString("Файл: " + LauncherUtils.entry0.entry100, 66, 202);
+			var2.drawString("Скорость: " + LauncherUtils.entry0.entry1000 + " kB/s", 66, 217);
+			var2.drawString("Состояние: " + LauncherUtils.entry0.entry1002, 66, 232);
+			var2.drawString("Размер обновления: " + LauncherUtils.entry0.entry1 / 1024L + " kB", 66, 260);
+			var2.drawString("Загружено: " + LauncherUtils.entry0.entry10 / 1024L + " kB", 66, 275);
 			var2.drawString("До завершения: " + var5 + " секунд", 66, 303);
-			var2.drawImage(ImageUtils.genProgressbar(0, 232, 24, 26, 100, class100.entry1009), 57, 324, 232, 26, (ImageObserver) null);
+			var2.drawImage(ImageUtils.genProgressbar(0, 232, 24, 26, 100, LauncherUtils.entry1009), 57, 324, 232, 26, (ImageObserver) null);
 			var2.setColor(new Color(245, 245, 245));
 			try
 			{
-				var2.setFont(class1009.entry0(12.0F, 1));
+				var2.setFont(LauncherFontManager.createFont(12.0F, 1));
 			} catch(FontFormatException e)
 			{
 			}
-			BufferedImage var6 = ImageUtils.genProgressbar(24, 232, 24, 26, class100.entry0.entry0, class100.entry1009);
+			BufferedImage var6 = ImageUtils.genProgressbar(24, 232, 24, 26, LauncherUtils.entry0.entry0, LauncherUtils.entry1009);
 			try
 			{
-				int var7 = class100.entry0.entry0 * 232 / 100;
+				int var7 = LauncherUtils.entry0.entry0 * 232 / 100;
 				entry0.entry0(var6.getSubimage(0, 0, var7, 26), 57, 324, var7, 26, Color.WHITE, var2);
-				var2.drawString(class100.entry0.entry0 + "%", 251, 341);
+				var2.drawString(LauncherUtils.entry0.entry0 + "%", 251, 341);
 			} catch(Exception var9)
 			{
 			}
@@ -328,11 +328,11 @@ public class class1039 extends JPanel
 			{
 				e.printStackTrace();
 			}
-			entry0(ImageUtils.genPanel(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
+			entry0(ImageUtils.genPanel(232, 139, LauncherUtils.entry101), var3, 179, Color.BLACK, var2);
 			var2.setColor(new Color(0, 0, 0));
 			try
 			{
-				var2.setFont(class1009.entry0(13.0F, 1));
+				var2.setFont(LauncherFontManager.createFont(13.0F, 1));
 			} catch(FontFormatException e)
 			{
 				e.printStackTrace();
@@ -356,14 +356,14 @@ public class class1039 extends JPanel
 		}
 		if(entry1006)
 		{
-			entry0.entry0(class100.entry1012.getSubimage(entry1010, 0, 36, 12), 154, entry1008, Color.PINK, var2);
+			entry0.entry0(LauncherUtils.entry1012.getSubimage(entry1010, 0, 36, 12), 154, entry1008, Color.PINK, var2);
 		}
 		if(entry1007)
 		{
 			var2.setColor(new Color(41, 102, 53));
 			try
 			{
-				var2.setFont(class1009.entry0(14.0F, 1));
+				var2.setFont(LauncherFontManager.createFont(14.0F, 1));
 			} catch(FontFormatException e)
 			{
 				e.printStackTrace();
@@ -371,7 +371,7 @@ public class class1039 extends JPanel
 			entry0(entry1001, var3, 50, (Color) null, var2);
 			if(entry101)
 			{
-				entry0.entry0(class100.entry1013.getSubimage(entry1011, 0, 13, 13), (var3 - var2.getFontMetrics().stringWidth(entry1001)) / 2 - 19, 38, Color.PINK, var2);
+				entry0.entry0(LauncherUtils.entry1013.getSubimage(entry1011, 0, 13, 13), (var3 - var2.getFontMetrics().stringWidth(entry1001)) / 2 - 19, 38, Color.PINK, var2);
 			}
 		}
 	}

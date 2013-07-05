@@ -1,10 +1,10 @@
 package me.craft4ik.launcher;
 
-final class LauncherInitializer implements Runnable
+final class LauncherRunnableInitializer implements Runnable
 {
 	@Override public final void run()
 	{
-		Launcher.entry0(new LauncherFrame());
+		Launcher.setSplashFrame(new LauncherSplashFrame());
 		Launcher.getFrame().setVisible(true);
 	}
 }

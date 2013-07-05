@@ -9,9 +9,9 @@ import javax.swing.event.HyperlinkEvent.EventType;
 class class1028 implements HyperlinkListener
 {
 	// $FF: synthetic field
-	final Frame entry0;
+	final LauncherAuthFrame entry0;
 	
-	class1028(Frame var1)
+	class1028(LauncherAuthFrame var1)
 	{
 		entry0 = var1;
 	}
@@ -22,7 +22,7 @@ class class1028 implements HyperlinkListener
 		{
 			try
 			{
-				class100.entry1004(var1.getURL().toString());
+				LauncherUtils.entry1004(var1.getURL().toString());
 			} catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | ClassNotFoundException e)
 			{
 				e.printStackTrace();

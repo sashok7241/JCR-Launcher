@@ -9,7 +9,7 @@ final class class1016 implements ActionListener
 	{
 		if(class1039.entry1005)
 		{
-			class100.entry1007();
+			LauncherUtils.entry1007();
 		} else
 		{
 			System.exit(0);

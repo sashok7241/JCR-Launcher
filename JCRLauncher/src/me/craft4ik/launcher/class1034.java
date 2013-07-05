@@ -17,7 +17,7 @@ public class class1034
 	{
 		if(var0 == null)
 		{
-			var0 = class100.entry1015;
+			var0 = LauncherUtils.entry1015;
 		}
 		int var2 = var0.getWidth() / 64;
 		int var3 = var0.getHeight() / 32;
@@ -35,10 +35,10 @@ public class class1034
 	
 	public static final void entry0(Graphics2D var0) throws FontFormatException
 	{
-		var0.drawImage(ImageUtils.genPanel(104, 189, class100.entry1011), 65, 65, (ImageObserver) null);
-		var0.drawImage(ImageUtils.genPanel(74, 104, class100.entry1011), 207, 65, (ImageObserver) null);
+		var0.drawImage(ImageUtils.genPanel(104, 189, LauncherUtils.entry1011), 65, 65, (ImageObserver) null);
+		var0.drawImage(ImageUtils.genPanel(74, 104, LauncherUtils.entry1011), 207, 65, (ImageObserver) null);
 		var0.setColor(new Color(245, 245, 245, class1039.entry0(40)));
-		var0.setFont(class1009.entry0(13.0F, 1));
+		var0.setFont(LauncherFontManager.createFont(13.0F, 1));
 		var0.drawString("Плащ не", 219, 113);
 		var0.drawString("куплен", 224, 129);
 		var0.drawImage(entry0(entry0, 5), 77, 77, (ImageObserver) null);
@@ -49,8 +49,8 @@ public class class1034
 	{
 		try
 		{
-			entry0 = ImageUtils.load(new URL(class100.entry100("skins/") + var0[11]), false);
-			entry1 = ImageUtils.load(new URL(class100.entry100("cloaks/") + var0[12]), false);
+			entry0 = ImageUtils.load(new URL(LauncherUtils.entry100("skins/") + var0[11]), false);
+			entry1 = ImageUtils.load(new URL(LauncherUtils.entry100("cloaks/") + var0[12]), false);
 		} catch(Exception var2)
 		{
 			;

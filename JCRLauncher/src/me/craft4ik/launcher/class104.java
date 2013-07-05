@@ -26,7 +26,7 @@ public class class104 extends JPasswordField
 		setSelectionColor(new Color(51, 153, 255));
 		setSelectedTextColor(Color.WHITE);
 		setHorizontalAlignment(2);
-		setFont(class1009.entry0(14.0F, 1));
+		setFont(LauncherFontManager.createFont(14.0F, 1));
 		this.setBounds(var1 + 16, var2, var3 - 32, var4);
 		entry1 = var3 - 32;
 		entry10 = var4;

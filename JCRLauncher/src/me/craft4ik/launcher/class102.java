@@ -15,7 +15,7 @@ public class class102
 	{
 		try
 		{
-			String var0 = class100.entry1004() + File.separator;
+			String var0 = LauncherUtils.entry1004() + File.separator;
 			String var1 = var0 + File.separator + "extra.zip";
 			Vector var2 = new Vector();
 			ZipFile var3 = new ZipFile(var1);
@@ -58,7 +58,7 @@ public class class102
 			new File(var1).delete();
 		} catch(Exception var18)
 		{
-			Frame.log(var18.toString());
+			LauncherAuthFrame.log(var18.toString());
 		}
 	}
 	

@@ -17,7 +17,7 @@ public class class1036
 	
 	public final void entry0(BufferedImage var1, int var2)
 	{
-		Frame.entry1001.entry1(var2);
-		Frame.entry1001.entry0(var2, false);
+		LauncherAuthFrame.entry1001.entry1(var2);
+		LauncherAuthFrame.entry1001.entry0(var2, false);
 	}
 }

@@ -24,7 +24,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-public class Frame extends JFrame implements FocusListener, KeyListener
+public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListener
 {
 	private static final long serialVersionUID = 1L;
 	public static String[] entry0 = null;
@@ -35,7 +35,7 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 	public JButton entry1000 = new JButton();
 	private int entry1020 = 0;
 	private int entry1021 = 0;
-	public static Frame entry1001;
+	public static LauncherAuthFrame entry1001;
 	public class1014 entry1002 = new class1014();
 	public class1039 entry1003 = new class1039();
 	public class103 entry1004 = new class103((String[]) null, 324);
@@ -56,7 +56,7 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 	public JCheckBox entry1018;
 	public JTextField entry1019;
 	
-	public Frame()
+	public LauncherAuthFrame()
 	{
 		entry1006 = new JScrollPane(entry1005);
 		entry1007 = new JTextField();
@@ -73,7 +73,7 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 		entry1017 = new JCheckBox("Полноэкранный режим");
 		entry1018 = new JCheckBox("Режим оффлайн");
 		entry1019 = new JTextField("1024");
-		if(class100.entry1005() != 0)
+		if(LauncherUtils.getOS() != 0)
 		{
 			setUndecorated(true);
 			AWTUtilities.setWindowOpaque(this, false);
@@ -85,7 +85,7 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 		setLocationRelativeTo((Component) null);
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(3);
-		setIconImage(class100.entry1000);
+		setIconImage(LauncherUtils.entry1000);
 		this.entry1();
 		try
 		{
@@ -109,7 +109,7 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 		entry1006.setOpaque(false);
 		entry1006.getViewport().setOpaque(false);
 		entry1006.setBorder((Border) null);
-		entry1006.setBounds(371, 45, class100.entry1010.getWidth() - 50, 360);
+		entry1006.setBounds(371, 45, LauncherUtils.entry1010.getWidth() - 50, 360);
 		entry1004.addMouseListener(new class1026(this));
 		entry1003.addKeyListener(this);
 		entry1007.addKeyListener(this);
@@ -331,7 +331,39 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 	{
 	}
 	
-	public static final void entry0()
+	// $FF: synthetic method
+	static final int entry0(LauncherAuthFrame var0)
+	{
+		return var0.entry1020;
+	}
+	
+	// $FF: synthetic method
+	static final int entry0(LauncherAuthFrame var0, int var1)
+	{
+		return var0.entry1020 = var1;
+	}
+	
+	// $FF: synthetic method
+	static final int entry1(LauncherAuthFrame var0)
+	{
+		return var0.entry1021;
+	}
+	
+	// $FF: synthetic method
+	static final int entry1(LauncherAuthFrame var0, int var1)
+	{
+		return var0.entry1021 = var1;
+	}
+	
+	public static final void error(String var0)
+	{
+	}
+	
+	public static final void log(String var0)
+	{
+	}
+	
+	public static final void setLookAndFeel()
 	{
 		log("Запуск qoobworld launcher v5.0");
 		try
@@ -343,50 +375,18 @@ public class Frame extends JFrame implements FocusListener, KeyListener
 			log("Не удалось установить системный LnF");
 		}
 		class1008.entry10();
-		entry1 = class100.entry10();
-		class100.entry1();
+		entry1 = LauncherUtils.entry10();
+		LauncherUtils.entry1();
 	}
 	
-	// $FF: synthetic method
-	static final int entry0(Frame var0)
+	public static final void showLauncherFrame(LauncherSplashFrame var0) throws UnsupportedEncodingException
 	{
-		return var0.entry1020;
-	}
-	
-	// $FF: synthetic method
-	static final int entry0(Frame var0, int var1)
-	{
-		return var0.entry1020 = var1;
-	}
-	
-	public static final void entry0(LauncherFrame var0) throws UnsupportedEncodingException
-	{
-		entry1001 = new Frame();
+		entry1001 = new LauncherAuthFrame();
 		entry1001.entry1003.entry0();
-		class100.entry0(entry1001);
+		LauncherUtils.entry0(entry1001);
 		entry1001.entry1003.entry0(true);
 		class1008.entry1();
-		SwingUtilities.invokeLater(new class1030(var0));
-		entry1001.show();
-	}
-	
-	// $FF: synthetic method
-	static final int entry1(Frame var0)
-	{
-		return var0.entry1021;
-	}
-	
-	// $FF: synthetic method
-	static final int entry1(Frame var0, int var1)
-	{
-		return var0.entry1021 = var1;
-	}
-	
-	public static final void entry1(String var0)
-	{
-	}
-	
-	public static final void log(String var0)
-	{
+		SwingUtilities.invokeLater(new LauncherRunnableDisposer(var0));
+		entry1001.setVisible(true);
 	}
 }

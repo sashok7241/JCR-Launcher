@@ -7,6 +7,6 @@ final class class1018 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		class100.entry1008();
+		LauncherUtils.entry1008();
 	}
 }

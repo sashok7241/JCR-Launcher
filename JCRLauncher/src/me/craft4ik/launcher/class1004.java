@@ -7,7 +7,7 @@ final class class1004 extends Thread
 		String var1 = class1014.entry10(class1014.entry0());
 		if(!var1.isEmpty())
 		{
-			Frame.entry10 = var1;
+			LauncherAuthFrame.entry10 = var1;
 		}
 	}
 }

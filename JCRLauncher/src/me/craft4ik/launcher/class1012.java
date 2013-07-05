@@ -7,7 +7,7 @@ final class class1012 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		Frame var2 = Frame.entry1001;
+		LauncherAuthFrame var2 = LauncherAuthFrame.entry1001;
 		var2.entry0(1);
 		var2.entry1015.setSelected(class1019.entry1016[0]);
 		var2.entry1016.setSelected(class1019.entry1016[1]);

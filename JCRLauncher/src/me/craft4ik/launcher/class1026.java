@@ -6,9 +6,9 @@ import java.awt.event.MouseListener;
 class class1026 implements MouseListener
 {
 	// $FF: synthetic field
-	final Frame entry0;
+	final LauncherAuthFrame entry0;
 	
-	class1026(Frame var1)
+	class1026(LauncherAuthFrame var1)
 	{
 		entry0 = var1;
 	}

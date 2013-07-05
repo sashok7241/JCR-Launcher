@@ -8,7 +8,7 @@ final class class1052 implements Runnable
 	{
 		try
 		{
-			Frame.entry0(Launcher.getFrame());
+			LauncherAuthFrame.showLauncherFrame(Launcher.getFrame());
 		} catch(UnsupportedEncodingException e)
 		{
 			e.printStackTrace();

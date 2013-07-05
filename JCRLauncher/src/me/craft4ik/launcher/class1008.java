@@ -21,7 +21,7 @@ public class class1008
 				var0.join();
 			} catch(InterruptedException var2)
 			{
-				Frame.log("Не удалось дождаться завершения потока: " + var0.getName());
+				LauncherAuthFrame.log("Не удалось дождаться завершения потока: " + var0.getName());
 			}
 		}
 	}

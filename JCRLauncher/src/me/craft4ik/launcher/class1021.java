@@ -57,7 +57,7 @@ public class class1021 extends Applet implements AppletStub
 		System.setProperty("net.java.games.input.librarypath", entry1001 + "natives");
 		try
 		{
-			class100.entry0(var2);
+			LauncherUtils.entry0(var2);
 			Class var3 = var2.loadClass("net.minecraft.client.MinecraftApplet");
 			Applet var4 = (Applet) var3.newInstance();
 			entry1 = var4;
@@ -137,9 +137,9 @@ public class class1021 extends Applet implements AppletStub
 	{
 		if(entry1 != null)
 		{
-			Frame.log("-------------------------------");
-			Frame.log("Перенаправление на Minecraft...");
-			Frame.log("-------------------------------");
+			LauncherAuthFrame.log("-------------------------------");
+			LauncherAuthFrame.log("Перенаправление на Minecraft...");
+			LauncherAuthFrame.log("-------------------------------");
 			entry1.start();
 		}
 	}

@@ -27,10 +27,10 @@ public class class103 extends JComponent implements MouseListener, MouseMotionLi
 	private boolean entry1006 = false;
 	private int entry1007 = 0;
 	private int entry1008 = 0;
-	public static final BufferedImage entry1000 = class100.entry1006.getSubimage(0, 0, 232, 19);
-	public static final BufferedImage entry1001 = class100.entry1006.getSubimage(0, 25, 232, 19);
-	public static final BufferedImage entry1002 = class100.entry1006.getSubimage(0, 50, 232, 19);
-	public static final BufferedImage entry1003 = class100.entry1006.getSubimage(0, 75, 232, 70);
+	public static final BufferedImage entry1000 = LauncherUtils.entry1006.getSubimage(0, 0, 232, 19);
+	public static final BufferedImage entry1001 = LauncherUtils.entry1006.getSubimage(0, 25, 232, 19);
+	public static final BufferedImage entry1002 = LauncherUtils.entry1006.getSubimage(0, 50, 232, 19);
+	public static final BufferedImage entry1003 = LauncherUtils.entry1006.getSubimage(0, 75, 232, 70);
 	
 	public class103(String[] var1, int var2)
 	{
@@ -39,7 +39,7 @@ public class class103 extends JComponent implements MouseListener, MouseMotionLi
 		setForeground(new Color(0, 0, 0));
 		try
 		{
-			setFont(class1009.entry0(12.0F, 1));
+			setFont(LauncherFontManager.createFont(12.0F, 1));
 		} catch(FontFormatException e)
 		{
 			e.printStackTrace();
@@ -85,7 +85,7 @@ public class class103 extends JComponent implements MouseListener, MouseMotionLi
 		if(entry1006 && var2 && entry1008 < entry0.length)
 		{
 			entry1007 = entry1008;
-			Frame.entry1001.entry1003.entry1003();
+			LauncherAuthFrame.entry1001.entry1003.entry1003();
 		}
 		entry1006 = !entry1006;
 		this.repaint();

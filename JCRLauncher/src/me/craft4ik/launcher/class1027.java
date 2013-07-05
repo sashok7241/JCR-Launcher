@@ -22,10 +22,10 @@ public class class1027 extends JButton
 	public BufferedImage entry1000;
 	public BufferedImage entry1001;
 	public BufferedImage entry1002;
-	public static BufferedImage entry1003 = class100.entry1005.getSubimage(0, 0, 112, 38);
-	public static BufferedImage entry1004 = class100.entry1005.getSubimage(0, 38, 112, 38);
-	public static BufferedImage entry1005 = class100.entry1005.getSubimage(0, 76, 112, 38);
-	public static BufferedImage entry1006 = class100.entry1005.getSubimage(0, 114, 112, 38);
+	public static BufferedImage entry1003 = LauncherUtils.entry1005.getSubimage(0, 0, 112, 38);
+	public static BufferedImage entry1004 = LauncherUtils.entry1005.getSubimage(0, 38, 112, 38);
+	public static BufferedImage entry1005 = LauncherUtils.entry1005.getSubimage(0, 76, 112, 38);
+	public static BufferedImage entry1006 = LauncherUtils.entry1005.getSubimage(0, 114, 112, 38);
 	
 	public class1027(ImageUtils var1, String var2) throws FontFormatException
 	{
@@ -36,7 +36,7 @@ public class class1027 extends JButton
 		setOpaque(false);
 		setFocusable(false);
 		setForeground(new Color(245, 245, 245));
-		setFont(class1009.entry0(13.0F, 1));
+		setFont(LauncherFontManager.createFont(13.0F, 1));
 		setCursor(Cursor.getPredefinedCursor(12));
 		this.setBounds(var1.entry10, var1.entry100, var1.entry0, var1.entry1);
 		entry10 = var1.entry0;
@@ -57,7 +57,7 @@ public class class1027 extends JButton
 		setOpaque(false);
 		setFocusable(false);
 		setForeground(new Color(245, 245, 245));
-		setFont(class1009.entry0(13.0F, 1));
+		setFont(LauncherFontManager.createFont(13.0F, 1));
 		setCursor(Cursor.getPredefinedCursor(12));
 		this.setBounds(var2, var3, var4, var5);
 		entry10 = var4;

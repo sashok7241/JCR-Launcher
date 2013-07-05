@@ -9,13 +9,13 @@ public class class1024
 		try
 		{
 			String var1 = class1014.entry0();
-			int var2 = class100.entry1003("memory");
+			int var2 = LauncherUtils.entry1003("memory");
 			if(var2 == 0)
 			{
 				var2 = 1024;
 			}
 			ArrayList var3 = new ArrayList();
-			if(class100.entry1005() == 2)
+			if(LauncherUtils.getOS() == 2)
 			{
 				var3.add("javaw");
 			} else

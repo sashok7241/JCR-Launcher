@@ -15,14 +15,14 @@ public class class1045 extends JFrame
 	
 	public class1045(String[] var1)
 	{
-		String var2 = Frame.entry1001.entry1018.isSelected() ? "Player" : Frame.entry1001.entry1007.getText();
-		String var3 = Frame.entry1001.entry1018.isSelected() ? "123456" : class1014.entry0(var1[7]);
-		class1014.entry0(Frame.entry0, true);
+		String var2 = LauncherAuthFrame.entry1001.entry1018.isSelected() ? "Player" : LauncherAuthFrame.entry1001.entry1007.getText();
+		String var3 = LauncherAuthFrame.entry1001.entry1018.isSelected() ? "123456" : class1014.entry0(var1[7]);
+		class1014.entry0(LauncherAuthFrame.entry0, true);
 		new Timer(30000, new class1046(this)).start();
 		try
 		{
 			addWindowListener(new class1047(this));
-			String var4 = class100.entry1004() + File.separator + "bin" + File.separator;
+			String var4 = LauncherUtils.entry1004() + File.separator + "bin" + File.separator;
 			setForeground(Color.BLACK);
 			setBackground(Color.BLACK);
 			URL[] var5 = new URL[] { new File(var4, "minecraft.jar").toURI().toURL(), new File(var4, "lwjgl.jar").toURI().toURL(), new File(var4, "jinput.jar").toURI().toURL(), new File(var4, "lwjgl_util.jar").toURI().toURL() };
@@ -30,17 +30,17 @@ public class class1045 extends JFrame
 			entry0.entry0.put("username", var2);
 			entry0.entry0.put("sessionid", var3);
 			entry0.entry0.put("stand-alone", "true");
-			if(!Frame.entry1001.entry1018.isSelected())
+			if(!LauncherAuthFrame.entry1001.entry1018.isSelected())
 			{
-				entry0.entry0.put("server", class100.entry1001()[1]);
-				entry0.entry0.put("port", class100.entry1001()[2]);
+				entry0.entry0.put("server", LauncherUtils.entry1001()[1]);
+				entry0.entry0.put("port", LauncherUtils.entry1001()[2]);
 			}
 			setTitle("qoobworld.ru - уютные майнкрафт сервера");
 			this.setSize(880, 520);
 			setLocationRelativeTo((Component) null);
 			setLayout(new BorderLayout());
-			setIconImage(class100.loadLocalImage(class100.getSettings().getClientFaviconImage()));
-			if(class100.entry1002("full_screen"))
+			setIconImage(LauncherUtils.loadLocalImage(LauncherUtils.getSettings().getClientFaviconImage()));
+			if(LauncherUtils.entry1002("full_screen"))
 			{
 				setExtendedState(6);
 			}
@@ -48,7 +48,7 @@ public class class1045 extends JFrame
 			entry0.setBackground(Color.BLACK);
 			this.add(entry0, "Center");
 			validate();
-			Frame.entry1001.setVisible(false);
+			LauncherAuthFrame.entry1001.setVisible(false);
 			setVisible(true);
 			entry0.init();
 			entry0.start();

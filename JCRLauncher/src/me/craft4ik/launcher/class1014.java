@@ -51,8 +51,8 @@ public class class1014
 				var4[var5] = var2[var5].split("<:h:>")[1];
 			}
 		}
-		Frame.log("GUARD: Проверка модификаций в папке \"mods\"...");
-		File var11 = new File(class100.entry1004() + File.separator + "mods");
+		LauncherAuthFrame.log("GUARD: Проверка модификаций в папке \"mods\"...");
+		File var11 = new File(LauncherUtils.entry1004() + File.separator + "mods");
 		String[] var6 = var11.list();
 		if(var6 != null && var6.length != 0)
 		{
@@ -64,13 +64,13 @@ public class class1014
 				for(var7 = 0; var7 < var6.length; ++var7)
 				{
 					var8 = new File(var11 + File.separator + var6[var7]);
-					class100.entry0(var8);
+					LauncherUtils.entry0(var8);
 					var9 = "";
 					if(!var8.exists())
 					{
 						var9 = "и удален ";
 					}
-					Frame.log("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
+					LauncherAuthFrame.log("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
 					var1 = false;
 				}
 			} else
@@ -78,16 +78,16 @@ public class class1014
 				String[] var12 = var11.list(new class1002());
 				for(String element : var12)
 				{
-					if(class100.entry0(var3, element) == -1)
+					if(LauncherUtils.entry0(var3, element) == -1)
 					{
 						File var14 = new File(var11 + File.separator + element);
-						class100.entry0(var14);
+						LauncherUtils.entry0(var14);
 						String var10 = "";
 						if(!var14.exists())
 						{
 							var10 = "и удалена ";
 						}
-						Frame.log("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
+						LauncherAuthFrame.log("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
 						var1 = false;
 					}
 				}
@@ -103,7 +103,7 @@ public class class1014
 					{
 						var9 = "и удален ";
 					}
-					Frame.log("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
+					LauncherAuthFrame.log("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
 					var1 = false;
 				}
 			}
@@ -113,11 +113,11 @@ public class class1014
 	
 	public static final void entry0(String[] var0, boolean var1)
 	{
-		if(!Frame.entry1001.entry1018.isSelected())
+		if(!LauncherAuthFrame.entry1001.entry1018.isSelected())
 		{
-			Frame.log("GUARD: Проверка файлов игры...");
+			LauncherAuthFrame.log("GUARD: Проверка файлов игры...");
 			boolean var2 = true;
-			String var3 = class100.entry1004() + File.separator + "bin" + File.separator;
+			String var3 = LauncherUtils.entry1004() + File.separator + "bin" + File.separator;
 			if(!var0[1].equals(entry10(var3 + "minecraft.jar")))
 			{
 				var2 = false;
@@ -140,12 +140,12 @@ public class class1014
 			}
 			if(var2)
 			{
-				Frame.log("GUARD: Проверка завершена успешно");
+				LauncherAuthFrame.log("GUARD: Проверка завершена успешно");
 				return;
 			}
 			if(!var1 && !var2)
 			{
-				Frame.log("GUARD: Обнаружены посторонние объекты, игровой процесс будет прерван");
+				LauncherAuthFrame.log("GUARD: Обнаружены посторонние объекты, игровой процесс будет прерван");
 				if(class1045.entry0 != null)
 				{
 					class1045.entry0.stop();
@@ -190,8 +190,8 @@ public class class1014
 				var4[var5] = var2[var5].split("<:h:>")[1];
 			}
 		}
-		Frame.log("GUARD: Проверка модификаций в папке \"coremods\"...");
-		File var11 = new File(class100.entry1004() + File.separator + "coremods");
+		LauncherAuthFrame.log("GUARD: Проверка модификаций в папке \"coremods\"...");
+		File var11 = new File(LauncherUtils.entry1004() + File.separator + "coremods");
 		String[] var6 = var11.list();
 		if(var6 != null && var6.length != 0)
 		{
@@ -203,13 +203,13 @@ public class class1014
 				for(var7 = 0; var7 < var6.length; ++var7)
 				{
 					var8 = new File(var11 + File.separator + var6[var7]);
-					class100.entry0(var8);
+					LauncherUtils.entry0(var8);
 					var9 = "";
 					if(!var8.exists())
 					{
 						var9 = "и удален ";
 					}
-					Frame.log("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
+					LauncherAuthFrame.log("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
 					var1 = false;
 				}
 			} else
@@ -217,16 +217,16 @@ public class class1014
 				String[] var12 = var11.list(new class1006());
 				for(String element : var12)
 				{
-					if(class100.entry0(var3, element) == -1)
+					if(LauncherUtils.entry0(var3, element) == -1)
 					{
 						File var14 = new File(var11 + File.separator + element);
-						class100.entry0(var14);
+						LauncherUtils.entry0(var14);
 						String var10 = "";
 						if(!var14.exists())
 						{
 							var10 = "и удалена ";
 						}
-						Frame.log("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
+						LauncherAuthFrame.log("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
 						var1 = false;
 					}
 				}
@@ -242,7 +242,7 @@ public class class1014
 					{
 						var9 = "и удален ";
 					}
-					Frame.log("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
+					LauncherAuthFrame.log("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
 					var1 = false;
 				}
 			}

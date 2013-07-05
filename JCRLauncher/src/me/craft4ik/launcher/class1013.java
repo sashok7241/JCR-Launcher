@@ -7,7 +7,7 @@ final class class1013 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		Frame var2 = Frame.entry1001;
+		LauncherAuthFrame var2 = LauncherAuthFrame.entry1001;
 		String var3 = var2.entry1019.getText();
 		if(!class1019.entry1017.equals(var3))
 		{
@@ -21,8 +21,8 @@ final class class1013 implements ActionListener
 			}
 			if(var4 >= 256)
 			{
-				class100.entry0("memory", Integer.valueOf(var4));
-				class100.entry1010();
+				LauncherUtils.entry0("memory", Integer.valueOf(var4));
+				LauncherUtils.entry1010();
 			} else
 			{
 				var2.entry1019.setText(class1019.entry1017);
