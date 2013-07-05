@@ -57,7 +57,7 @@ public class class1021 extends Applet implements AppletStub
 		System.setProperty("net.java.games.input.librarypath", entry1001 + "natives");
 		try
 		{
-			LauncherUtils.entry0(var2);
+			LauncherUtils.patchMinecraft(var2);
 			Class var3 = var2.loadClass("net.minecraft.client.MinecraftApplet");
 			Applet var4 = (Applet) var3.newInstance();
 			entry1 = var4;

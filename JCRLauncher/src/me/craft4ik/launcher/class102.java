@@ -15,7 +15,7 @@ public class class102
 	{
 		try
 		{
-			String var0 = LauncherUtils.entry1004() + File.separator;
+			String var0 = LauncherUtils.getMinecraftDirectory() + File.separator;
 			String var1 = var0 + File.separator + "extra.zip";
 			Vector var2 = new Vector();
 			ZipFile var3 = new ZipFile(var1);

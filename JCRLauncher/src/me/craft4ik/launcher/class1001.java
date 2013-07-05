@@ -10,8 +10,8 @@ final class class1001 extends Thread
 		LauncherAuthFrame.entry1001.entry1012.setEnabled(false);
 		LauncherAuthFrame.entry1001.entry1011.setEnabled(false);
 		LauncherAuthFrame.entry1001.entry1003.entry0(true);
-		String var1 = LauncherUtils.execute(LauncherUtils.resolve("jcr_auth.php"), "?action=auth&login=" + LauncherAuthFrame.entry1001.entry1007.getText() + "&password=" + new String(LauncherAuthFrame.entry1001.entry1008.getPassword()) + "&hash=" + LauncherAuthFrame.entry10 + "&format=" + LauncherUtils.entry101() + "&client=" + LauncherUtils.entry1002() + "&code=" + class1014.entry1("89@vbs\'21R_BHq;05"), true);
-		LauncherUtils.entry0(1.0D);
+		String var1 = LauncherUtils.execute(LauncherUtils.resolveScript("jcr_auth.php"), "?action=auth&login=" + LauncherAuthFrame.entry1001.entry1007.getText() + "&password=" + new String(LauncherAuthFrame.entry1001.entry1008.getPassword()) + "&hash=" + LauncherAuthFrame.entry10 + "&format=" + LauncherUtils.resolveExtension() + "&client=" + LauncherUtils.resolveClient() + "&code=" + LauncherGuard.entry1("89@vbs\'21R_BHq;05"), true);
+		LauncherUtils.sleep(1.0D);
 		LauncherAuthFrame.entry1001.entry1003.entry1003();
 		if(var1 == null)
 		{
@@ -24,7 +24,7 @@ final class class1001 extends Thread
 				LauncherAuthFrame.error("Неверный код доступа на web-сервер");
 			} else if(var1.contains("<::>"))
 			{
-				LauncherAuthFrame.entry0 = var1.replaceAll("<br>", "").split("<::>");
+				LauncherAuthFrame.settings = var1.replaceAll("<br>", "").split("<::>");
 				try
 				{
 					LauncherUtils.entry1006();
@@ -33,20 +33,20 @@ final class class1001 extends Thread
 					e.printStackTrace();
 				}
 				LauncherAuthFrame.entry1001.entry0("Вход выполнен успешно", 1);
-				LauncherUtils.entry0(1.0D);
-				if(LauncherAuthFrame.entry0[8].equals("true"))
+				LauncherUtils.sleep(1.0D);
+				if(LauncherAuthFrame.settings[8].equals("true"))
 				{
 					LauncherUtils.entry1007();
 				} else
 				{
-					class1039.entry1005 = LauncherAuthFrame.entry0[5].equals(class1014.entry1("v5.0"));
+					class1039.entry1005 = LauncherAuthFrame.settings[5].equals(LauncherGuard.entry1("v5.0"));
 					if(class1039.entry1005)
 					{
 						LauncherAuthFrame.entry1001.entry101.setText("Продолжить");
 					}
 					LauncherAuthFrame.entry1001.entry0(3);
 				}
-				class1034.entry0(LauncherAuthFrame.entry0);
+				class1034.entry0(LauncherAuthFrame.settings);
 				LauncherAuthFrame.entry1001.entry1003.repaint();
 			} else
 			{

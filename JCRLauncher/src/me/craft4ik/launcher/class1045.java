@@ -16,13 +16,13 @@ public class class1045 extends JFrame
 	public class1045(String[] var1)
 	{
 		String var2 = LauncherAuthFrame.entry1001.entry1018.isSelected() ? "Player" : LauncherAuthFrame.entry1001.entry1007.getText();
-		String var3 = LauncherAuthFrame.entry1001.entry1018.isSelected() ? "123456" : class1014.entry0(var1[7]);
-		class1014.entry0(LauncherAuthFrame.entry0, true);
+		String var3 = LauncherAuthFrame.entry1001.entry1018.isSelected() ? "123456" : LauncherGuard.getMD5String(var1[7]);
+		LauncherGuard.entry0(LauncherAuthFrame.settings, true);
 		new Timer(30000, new class1046(this)).start();
 		try
 		{
 			addWindowListener(new class1047(this));
-			String var4 = LauncherUtils.entry1004() + File.separator + "bin" + File.separator;
+			String var4 = LauncherUtils.getMinecraftDirectory() + File.separator + "bin" + File.separator;
 			setForeground(Color.BLACK);
 			setBackground(Color.BLACK);
 			URL[] var5 = new URL[] { new File(var4, "minecraft.jar").toURI().toURL(), new File(var4, "lwjgl.jar").toURI().toURL(), new File(var4, "jinput.jar").toURI().toURL(), new File(var4, "lwjgl_util.jar").toURI().toURL() };

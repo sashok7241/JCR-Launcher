@@ -22,7 +22,7 @@ final class class1013 implements ActionListener
 			if(var4 >= 256)
 			{
 				LauncherUtils.entry0("memory", Integer.valueOf(var4));
-				LauncherUtils.entry1010();
+				LauncherUtils.restart();
 			} else
 			{
 				var2.entry1019.setText(class1019.entry1017);

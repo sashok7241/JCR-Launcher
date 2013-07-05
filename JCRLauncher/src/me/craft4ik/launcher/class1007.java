@@ -9,7 +9,7 @@ final class class1007 extends Thread
 			LauncherAuthFrame.entry1001.entry1010.setEnabled(false);
 			LauncherAuthFrame.entry1001.entry1003.entry0(true, 382);
 			LauncherAuthFrame.entry1001.entry0("", 0);
-			LauncherUtils.entry0(1.0D);
+			LauncherUtils.sleep(1.0D);
 			LauncherUtils.entry1009();
 		} catch(Exception var2)
 		{

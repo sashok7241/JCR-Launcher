@@ -7,7 +7,7 @@ final class class1003 extends Thread
 		try
 		{
 			String[] var1 = LauncherUtils.entry1001();
-			String var2 = LauncherUtils.execute(LauncherUtils.resolve("jcr_status.php"), "?action=status&ip=" + var1[1] + "&port=" + var1[2], false);
+			String var2 = LauncherUtils.execute(LauncherUtils.resolveScript("jcr_status.php"), "?action=status&ip=" + var1[1] + "&port=" + var1[2], false);
 			LauncherAuthFrame.entry1001.entry1003.entry1003();
 			if(var2 == null)
 			{

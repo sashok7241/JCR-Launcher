@@ -8,7 +8,7 @@ public class class1024
 	{
 		try
 		{
-			String var1 = class1014.entry0();
+			String var1 = LauncherGuard.getJarPath();
 			int var2 = LauncherUtils.entry1003("memory");
 			if(var2 == 0)
 			{

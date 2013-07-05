@@ -41,7 +41,7 @@ public class LauncherFontManager
 	{
 		try
 		{
-			return Color.decode(LauncherUtils.execute(LauncherUtils.resolve("jcr_theme.php"), "?action=theme&request=color", false));
+			return Color.decode(LauncherUtils.execute(LauncherUtils.resolveScript("jcr_theme.php"), "?action=theme&request=color", false));
 		} catch(Exception var1)
 		{
 			LauncherAuthFrame.error("Не удалось загрузить online цветовую схему программы");

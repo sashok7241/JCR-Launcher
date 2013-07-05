@@ -27,7 +27,7 @@ import javax.swing.border.Border;
 public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListener
 {
 	private static final long serialVersionUID = 1L;
-	public static String[] entry0 = null;
+	public static String[] settings = null;
 	public static String[] entry1 = null;
 	public static String entry10 = "";
 	private static int entry102 = 1;
@@ -36,7 +36,7 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	private int entry1020 = 0;
 	private int entry1021 = 0;
 	public static LauncherAuthFrame entry1001;
-	public class1014 entry1002 = new class1014();
+	public LauncherGuard entry1002 = new LauncherGuard();
 	public class1039 entry1003 = new class1039();
 	public class103 entry1004 = new class103((String[]) null, 324);
 	public JTextPane entry1005 = new JTextPane();

@@ -32,8 +32,8 @@ public class class1044 extends Thread
 	{
 		try
 		{
-			String var1 = LauncherUtils.entry1004() + File.separator;
-			String var2 = LauncherUtils.entry1("files/clients/" + LauncherUtils.entry1002() + "/");
+			String var1 = LauncherUtils.getMinecraftDirectory() + File.separator;
+			String var2 = LauncherUtils.entry1("files/clients/" + LauncherUtils.resolveClient() + "/");
 			File var3 = new File(var1 + "bin" + File.separator);
 			if(!var3.exists())
 			{
@@ -100,8 +100,8 @@ public class class1044 extends Thread
 			entry1002 = "завершение...";
 			if(entry1003)
 			{
-				String var18 = class1014.entry10(LauncherUtils.entry1004() + File.separator + "extra.zip");
-				LauncherUtils.entry0(LauncherUtils.entry1002() + "_hashZip", (Object) class1014.entry1(var18));
+				String var18 = LauncherGuard.entry10(LauncherUtils.getMinecraftDirectory() + File.separator + "extra.zip");
+				LauncherUtils.entry0(LauncherUtils.resolveClient() + "_hashZip", LauncherGuard.entry1(var18));
 				class102.entry0();
 			}
 			new class1045(entry1004);

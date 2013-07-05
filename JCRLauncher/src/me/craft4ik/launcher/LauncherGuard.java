@@ -8,35 +8,8 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.util.Formatter;
 
-public class class1014
+public class LauncherGuard
 {
-	public static final String entry0()
-	{
-		try
-		{
-			return class1024.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-		} catch(Exception var1)
-		{
-			var1.printStackTrace();
-			return null;
-		}
-	}
-	
-	public static final String entry0(String var0)
-	{
-		String var1 = null;
-		try
-		{
-			MessageDigest var2 = MessageDigest.getInstance("MD5");
-			var2.update(var0.getBytes(), 0, var0.length());
-			var1 = new BigInteger(1, var2.digest()).toString(16);
-		} catch(Exception var3)
-		{
-			var3.printStackTrace();
-		}
-		return var1;
-	}
-	
 	public static final boolean entry0(String[] var0)
 	{
 		boolean var1 = true;
@@ -52,7 +25,7 @@ public class class1014
 			}
 		}
 		LauncherAuthFrame.log("GUARD: Проверка модификаций в папке \"mods\"...");
-		File var11 = new File(LauncherUtils.entry1004() + File.separator + "mods");
+		File var11 = new File(LauncherUtils.getMinecraftDirectory() + File.separator + "mods");
 		String[] var6 = var11.list();
 		if(var6 != null && var6.length != 0)
 		{
@@ -64,7 +37,7 @@ public class class1014
 				for(var7 = 0; var7 < var6.length; ++var7)
 				{
 					var8 = new File(var11 + File.separator + var6[var7]);
-					LauncherUtils.entry0(var8);
+					LauncherUtils.delete(var8);
 					var9 = "";
 					if(!var8.exists())
 					{
@@ -81,7 +54,7 @@ public class class1014
 					if(LauncherUtils.entry0(var3, element) == -1)
 					{
 						File var14 = new File(var11 + File.separator + element);
-						LauncherUtils.entry0(var14);
+						LauncherUtils.delete(var14);
 						String var10 = "";
 						if(!var14.exists())
 						{
@@ -108,7 +81,8 @@ public class class1014
 				}
 			}
 			return var1;
-		} else return true;
+		}
+		return true;
 	}
 	
 	public static final void entry0(String[] var0, boolean var1)
@@ -117,7 +91,7 @@ public class class1014
 		{
 			LauncherAuthFrame.log("GUARD: Проверка файлов игры...");
 			boolean var2 = true;
-			String var3 = LauncherUtils.entry1004() + File.separator + "bin" + File.separator;
+			String var3 = LauncherUtils.getMinecraftDirectory() + File.separator + "bin" + File.separator;
 			if(!var0[1].equals(entry10(var3 + "minecraft.jar")))
 			{
 				var2 = false;
@@ -191,7 +165,7 @@ public class class1014
 			}
 		}
 		LauncherAuthFrame.log("GUARD: Проверка модификаций в папке \"coremods\"...");
-		File var11 = new File(LauncherUtils.entry1004() + File.separator + "coremods");
+		File var11 = new File(LauncherUtils.getMinecraftDirectory() + File.separator + "coremods");
 		String[] var6 = var11.list();
 		if(var6 != null && var6.length != 0)
 		{
@@ -203,7 +177,7 @@ public class class1014
 				for(var7 = 0; var7 < var6.length; ++var7)
 				{
 					var8 = new File(var11 + File.separator + var6[var7]);
-					LauncherUtils.entry0(var8);
+					LauncherUtils.delete(var8);
 					var9 = "";
 					if(!var8.exists())
 					{
@@ -220,7 +194,7 @@ public class class1014
 					if(LauncherUtils.entry0(var3, element) == -1)
 					{
 						File var14 = new File(var11 + File.separator + element);
-						LauncherUtils.entry0(var14);
+						LauncherUtils.delete(var14);
 						String var10 = "";
 						if(!var14.exists())
 						{
@@ -247,7 +221,8 @@ public class class1014
 				}
 			}
 			return var1;
-		} else return true;
+		}
+		return true;
 	}
 	
 	public static final String entry10(String var0)
@@ -313,5 +288,32 @@ public class class1014
 			}
 		}
 		return var6;
+	}
+	
+	public static final String getJarPath()
+	{
+		try
+		{
+			return class1024.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+		} catch(Exception var1)
+		{
+			var1.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static final String getMD5String(String value)
+	{
+		String result = null;
+		try
+		{
+			MessageDigest digest = MessageDigest.getInstance("MD5");
+			digest.update(value.getBytes(), 0, value.length());
+			result = new BigInteger(1, digest.digest()).toString(16);
+		} catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

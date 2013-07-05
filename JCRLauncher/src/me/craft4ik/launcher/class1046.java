@@ -15,6 +15,6 @@ class class1046 implements ActionListener
 	
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		class1014.entry0(LauncherAuthFrame.entry0, false);
+		LauncherGuard.entry0(LauncherAuthFrame.settings, false);
 	}
 }

@@ -29,7 +29,7 @@ public class LauncherUtils
 	public static class1044 entry0;
 	public static final class10 entry1 = new class10("config", entry1003());
 	public static String[] entry10 = null;
-	public static boolean entry100 = false;
+	public static boolean errorLoading = false;
 	public static BufferedImage entry1000;
 	public static BufferedImage entry1001;
 	public static BufferedImage entry1002;
@@ -47,6 +47,26 @@ public class LauncherUtils
 	public static BufferedImage entry1013;
 	public static BufferedImage entry1014;
 	public static BufferedImage entry1015;
+	
+	public static final void delete(File file)
+	{
+		try
+		{
+			if(!file.exists()) return;
+			if(file.isDirectory())
+			{
+				File[] files = file.listFiles();
+				for(File file2 : files)
+				{
+					delete(file2);
+				}
+			}
+			file.delete();
+		} catch(Exception var5)
+		{
+			LauncherAuthFrame.error("Удаление не удалось: " + file.toString());
+		}
+	}
 	
 	public static final void entry0(BufferedImage var0, int var1)
 	{
@@ -111,42 +131,6 @@ public class LauncherUtils
 		entry1015 = loadLocalImage("char.png");
 	}
 	
-	public static final void entry0(double var0)
-	{
-		try
-		{
-			Thread.sleep((long) (var0 * 1000.0D));
-		} catch(Exception var3)
-		{
-			;
-		}
-	}
-	
-	public static final void entry0(File var0)
-	{
-		try
-		{
-			if(!var0.exists()) return;
-			if(var0.isDirectory())
-			{
-				File[] var1 = var0.listFiles();
-				int var2 = var1.length;
-				for(int var3 = 0; var3 < var2; ++var3)
-				{
-					File var4 = var1[var3];
-					entry0(var4);
-				}
-				var0.delete();
-			} else
-			{
-				var0.delete();
-			}
-		} catch(Exception var5)
-		{
-			LauncherAuthFrame.error("Удаление не удалось: " + var0.toString());
-		}
-	}
-	
 	public static final void entry0(LauncherAuthFrame var0) throws UnsupportedEncodingException
 	{
 		String var1 = class1000.entry1(entry1001("login"));
@@ -191,22 +175,6 @@ public class LauncherUtils
 		}
 	}
 	
-	public static final BufferedImage entry0(String var0, String var1)
-	{
-		BufferedImage var2 = null;
-		try
-		{
-			var2 = ImageIO.read(new URL(var0 + var1));
-			LauncherAuthFrame.log(" * Загружено изображение: " + var1);
-			return var2;
-		} catch(Exception var4)
-		{
-			LauncherAuthFrame.error(" * Загрузка прервана на элементе: " + var1);
-			entry100 = true;
-			return null;
-		}
-	}
-	
 	public static final int entry0(String[] var0, String var1)
 	{
 		for(int var2 = 0; var2 < var0.length; ++var2)
@@ -217,37 +185,6 @@ public class LauncherUtils
 			}
 		}
 		return -1;
-	}
-	
-	public static final void entry0(URLClassLoader var0)
-	{
-		try
-		{
-			String var1 = entry1001()[3];
-			String[] var2 = LauncherAuthFrame.entry0[10].split("<:f:>");
-			LauncherAuthFrame.log("Запуск процесса патчинга: ");
-			LauncherAuthFrame.log(" * Обнаружение клиента...");
-			LauncherAuthFrame.log(" * Клиент: " + entry1002() + " :: " + var1);
-			LauncherAuthFrame.log(" * Поиск версии в библиотеке...");
-			for(String element : var2)
-			{
-				if(var1.contains(element.split("::")[0].replace("x", "")))
-				{
-					LauncherAuthFrame.log(" * Патчинг клиента...");
-					Field var4 = var0.loadClass("net.minecraft.client.Minecraft").getDeclaredField(element.split("::")[1]);
-					AccessibleObject.setAccessible(new Field[] { var4 }, true);
-					var4.set((Object) null, new File(entry1004()));
-					LauncherAuthFrame.log(" * Файл пропатчен: net.minecraft.client.Minecraft :: " + element.split("::")[1]);
-					LauncherAuthFrame.log(" * Патчинг клиента успешно завершен");
-					return;
-				}
-			}
-			LauncherAuthFrame.error(" * Данная версия клиента не обнаружена!");
-			LauncherAuthFrame.error(" * Не удалось произвести патчинг клиента");
-		} catch(Exception var5)
-		{
-			LauncherAuthFrame.error(" * Ошибка: поле клиента не корректно");
-		}
 	}
 	
 	public static final void entry1()
@@ -261,13 +198,13 @@ public class LauncherUtils
 				String[] var1 = LauncherAuthFrame.entry1[1].split("<:i:>");
 				for(int var2 = 0; var2 < var1.length; ++var2)
 				{
-					entry0(entry0(resolve(var0), var1[var2]), var2);
-					if(entry100)
+					entry0(loadRemoteImage(resolveScript(var0), var1[var2]), var2);
+					if(errorLoading)
 					{
 						break;
 					}
 				}
-				if(!entry100)
+				if(!errorLoading)
 				{
 					LauncherAuthFrame.log("Online тема успешо загружена");
 				} else
@@ -276,14 +213,14 @@ public class LauncherUtils
 				}
 			} else
 			{
-				entry100 = true;
+				errorLoading = true;
 			}
 		} catch(Exception var3)
 		{
-			entry100 = true;
+			errorLoading = true;
 			LauncherAuthFrame.error("Не удалось загрузить online тему, запускаю тему по умолчанию");
 		}
-		if(entry100)
+		if(errorLoading)
 		{
 			entry0((BufferedImage) null, -1);
 			class1035.entry0 = Color.decode(getSettings().getColorScheme());
@@ -303,7 +240,7 @@ public class LauncherUtils
 		LauncherAuthFrame.log("Загружаю online настройки...");
 		try
 		{
-			String var0 = execute(resolve("jcr_theme.php"), "?action=settings&request=elements&version=v5.0", false);
+			String var0 = execute(resolveScript("jcr_theme.php"), "?action=settings&request=elements&version=v5.0", false);
 			if(var0 == null)
 			{
 				LauncherAuthFrame.error("Не удалось загрузить online настройки");
@@ -342,7 +279,7 @@ public class LauncherUtils
 		String[] var0 = new String[] { "Ошибка подключения", "error" };
 		try
 		{
-			String var1 = execute(resolve("jcr_status.php"), "?action=servers", false);
+			String var1 = execute(resolveScript("jcr_status.php"), "?action=servers", false);
 			if(var1 == null)
 			{
 				LauncherAuthFrame.error("Не удалось загрузить список серверов");
@@ -387,12 +324,6 @@ public class LauncherUtils
 		return entry1.entry100(var0).booleanValue() ? entry1.entry0(var0) : null;
 	}
 	
-	public static final String entry1002()
-	{
-		String[] var0 = entry1001();
-		return var0 != null ? (var0[1] + "_" + var0[2]).toLowerCase() : null;
-	}
-	
 	public static final boolean entry1002(String var0)
 	{
 		return entry1.entry100(var0).booleanValue() ? entry1.entry10(var0).booleanValue() : false;
@@ -400,18 +331,12 @@ public class LauncherUtils
 	
 	public static final String entry1003()
 	{
-		return entry1005(".qoob") + "";
+		return resolveMinecraftDirectory(".qoob") + "";
 	}
 	
 	public static final int entry1003(String var0)
 	{
 		return entry1.entry100(var0).booleanValue() ? entry1.entry1(var0).intValue() : 0;
-	}
-	
-	public static final String entry1004()
-	{
-		String var0 = entry1005(".qoob") + "";
-		return var0 + File.separator + entry1002();
 	}
 	
 	public static final void entry1004(String var0) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException
@@ -426,7 +351,332 @@ public class LauncherUtils
 		}
 	}
 	
-	private static File entry1005(String var0)
+	public static final void entry1006() throws IOException
+	{
+		LauncherAuthFrame var0 = LauncherAuthFrame.entry1001;
+		if(var0.entry1015.isSelected())
+		{
+			entry0("login", class1000.entry0(var0.entry1007.getText()));
+			entry0("password", class1000.entry0(new String(var0.entry1008.getPassword())));
+			entry0("server", Integer.valueOf(var0.entry1004.entry0()));
+		} else
+		{
+			entry1000("login");
+			entry1000("password");
+		}
+		byte var1;
+		if(var0.entry1015.isSelected())
+		{
+			var1 = 1;
+		} else
+		{
+			var1 = 2;
+		}
+		entry0("remember", Integer.valueOf(var1));
+		entry0("full_screen", Boolean.valueOf(var0.entry1017.isSelected()));
+	}
+	
+	public static final void entry1007()
+	{
+		entry1008();
+	}
+	
+	public static final void entry1008()
+	{
+		if(LauncherAuthFrame.entry1001.entry1016.isSelected())
+		{
+			entry1000(resolveClient() + "_hashZip");
+			delete(new File(getMinecraftDirectory()));
+		}
+		boolean var0 = false;
+		String[] var1 = LauncherAuthFrame.settings;
+		String[] var2 = var1[9].split("<:m:>");
+		String[] var3 = var1[13].split("<:m:>");
+		String[] var4 = var1[15].split("<:n:>");
+		ArrayList var5 = new ArrayList();
+		String var6 = getMinecraftDirectory() + File.separator + "bin" + File.separator;
+		String var7 = getMinecraftDirectory() + File.separator + "mods" + File.separator;
+		String var8 = getMinecraftDirectory() + File.separator + "coremods" + File.separator;
+		String var9 = var6 + "natives" + File.separator;
+		int var10;
+		if(!var4[0].equals("nonatives") && !new File(var9).exists() || new File(var9).listFiles().length == 0)
+		{
+			for(var10 = 0; var10 < var4.length; ++var10)
+			{
+				if(!new File(var9 + var4[var10]).exists())
+				{
+					var5.add("bin/natives/" + var4[var10]);
+				}
+			}
+		}
+		if(!var1[0].equals(entry1001(resolveClient() + "_hashZip")))
+		{
+			var5.add("extra.zip");
+			var0 = true;
+		}
+		if(!var1[1].equals(LauncherGuard.entry10(var6 + "minecraft.jar")))
+		{
+			var5.add("bin/minecraft.jar");
+		}
+		if(!var1[2].equals(LauncherGuard.entry10(var6 + "lwjgl.jar")))
+		{
+			var5.add("bin/lwjgl.jar");
+		}
+		if(!var1[3].equals(LauncherGuard.entry10(var6 + "lwjgl_util.jar")))
+		{
+			var5.add("bin/lwjgl_util.jar");
+		}
+		if(!var1[4].equals(LauncherGuard.entry10(var6 + "jinput.jar")))
+		{
+			var5.add("bin/jinput.jar");
+		}
+		String[] var11;
+		if(!var2[0].equals("nomods"))
+		{
+			for(var10 = 0; var10 < var2.length; ++var10)
+			{
+				var11 = var2[var10].split("<:h:>");
+				if(!var11[1].equals(LauncherGuard.entry10(var7 + var11[0])))
+				{
+					var5.add("mods/" + var11[0]);
+				}
+			}
+		}
+		if(!var3[0].equals("nocoremods"))
+		{
+			for(var10 = 0; var10 < var3.length; ++var10)
+			{
+				var11 = var3[var10].split("<:h:>");
+				if(!var11[1].equals(LauncherGuard.entry10(var8 + var11[0])))
+				{
+					var5.add("coremods/" + var11[0]);
+				}
+			}
+		}
+		if(!var5.isEmpty())
+		{
+			LauncherAuthFrame.log("Список загружаемых файлов: ");
+			Object[] var15 = var5.toArray();
+			int var14 = var15.length;
+			for(int var12 = 0; var12 < var14; ++var12)
+			{
+				Object var13 = var15[var12];
+				LauncherAuthFrame.log(" * " + var13.toString());
+			}
+		}
+		entry0 = new class1044(var5, var0, var1);
+		LauncherAuthFrame.entry1001.entry0(4);
+		entry0.start();
+	}
+	
+	public static final void entry1009() throws IOException, NoSuchAlgorithmException, InterruptedException
+	{
+		LauncherAuthFrame.log("Запуск процесса обновления программы...");
+		String var0 = entry100("program/" + LauncherAuthFrame.settings[14]);
+		LauncherAuthFrame.log("Загрузка файла: " + var0);
+		BufferedInputStream var1 = new BufferedInputStream(new URL(var0).openStream());
+		FileOutputStream var2 = new FileOutputStream(LauncherGuard.getJarPath());
+		boolean var3 = false;
+		byte[] var4 = new byte[65536];
+		MessageDigest var5 = MessageDigest.getInstance("MD5");
+		int var6;
+		while((var6 = var1.read(var4, 0, var4.length)) != -1)
+		{
+			var2.write(var4, 0, var6);
+			var5.update(var4, 0, var6);
+		}
+		var1.close();
+		var2.close();
+		LauncherAuthFrame.log("Файл загружен: " + var0);
+		if(getOS() == 3)
+		{
+			LauncherAuthFrame.log("Обновление завершено успешно");
+			LauncherAuthFrame.entry1001.entry1003.entry0(false);
+			LauncherAuthFrame.entry1001.entry101.setEnabled(false);
+			LauncherAuthFrame.entry1001.entry1010.setEnabled(false);
+			LauncherAuthFrame.entry1001.entry0("Требуется перезапуск", 1, 391);
+			LauncherAuthFrame.log("Требуется перезапуск программы");
+		} else
+		{
+			class1024.entry0((String[]) null);
+			System.exit(0);
+		}
+	}
+	
+	public static final String execute(String address, String params, boolean debug)
+	{
+		HttpURLConnection connection = null;
+		InputStream input;
+		String var30 = null;
+		try
+		{
+			try
+			{
+				if(debug)
+				{
+					LauncherAuthFrame.log("Утановка соединения с: " + address + params);
+				}
+				URL var4 = new URL(address + params);
+				connection = (HttpURLConnection) var4.openConnection();
+				connection.setRequestMethod("POST");
+				connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+				connection.setRequestProperty("Content-Length", "0");
+				connection.setRequestProperty("Content-Language", "en-US");
+				connection.setUseCaches(false);
+				connection.setDoInput(true);
+				connection.setDoOutput(true);
+				connection.connect();
+				input = connection.getInputStream();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+				Throwable exception = null;
+				StringBuilder result;
+				try
+				{
+					result = new StringBuilder();
+					String var9;
+					while((var9 = reader.readLine()) != null)
+					{
+						result.append(var9);
+					}
+				} catch(Throwable var26)
+				{
+					exception = var26;
+					throw var26;
+				} finally
+				{
+					if(reader != null)
+					{
+						if(exception != null)
+						{
+							try
+							{
+								reader.close();
+							} catch(Throwable e)
+							{
+								exception.addSuppressed(e);
+							}
+						} else
+						{
+							reader.close();
+						}
+					}
+				}
+				var30 = result.toString();
+				if(debug)
+				{
+					LauncherAuthFrame.log("Соединение установлено. Получен ответ: \'" + var30 + "\'");
+				}
+				String var31 = var30;
+				return var31;
+			} catch(Exception var28)
+			{
+				if(debug)
+				{
+					LauncherAuthFrame.error("Не удалось установить соединение с: " + address + ", возвращаю null");
+				}
+			}
+			input = null;
+		} finally
+		{
+			if(connection != null)
+			{
+				connection.disconnect();
+			}
+		}
+		return var30;
+	}
+	
+	public static final String getMinecraftDirectory()
+	{
+		return resolveMinecraftDirectory(".qoob") + File.separator + resolveClient();
+	}
+	
+	public static final int getOS()
+	{
+		String os = System.getProperty("os.name").toLowerCase();
+		return os.contains("win") ? 2 : os.contains("mac") ? 3 : os.contains("solaris") ? 1 : os.contains("sunos") ? 1 : os.contains("linux") ? 0 : os.contains("unix") ? 0 : 4;
+	}
+	
+	public static final LauncherSettings getSettings()
+	{
+		return LauncherSettignsStorage.settings;
+	}
+	
+	public static final BufferedImage loadLocalImage(String name)
+	{
+		try
+		{
+			BufferedImage var1 = ImageIO.read(LauncherUtils.class.getResource(getSettings().getImagesDirectory() + name));
+			LauncherAuthFrame.log("Открыто локальное изображение: " + name);
+			return var1;
+		} catch(Exception var2)
+		{
+			LauncherAuthFrame.error("Ошибка при открытии изображения: " + name);
+			return new BufferedImage(1, 1, 2);
+		}
+	}
+	
+	public static final BufferedImage loadRemoteImage(String path, String name)
+	{
+		BufferedImage result = null;
+		try
+		{
+			result = ImageIO.read(new URL(path + name));
+			LauncherAuthFrame.log(" * Загружено изображение: " + name);
+			return result;
+		} catch(Exception var4)
+		{
+			LauncherAuthFrame.error(" * Загрузка прервана на элементе: " + name);
+			errorLoading = true;
+			return null;
+		}
+	}
+	
+	public static final void patchMinecraft(URLClassLoader loader)
+	{
+		try
+		{
+			String version = entry1001()[3];
+			String[] versions = LauncherAuthFrame.settings[10].split("<:f:>");
+			LauncherAuthFrame.log("Запуск процесса патчинга: ");
+			LauncherAuthFrame.log(" * Обнаружение клиента...");
+			LauncherAuthFrame.log(" * Клиент: " + resolveClient() + " :: " + version);
+			LauncherAuthFrame.log(" * Поиск версии в библиотеке...");
+			for(String element : versions)
+			{
+				if(version.contains(element.split("::")[0].replace("x", "")))
+				{
+					LauncherAuthFrame.log(" * Патчинг клиента...");
+					Field field = loader.loadClass("net.minecraft.client.Minecraft").getDeclaredField(element.split("::")[1]);
+					AccessibleObject.setAccessible(new Field[] { field }, true);
+					field.set((Object) null, new File(getMinecraftDirectory()));
+					LauncherAuthFrame.log(" * Файл пропатчен: net.minecraft.client.Minecraft :: " + element.split("::")[1]);
+					LauncherAuthFrame.log(" * Патчинг клиента успешно завершен");
+					return;
+				}
+			}
+			LauncherAuthFrame.error(" * Данная версия клиента не обнаружена!");
+			LauncherAuthFrame.error(" * Не удалось произвести патчинг клиента");
+		} catch(Exception var5)
+		{
+			LauncherAuthFrame.error(" * Ошибка: поле клиента не корректно");
+		}
+	}
+	
+	public static final String resolveClient()
+	{
+		String[] var0 = entry1001();
+		return var0 != null ? (var0[1] + "_" + var0[2]).toLowerCase() : null;
+	}
+	
+	public static final String resolveExtension()
+	{
+		String[] extensions = new String[] { ".jar", ".exe" };
+		String var1 = LauncherGuard.getJarPath().toLowerCase();
+		return var1.substring(var1.lastIndexOf("/")).contains(extensions[1]) ? extensions[1] : extensions[0];
+	}
+	
+	private static File resolveMinecraftDirectory(String var0)
 	{
 		String var1 = System.getProperty("user.home", ".");
 		File var2;
@@ -459,166 +709,12 @@ public class LauncherUtils
 		return var2;
 	}
 	
-	public static final void entry1006() throws IOException
+	public static final String resolveScript(String name)
 	{
-		LauncherAuthFrame var0 = LauncherAuthFrame.entry1001;
-		if(var0.entry1015.isSelected())
-		{
-			entry0("login", (Object) class1000.entry0(var0.entry1007.getText()));
-			entry0("password", (Object) class1000.entry0(new String(var0.entry1008.getPassword())));
-			entry0("server", Integer.valueOf(var0.entry1004.entry0()));
-		} else
-		{
-			entry1000("login");
-			entry1000("password");
-		}
-		byte var1;
-		if(var0.entry1015.isSelected())
-		{
-			var1 = 1;
-		} else
-		{
-			var1 = 2;
-		}
-		entry0("remember", Integer.valueOf(var1));
-		entry0("full_screen", Boolean.valueOf(var0.entry1017.isSelected()));
+		return entry1("scripts/" + name);
 	}
 	
-	public static final void entry1007()
-	{
-		entry1008();
-	}
-	
-	public static final void entry1008()
-	{
-		if(LauncherAuthFrame.entry1001.entry1016.isSelected())
-		{
-			entry1000(entry1002() + "_hashZip");
-			entry0(new File(entry1004()));
-		}
-		boolean var0 = false;
-		String[] var1 = LauncherAuthFrame.entry0;
-		String[] var2 = var1[9].split("<:m:>");
-		String[] var3 = var1[13].split("<:m:>");
-		String[] var4 = var1[15].split("<:n:>");
-		ArrayList var5 = new ArrayList();
-		String var6 = entry1004() + File.separator + "bin" + File.separator;
-		String var7 = entry1004() + File.separator + "mods" + File.separator;
-		String var8 = entry1004() + File.separator + "coremods" + File.separator;
-		String var9 = var6 + "natives" + File.separator;
-		int var10;
-		if(!var4[0].equals("nonatives") && !new File(var9).exists() || new File(var9).listFiles().length == 0)
-		{
-			for(var10 = 0; var10 < var4.length; ++var10)
-			{
-				if(!new File(var9 + var4[var10]).exists())
-				{
-					var5.add("bin/natives/" + var4[var10]);
-				}
-			}
-		}
-		if(!var1[0].equals(entry1001(entry1002() + "_hashZip")))
-		{
-			var5.add("extra.zip");
-			var0 = true;
-		}
-		if(!var1[1].equals(class1014.entry10(var6 + "minecraft.jar")))
-		{
-			var5.add("bin/minecraft.jar");
-		}
-		if(!var1[2].equals(class1014.entry10(var6 + "lwjgl.jar")))
-		{
-			var5.add("bin/lwjgl.jar");
-		}
-		if(!var1[3].equals(class1014.entry10(var6 + "lwjgl_util.jar")))
-		{
-			var5.add("bin/lwjgl_util.jar");
-		}
-		if(!var1[4].equals(class1014.entry10(var6 + "jinput.jar")))
-		{
-			var5.add("bin/jinput.jar");
-		}
-		String[] var11;
-		if(!var2[0].equals("nomods"))
-		{
-			for(var10 = 0; var10 < var2.length; ++var10)
-			{
-				var11 = var2[var10].split("<:h:>");
-				if(!var11[1].equals(class1014.entry10(var7 + var11[0])))
-				{
-					var5.add("mods/" + var11[0]);
-				}
-			}
-		}
-		if(!var3[0].equals("nocoremods"))
-		{
-			for(var10 = 0; var10 < var3.length; ++var10)
-			{
-				var11 = var3[var10].split("<:h:>");
-				if(!var11[1].equals(class1014.entry10(var8 + var11[0])))
-				{
-					var5.add("coremods/" + var11[0]);
-				}
-			}
-		}
-		if(!var5.isEmpty())
-		{
-			LauncherAuthFrame.log("Список загружаемых файлов: ");
-			Object[] var15 = var5.toArray();
-			int var14 = var15.length;
-			for(int var12 = 0; var12 < var14; ++var12)
-			{
-				Object var13 = var15[var12];
-				LauncherAuthFrame.log(" * " + var13.toString());
-			}
-		}
-		entry0 = new class1044(var5, var0, var1);
-		LauncherAuthFrame.entry1001.entry0(4);
-		entry0.start();
-	}
-	
-	public static final void entry1009() throws IOException, NoSuchAlgorithmException, InterruptedException
-	{
-		LauncherAuthFrame.log("Запуск процесса обновления программы...");
-		String var0 = entry100("program/" + LauncherAuthFrame.entry0[14]);
-		LauncherAuthFrame.log("Загрузка файла: " + var0);
-		BufferedInputStream var1 = new BufferedInputStream(new URL(var0).openStream());
-		FileOutputStream var2 = new FileOutputStream(class1014.entry0());
-		boolean var3 = false;
-		byte[] var4 = new byte[65536];
-		MessageDigest var5 = MessageDigest.getInstance("MD5");
-		int var6;
-		while((var6 = var1.read(var4, 0, var4.length)) != -1)
-		{
-			var2.write(var4, 0, var6);
-			var5.update(var4, 0, var6);
-		}
-		var1.close();
-		var2.close();
-		LauncherAuthFrame.log("Файл загружен: " + var0);
-		if(getOS() == 3)
-		{
-			LauncherAuthFrame.log("Обновление завершено успешно");
-			LauncherAuthFrame.entry1001.entry1003.entry0(false);
-			LauncherAuthFrame.entry1001.entry101.setEnabled(false);
-			LauncherAuthFrame.entry1001.entry1010.setEnabled(false);
-			LauncherAuthFrame.entry1001.entry0("Требуется перезапуск", 1, 391);
-			LauncherAuthFrame.log("Требуется перезапуск программы");
-		} else
-		{
-			class1024.entry0((String[]) null);
-			System.exit(0);
-		}
-	}
-	
-	public static final String entry101()
-	{
-		String[] var0 = new String[] { ".jar", ".exe" };
-		String var1 = class1014.entry0().toLowerCase();
-		return var1.substring(var1.lastIndexOf("/")).contains(var0[1]) ? var0[1] : var0[0];
-	}
-	
-	public static final void entry1010()
+	public static final void restart()
 	{
 		LauncherAuthFrame.log("Перезапуск программы...");
 		try
@@ -632,117 +728,15 @@ public class LauncherUtils
 		System.exit(0);
 	}
 	
-	public static final String execute(String var0, String var1, boolean var2)
-	{
-		HttpURLConnection var3 = null;
-		InputStream var5;
-		String var30 = null;
-		try
-		{
-			try
-			{
-				if(var2)
-				{
-					LauncherAuthFrame.log("Утановка соединения с: " + var0 + var1);
-				}
-				URL var4 = new URL(var0 + var1);
-				var3 = (HttpURLConnection) var4.openConnection();
-				var3.setRequestMethod("POST");
-				var3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-				var3.setRequestProperty("Content-Length", "0");
-				var3.setRequestProperty("Content-Language", "en-US");
-				var3.setUseCaches(false);
-				var3.setDoInput(true);
-				var3.setDoOutput(true);
-				var3.connect();
-				var5 = var3.getInputStream();
-				BufferedReader var7 = new BufferedReader(new InputStreamReader(var5));
-				Throwable var8 = null;
-				StringBuilder var6;
-				try
-				{
-					var6 = new StringBuilder();
-					String var9;
-					while((var9 = var7.readLine()) != null)
-					{
-						var6.append(var9);
-					}
-				} catch(Throwable var26)
-				{
-					var8 = var26;
-					throw var26;
-				} finally
-				{
-					if(var7 != null)
-					{
-						if(var8 != null)
-						{
-							try
-							{
-								var7.close();
-							} catch(Throwable var25)
-							{
-								var8.addSuppressed(var25);
-							}
-						} else
-						{
-							var7.close();
-						}
-					}
-				}
-				var30 = var6.toString();
-				if(var2)
-				{
-					LauncherAuthFrame.log("Соединение установлено. Получен ответ: \'" + var30 + "\'");
-				}
-				String var31 = var30;
-				return var31;
-			} catch(Exception var28)
-			{
-				if(var2)
-				{
-					LauncherAuthFrame.error("Не удалось установить соединение с: " + var0 + ", возвращаю null");
-				}
-			}
-			var5 = null;
-		} finally
-		{
-			if(var3 != null)
-			{
-				var3.disconnect();
-			}
-		}
-		return var30;
-	}
-	
-	public static final int getOS()
-	{
-		String os = System.getProperty("os.name").toLowerCase();
-		return os.contains("win") ? 2 : os.contains("mac") ? 3 : os.contains("solaris") ? 1 : os.contains("sunos") ? 1 : os.contains("linux") ? 0 : os.contains("unix") ? 0 : 4;
-	}
-	
-	public static final LauncherSettings getSettings()
-	{
-		return LauncherSettignsStorage.settings;
-	}
-	
-	public static final BufferedImage loadLocalImage(String var0)
+	public static final void sleep(double seconds)
 	{
 		try
 		{
-			BufferedImage var1 = ImageIO.read(LauncherUtils.class.getResource(getSettings().getImagesDirectory() + var0));
-			LauncherAuthFrame.log("Открыто локальное изображение: " + var0);
-			return var1;
-		} catch(Exception var2)
+			Thread.sleep((long) (seconds * 1000.0D));
+		} catch(Exception e)
 		{
-			LauncherAuthFrame.error("Ошибка при открытии изображения: " + var0);
-			return new BufferedImage(1, 1, 2);
+			e.printStackTrace();
 		}
-	}
-	
-	public static final String resolve(String var0)
-	{
-		return entry1("scripts/" + var0);
 	}
 	
 	static
