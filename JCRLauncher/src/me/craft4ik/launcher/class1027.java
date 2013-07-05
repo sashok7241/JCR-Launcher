@@ -22,10 +22,10 @@ public class class1027 extends JButton
 	public BufferedImage entry1000;
 	public BufferedImage entry1001;
 	public BufferedImage entry1002;
-	public static BufferedImage entry1003 = LauncherUtils.entry1005.getSubimage(0, 0, 112, 38);
-	public static BufferedImage entry1004 = LauncherUtils.entry1005.getSubimage(0, 38, 112, 38);
-	public static BufferedImage entry1005 = LauncherUtils.entry1005.getSubimage(0, 76, 112, 38);
-	public static BufferedImage entry1006 = LauncherUtils.entry1005.getSubimage(0, 114, 112, 38);
+	public static BufferedImage entry1003 = LauncherUtils.button.getSubimage(0, 0, 112, 38);
+	public static BufferedImage entry1004 = LauncherUtils.button.getSubimage(0, 38, 112, 38);
+	public static BufferedImage entry1005 = LauncherUtils.button.getSubimage(0, 76, 112, 38);
+	public static BufferedImage entry1006 = LauncherUtils.button.getSubimage(0, 114, 112, 38);
 	
 	public class1027(ImageUtils var1, String var2) throws FontFormatException
 	{

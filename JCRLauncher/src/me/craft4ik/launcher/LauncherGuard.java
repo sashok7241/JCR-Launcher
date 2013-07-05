@@ -87,7 +87,7 @@ public class LauncherGuard
 	
 	public static final void entry0(String[] var0, boolean var1)
 	{
-		if(!LauncherAuthFrame.entry1001.entry1018.isSelected())
+		if(!LauncherAuthFrame.frame.offline.isSelected())
 		{
 			LauncherAuthFrame.log("GUARD: Проверка файлов игры...");
 			boolean var2 = true;

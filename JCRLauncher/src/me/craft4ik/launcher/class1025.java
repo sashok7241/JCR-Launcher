@@ -15,13 +15,13 @@ class class1025 implements ActionListener
 	
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		LauncherAuthFrame.entry1001.entry1009.setEnabled(false);
+		LauncherAuthFrame.frame.buttonLaunch.setEnabled(false);
 		if(class1039.entry1004() == 0)
 		{
 			entry0.entry100.stop();
-			LauncherAuthFrame.entry1001.entry1006.setViewportView(LauncherAuthFrame.entry1001.entry1005);
-			entry0.add(LauncherAuthFrame.entry1001.entry1006);
-			LauncherAuthFrame.entry1001.entry1009.setEnabled(true);
+			LauncherAuthFrame.frame.newsScroller.setViewportView(LauncherAuthFrame.frame.newsPane);
+			entry0.add(LauncherAuthFrame.frame.newsScroller);
+			LauncherAuthFrame.frame.buttonLaunch.setEnabled(true);
 			entry0.repaint();
 		} else
 		{

@@ -7,8 +7,8 @@ final class class1013 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		LauncherAuthFrame var2 = LauncherAuthFrame.entry1001;
-		String var3 = var2.entry1019.getText();
+		LauncherAuthFrame var2 = LauncherAuthFrame.frame;
+		String var3 = var2.memory.getText();
 		if(!class1019.entry1017.equals(var3))
 		{
 			int var4 = 0;
@@ -25,7 +25,7 @@ final class class1013 implements ActionListener
 				LauncherUtils.restart();
 			} else
 			{
-				var2.entry1019.setText(class1019.entry1017);
+				var2.memory.setText(class1019.entry1017);
 				var2.entry0(1);
 			}
 		} else

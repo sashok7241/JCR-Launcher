@@ -27,25 +27,25 @@ import javax.imageio.ImageIO;
 public class LauncherUtils
 {
 	public static class1044 entry0;
-	public static final class10 entry1 = new class10("config", entry1003());
+	public static final LauncherConfig entry1 = new LauncherConfig("config", entry1003());
 	public static String[] entry10 = null;
 	public static boolean errorLoading = false;
-	public static BufferedImage entry1000;
-	public static BufferedImage entry1001;
-	public static BufferedImage entry1002;
-	public static BufferedImage entry1003;
-	public static BufferedImage entry1004;
-	public static BufferedImage entry1005;
-	public static BufferedImage entry1006;
-	public static BufferedImage entry1007;
-	public static BufferedImage entry1008;
-	public static BufferedImage entry1009;
-	public static BufferedImage entry101;
-	public static BufferedImage entry1010;
-	public static BufferedImage entry1011;
-	public static BufferedImage entry1012;
-	public static BufferedImage entry1013;
-	public static BufferedImage entry1014;
+	public static BufferedImage iconImage;
+	public static BufferedImage background;
+	public static BufferedImage logotype;
+	public static BufferedImage elements;
+	public static BufferedImage frameIcons;
+	public static BufferedImage button;
+	public static BufferedImage combobox;
+	public static BufferedImage checkbox;
+	public static BufferedImage field;
+	public static BufferedImage progressbar;
+	public static BufferedImage modalBackground;
+	public static BufferedImage newsBackground;
+	public static BufferedImage pressedBorder;
+	public static BufferedImage waitAnimation;
+	public static BufferedImage alertIcons;
+	public static BufferedImage bandColors;
 	public static BufferedImage entry1015;
 	
 	public static final void delete(File file)
@@ -72,58 +72,58 @@ public class LauncherUtils
 	{
 		if(var0 == null && var1 == -1)
 		{
-			entry1000 = loadLocalImage(getSettings().getFaviconImage());
-			entry1001 = loadLocalImage(getSettings().getBackgroundImage());
-			entry1002 = loadLocalImage(getSettings().getLogotypeImage());
-			entry1003 = loadLocalImage(getSettings().getAuthElementsImage());
-			entry1004 = loadLocalImage(getSettings().getFrameIconsImage());
-			entry1005 = loadLocalImage(getSettings().getButtonsImage());
-			entry1006 = loadLocalImage(getSettings().getComboboxImage());
-			entry1007 = loadLocalImage(getSettings().getCheckboxImage());
-			entry1008 = loadLocalImage(getSettings().getFieldBackgroundImage());
-			entry1009 = loadLocalImage(getSettings().getProgressbarImage());
-			entry101 = loadLocalImage(getSettings().getModalBackgroundImage());
-			entry1010 = loadLocalImage(getSettings().getNewsBackgroundImage());
-			entry1011 = loadLocalImage(getSettings().getPressedBorderImage());
-			entry1012 = loadLocalImage(getSettings().getWaitAntimationImage());
-			entry1013 = loadLocalImage(getSettings().getAlertIconsImage());
-			entry1014 = loadLocalImage(getSettings().getBandColorsImage());
+			iconImage = loadLocalImage(getSettings().getFaviconImage());
+			background = loadLocalImage(getSettings().getBackgroundImage());
+			logotype = loadLocalImage(getSettings().getLogotypeImage());
+			elements = loadLocalImage(getSettings().getAuthElementsImage());
+			frameIcons = loadLocalImage(getSettings().getFrameIconsImage());
+			button = loadLocalImage(getSettings().getButtonsImage());
+			combobox = loadLocalImage(getSettings().getComboboxImage());
+			checkbox = loadLocalImage(getSettings().getCheckboxImage());
+			field = loadLocalImage(getSettings().getFieldBackgroundImage());
+			progressbar = loadLocalImage(getSettings().getProgressbarImage());
+			modalBackground = loadLocalImage(getSettings().getModalBackgroundImage());
+			newsBackground = loadLocalImage(getSettings().getNewsBackgroundImage());
+			pressedBorder = loadLocalImage(getSettings().getPressedBorderImage());
+			waitAnimation = loadLocalImage(getSettings().getWaitAntimationImage());
+			alertIcons = loadLocalImage(getSettings().getAlertIconsImage());
+			bandColors = loadLocalImage(getSettings().getBandColorsImage());
 		} else
 		{
 			switch(var1)
 			{
 				case 0:
-					entry1000 = var0;
+					iconImage = var0;
 				case 1:
-					entry1001 = var0;
+					background = var0;
 				case 2:
-					entry1002 = var0;
+					logotype = var0;
 				case 3:
-					entry1003 = var0;
+					elements = var0;
 				case 4:
-					entry1004 = var0;
+					frameIcons = var0;
 				case 5:
-					entry1005 = var0;
+					button = var0;
 				case 6:
-					entry1006 = var0;
+					combobox = var0;
 				case 7:
-					entry1007 = var0;
+					checkbox = var0;
 				case 8:
-					entry1008 = var0;
+					field = var0;
 				case 9:
-					entry1009 = var0;
+					progressbar = var0;
 				case 10:
-					entry101 = var0;
+					modalBackground = var0;
 				case 11:
-					entry1010 = var0;
+					newsBackground = var0;
 				case 12:
-					entry1011 = var0;
+					pressedBorder = var0;
 				case 13:
-					entry1012 = var0;
+					waitAnimation = var0;
 				case 14:
-					entry1013 = var0;
+					alertIcons = var0;
 				case 15:
-					entry1014 = var0;
+					bandColors = var0;
 				default:
 					break;
 			}
@@ -136,12 +136,12 @@ public class LauncherUtils
 		String var1 = class1000.entry1(entry1001("login"));
 		if(!var1.equals(""))
 		{
-			var0.entry1007.setText(var1);
+			var0.login.setText(var1);
 		}
 		String var2 = class1000.entry1(entry1001("password"));
 		if(!var2.isEmpty())
 		{
-			var0.entry1008.setText(var2);
+			var0.password.setText(var2);
 		}
 		int var5 = entry1003("server");
 		if(entry10 != null && var5 <= entry10.length)
@@ -151,16 +151,16 @@ public class LauncherUtils
 		int var3 = entry1003("remember");
 		if(var3 != 0 && var3 != 1)
 		{
-			var0.entry1015.setSelected(false);
+			var0.savePassword.setSelected(false);
 		} else
 		{
-			var0.entry1015.setSelected(true);
+			var0.savePassword.setSelected(true);
 		}
-		var0.entry1017.setSelected(entry1002("full_screen"));
+		var0.fullscreen.setSelected(entry1002("full_screen"));
 		int var4 = entry1003("memory");
 		if(var4 >= 256)
 		{
-			var0.entry1019.setText(var4 + "");
+			var0.memory.setText(var4 + "");
 		}
 	}
 	
@@ -315,13 +315,13 @@ public class LauncherUtils
 	
 	public static final String[] entry1001()
 	{
-		int var0 = LauncherAuthFrame.entry1001.entry1004.entry0();
+		int var0 = LauncherAuthFrame.frame.entry1004.entry0();
 		return entry10 != null ? entry10[var0].split(" :: ") : null;
 	}
 	
 	public static final String entry1001(String var0)
 	{
-		return entry1.entry100(var0).booleanValue() ? entry1.entry0(var0) : null;
+		return entry1.entry100(var0).booleanValue() ? entry1.get(var0) : null;
 	}
 	
 	public static final boolean entry1002(String var0)
@@ -353,11 +353,11 @@ public class LauncherUtils
 	
 	public static final void entry1006() throws IOException
 	{
-		LauncherAuthFrame var0 = LauncherAuthFrame.entry1001;
-		if(var0.entry1015.isSelected())
+		LauncherAuthFrame var0 = LauncherAuthFrame.frame;
+		if(var0.savePassword.isSelected())
 		{
-			entry0("login", class1000.entry0(var0.entry1007.getText()));
-			entry0("password", class1000.entry0(new String(var0.entry1008.getPassword())));
+			entry0("login", class1000.entry0(var0.login.getText()));
+			entry0("password", class1000.entry0(new String(var0.password.getPassword())));
 			entry0("server", Integer.valueOf(var0.entry1004.entry0()));
 		} else
 		{
@@ -365,7 +365,7 @@ public class LauncherUtils
 			entry1000("password");
 		}
 		byte var1;
-		if(var0.entry1015.isSelected())
+		if(var0.savePassword.isSelected())
 		{
 			var1 = 1;
 		} else
@@ -373,7 +373,7 @@ public class LauncherUtils
 			var1 = 2;
 		}
 		entry0("remember", Integer.valueOf(var1));
-		entry0("full_screen", Boolean.valueOf(var0.entry1017.isSelected()));
+		entry0("full_screen", Boolean.valueOf(var0.fullscreen.isSelected()));
 	}
 	
 	public static final void entry1007()
@@ -383,7 +383,7 @@ public class LauncherUtils
 	
 	public static final void entry1008()
 	{
-		if(LauncherAuthFrame.entry1001.entry1016.isSelected())
+		if(LauncherAuthFrame.frame.redownloadClient.isSelected())
 		{
 			entry1000(resolveClient() + "_hashZip");
 			delete(new File(getMinecraftDirectory()));
@@ -465,7 +465,7 @@ public class LauncherUtils
 			}
 		}
 		entry0 = new class1044(var5, var0, var1);
-		LauncherAuthFrame.entry1001.entry0(4);
+		LauncherAuthFrame.frame.entry0(4);
 		entry0.start();
 	}
 	
@@ -491,10 +491,10 @@ public class LauncherUtils
 		if(getOS() == 3)
 		{
 			LauncherAuthFrame.log("Обновление завершено успешно");
-			LauncherAuthFrame.entry1001.entry1003.entry0(false);
-			LauncherAuthFrame.entry1001.entry101.setEnabled(false);
-			LauncherAuthFrame.entry1001.entry1010.setEnabled(false);
-			LauncherAuthFrame.entry1001.entry0("Требуется перезапуск", 1, 391);
+			LauncherAuthFrame.frame.entry1003.entry0(false);
+			LauncherAuthFrame.frame.buttonExit.setEnabled(false);
+			LauncherAuthFrame.frame.buttonRefresh.setEnabled(false);
+			LauncherAuthFrame.frame.entry0("Требуется перезапуск", 1, 391);
 			LauncherAuthFrame.log("Требуется перезапуск программы");
 		} else
 		{
@@ -741,6 +741,6 @@ public class LauncherUtils
 	
 	static
 	{
-		entry1.entry0();
+		entry1.saveConfig();
 	}
 }

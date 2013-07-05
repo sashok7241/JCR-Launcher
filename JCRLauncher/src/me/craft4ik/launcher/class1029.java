@@ -31,10 +31,10 @@ public class class1029 extends JCheckBox
 		this.setBounds(var1, var2, var3, var4);
 		entry10 = var3;
 		entry100 = var4;
-		setIcon(new ImageIcon(LauncherUtils.entry1007.getSubimage(0, 0, 16, 16)));
-		setRolloverIcon(new ImageIcon(LauncherUtils.entry1007.getSubimage(32, 0, 16, 16)));
-		setSelectedIcon(new ImageIcon(LauncherUtils.entry1007.getSubimage(16, 0, 16, 16)));
-		setRolloverSelectedIcon(new ImageIcon(LauncherUtils.entry1007.getSubimage(48, 0, 16, 16)));
+		setIcon(new ImageIcon(LauncherUtils.checkbox.getSubimage(0, 0, 16, 16)));
+		setRolloverIcon(new ImageIcon(LauncherUtils.checkbox.getSubimage(32, 0, 16, 16)));
+		setSelectedIcon(new ImageIcon(LauncherUtils.checkbox.getSubimage(16, 0, 16, 16)));
+		setRolloverSelectedIcon(new ImageIcon(LauncherUtils.checkbox.getSubimage(48, 0, 16, 16)));
 	}
 	
 	@Override protected final void paintComponent(Graphics var1)

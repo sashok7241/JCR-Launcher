@@ -53,7 +53,7 @@ public class class1041 extends JTextField
 		this.setBounds(var1, var2, var3, var4);
 		setDocument(new class1042(this, var6));
 		setText(var5);
-		entry1 = LauncherUtils.entry1008;
+		entry1 = LauncherUtils.field;
 		entry10 = var3;
 		entry100 = var4;
 		entry1000 = var1;

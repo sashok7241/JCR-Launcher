@@ -35,8 +35,8 @@ public class class1034
 	
 	public static final void entry0(Graphics2D var0) throws FontFormatException
 	{
-		var0.drawImage(ImageUtils.genPanel(104, 189, LauncherUtils.entry1011), 65, 65, (ImageObserver) null);
-		var0.drawImage(ImageUtils.genPanel(74, 104, LauncherUtils.entry1011), 207, 65, (ImageObserver) null);
+		var0.drawImage(ImageUtils.genPanel(104, 189, LauncherUtils.pressedBorder), 65, 65, (ImageObserver) null);
+		var0.drawImage(ImageUtils.genPanel(74, 104, LauncherUtils.pressedBorder), 207, 65, (ImageObserver) null);
 		var0.setColor(new Color(245, 245, 245, class1039.entry0(40)));
 		var0.setFont(LauncherFontManager.createFont(13.0F, 1));
 		var0.drawString("Плащ не", 219, 113);

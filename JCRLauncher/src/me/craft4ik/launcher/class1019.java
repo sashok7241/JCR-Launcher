@@ -45,21 +45,21 @@ public class class1019 extends LauncherUtils
 	{
 		var0.entry100 = entry1(class1035.entry1002);
 		var0.entry1000 = entry0(class1035.entry1003);
-		var0.entry1011 = entry1(class1035.entry1001, var0.entry1011.getText());
-		var0.entry101 = entry1007(var0.entry101.getText());
-		var0.entry1010 = entry1008(var0.entry1010.getText());
-		var0.entry1012 = entry0(class1035.entry1000, var0.entry1012.getText());
-		var0.entry1013 = entry1005(var0.entry1013.getText());
-		var0.entry1014 = entry1006(var0.entry1014.getText());
-		var0.entry1009 = entry1009(var0.entry1009.getText());
-		var0.entry1007 = new class1041(57, 179, 232, 46, class1035.entry0);
-		var0.entry1008 = new class104(57, 226, 232, 46, class1035.entry0);
+		var0.buttonLaunch2 = entry1(class1035.entry1001, var0.buttonLaunch2.getText());
+		var0.buttonExit = entry1007(var0.buttonExit.getText());
+		var0.buttonRefresh = entry1008(var0.buttonRefresh.getText());
+		var0.buttonSettings = entry0(class1035.entry1000, var0.buttonSettings.getText());
+		var0.buttonCancel = entry1005(var0.buttonCancel.getText());
+		var0.buttonAccept = entry1006(var0.buttonAccept.getText());
+		var0.buttonLaunch = entry1009(var0.buttonLaunch.getText());
+		var0.login = new class1041(57, 179, 232, 46, class1035.entry0);
+		var0.password = new class104(57, 226, 232, 46, class1035.entry0);
 		var0.entry1004 = new class103(entry1000(), 324);
-		var0.entry1015 = new class1029(68, 188, 162, 16, var0.entry1015.getText(), true);
-		var0.entry1016 = new class1029(68, 214, 135, 16, var0.entry1016.getText(), var0.entry1016.isSelected());
-		var0.entry1017 = new class1029(68, 240, 160, 16, var0.entry1017.getText(), var0.entry1017.isSelected());
-		var0.entry1018 = new class1029(68, 266, 119, 16, var0.entry1018.getText(), var0.entry1018.isSelected());
-		var0.entry1019 = new class1041(72, 292, 48, 18, var0.entry1019.getText(), 4, class1035.entry0);
+		var0.savePassword = new class1029(68, 188, 162, 16, var0.savePassword.getText(), true);
+		var0.redownloadClient = new class1029(68, 214, 135, 16, var0.redownloadClient.getText(), var0.redownloadClient.isSelected());
+		var0.fullscreen = new class1029(68, 240, 160, 16, var0.fullscreen.getText(), var0.fullscreen.isSelected());
+		var0.offline = new class1029(68, 266, 119, 16, var0.offline.getText(), var0.offline.isSelected());
+		var0.memory = new class1041(72, 292, 48, 18, var0.memory.getText(), 4, class1035.entry0);
 	}
 	
 	public static final JButton entry1005(String var0) throws FontFormatException

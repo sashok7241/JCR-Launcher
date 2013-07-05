@@ -7,6 +7,6 @@ final class class1010 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		LauncherAuthFrame.entry1001.setState(1);
+		LauncherAuthFrame.frame.setState(1);
 	}
 }

@@ -30,49 +30,48 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	public static String[] settings = null;
 	public static String[] entry1 = null;
 	public static String entry10 = "";
-	private static int entry102 = 1;
 	public JButton entry100 = new JButton();
 	public JButton entry1000 = new JButton();
 	private int entry1020 = 0;
 	private int entry1021 = 0;
-	public static LauncherAuthFrame entry1001;
+	public static LauncherAuthFrame frame;
 	public LauncherGuard entry1002 = new LauncherGuard();
 	public class1039 entry1003 = new class1039();
 	public class103 entry1004 = new class103((String[]) null, 324);
-	public JTextPane entry1005 = new JTextPane();
-	public JScrollPane entry1006;
-	public JTextField entry1007;
-	public JPasswordField entry1008;
-	public JButton entry1009;
-	public JButton entry101;
-	public JButton entry1010;
-	public JButton entry1011;
-	public JButton entry1012;
-	public JButton entry1013;
-	public JButton entry1014;
-	public JCheckBox entry1015;
-	public JCheckBox entry1016;
-	public JCheckBox entry1017;
-	public JCheckBox entry1018;
-	public JTextField entry1019;
+	public JTextPane newsPane = new JTextPane();
+	public JScrollPane newsScroller;
+	public JTextField login;
+	public JPasswordField password;
+	public JButton buttonLaunch;
+	public JButton buttonExit;
+	public JButton buttonRefresh;
+	public JButton buttonLaunch2;
+	public JButton buttonSettings;
+	public JButton buttonCancel;
+	public JButton buttonAccept;
+	public JCheckBox savePassword;
+	public JCheckBox redownloadClient;
+	public JCheckBox fullscreen;
+	public JCheckBox offline;
+	public JTextField memory;
 	
 	public LauncherAuthFrame()
 	{
-		entry1006 = new JScrollPane(entry1005);
-		entry1007 = new JTextField();
-		entry1008 = new JPasswordField();
-		entry1009 = new JButton("В игру");
-		entry101 = new JButton("Выход");
-		entry1010 = new JButton("Обновить");
-		entry1011 = new JButton("В игру");
-		entry1012 = new JButton("Настройки");
-		entry1013 = new JButton("Отмена");
-		entry1014 = new JButton("Принять");
-		entry1015 = new JCheckBox("Запомнить мои данные");
-		entry1016 = new JCheckBox("Перекачать клиент");
-		entry1017 = new JCheckBox("Полноэкранный режим");
-		entry1018 = new JCheckBox("Режим оффлайн");
-		entry1019 = new JTextField("1024");
+		newsScroller = new JScrollPane(newsPane);
+		login = new JTextField();
+		password = new JPasswordField();
+		buttonLaunch = new JButton("В игру");
+		buttonExit = new JButton("Выход");
+		buttonRefresh = new JButton("Обновить");
+		buttonLaunch2 = new JButton("В игру");
+		buttonSettings = new JButton("Настройки");
+		buttonCancel = new JButton("Отмена");
+		buttonAccept = new JButton("Принять");
+		savePassword = new JCheckBox("Запомнить мои данные");
+		redownloadClient = new JCheckBox("Перекачать клиент");
+		fullscreen = new JCheckBox("Полноэкранный режим");
+		offline = new JCheckBox("Режим оффлайн");
+		memory = new JTextField("1024");
 		if(LauncherUtils.getOS() != 0)
 		{
 			setUndecorated(true);
@@ -85,35 +84,34 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 		setLocationRelativeTo((Component) null);
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(3);
-		setIconImage(LauncherUtils.entry1000);
+		setIconImage(LauncherUtils.iconImage);
 		this.entry1();
 		try
 		{
 			class1019.entry1(this);
 		} catch(Exception var2)
 		{
-			;
 		}
-		entry1007.setText("Логин");
-		entry1007.addActionListener((ActionListener) null);
-		entry1007.addFocusListener(this);
-		entry1008.setText("Пароль");
-		entry1008.addActionListener((ActionListener) null);
-		entry1008.addFocusListener(this);
-		entry1005.setOpaque(false);
-		entry1005.setBorder((Border) null);
-		entry1005.setContentType("text/html");
-		entry1005.setEditable(false);
-		entry1005.setFocusable(false);
-		entry1005.addHyperlinkListener(new class1028(this));
-		entry1006.setOpaque(false);
-		entry1006.getViewport().setOpaque(false);
-		entry1006.setBorder((Border) null);
-		entry1006.setBounds(371, 45, LauncherUtils.entry1010.getWidth() - 50, 360);
+		login.setText("Логин");
+		login.addActionListener((ActionListener) null);
+		login.addFocusListener(this);
+		password.setText("Пароль");
+		password.addActionListener((ActionListener) null);
+		password.addFocusListener(this);
+		newsPane.setOpaque(false);
+		newsPane.setBorder((Border) null);
+		newsPane.setContentType("text/html");
+		newsPane.setEditable(false);
+		newsPane.setFocusable(false);
+		newsPane.addHyperlinkListener(new class1028(this));
+		newsScroller.setOpaque(false);
+		newsScroller.getViewport().setOpaque(false);
+		newsScroller.setBorder((Border) null);
+		newsScroller.setBounds(371, 45, LauncherUtils.newsBackground.getWidth() - 50, 360);
 		entry1004.addMouseListener(new class1026(this));
 		entry1003.addKeyListener(this);
-		entry1007.addKeyListener(this);
-		entry1008.addKeyListener(this);
+		login.addKeyListener(this);
+		password.addKeyListener(this);
 		this.entry1(false);
 		entry10(false);
 		setContentPane(entry1003);
@@ -122,20 +120,20 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	public final void entry0(boolean var1)
 	{
 		entry1004.setEnabled(var1);
-		entry1007.setEnabled(var1);
-		entry1008.setEnabled(var1);
-		entry1011.setEnabled(var1);
-		entry1012.setEnabled(var1);
-		entry101.setEnabled(var1);
-		entry1010.setEnabled(var1);
-		entry1013.setEnabled(var1);
-		entry1014.setEnabled(var1);
-		entry1015.setEnabled(var1);
-		entry1016.setEnabled(var1);
-		entry1017.setEnabled(var1);
-		entry1018.setEnabled(var1);
-		entry1019.setEnabled(var1);
-		entry1009.setEnabled(var1);
+		login.setEnabled(var1);
+		password.setEnabled(var1);
+		buttonLaunch2.setEnabled(var1);
+		buttonSettings.setEnabled(var1);
+		buttonExit.setEnabled(var1);
+		buttonRefresh.setEnabled(var1);
+		buttonCancel.setEnabled(var1);
+		buttonAccept.setEnabled(var1);
+		savePassword.setEnabled(var1);
+		redownloadClient.setEnabled(var1);
+		fullscreen.setEnabled(var1);
+		offline.setEnabled(var1);
+		memory.setEnabled(var1);
+		buttonLaunch.setEnabled(var1);
 	}
 	
 	public final void entry0(int var1)
@@ -224,17 +222,17 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 		if(!var1)
 		{
 			entry1003.add(entry1004);
-			entry1003.add(entry1011);
-			entry1003.add(entry1012);
-			entry1003.add(entry1007);
-			entry1003.add(entry1008);
+			entry1003.add(buttonLaunch2);
+			entry1003.add(buttonSettings);
+			entry1003.add(login);
+			entry1003.add(password);
 		} else
 		{
 			entry1003.remove(entry1004);
-			entry1003.remove(entry1011);
-			entry1003.remove(entry1012);
-			entry1003.remove(entry1007);
-			entry1003.remove(entry1008);
+			entry1003.remove(buttonLaunch2);
+			entry1003.remove(buttonSettings);
+			entry1003.remove(login);
+			entry1003.remove(password);
 		}
 	}
 	
@@ -242,22 +240,22 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(entry1013);
-			entry1003.add(entry1014);
-			entry1003.add(entry1015);
-			entry1003.add(entry1016);
-			entry1003.add(entry1017);
-			entry1003.add(entry1018);
-			entry1003.add(entry1019);
+			entry1003.add(buttonCancel);
+			entry1003.add(buttonAccept);
+			entry1003.add(savePassword);
+			entry1003.add(redownloadClient);
+			entry1003.add(fullscreen);
+			entry1003.add(offline);
+			entry1003.add(memory);
 		} else
 		{
-			entry1003.remove(entry1013);
-			entry1003.remove(entry1014);
-			entry1003.remove(entry1015);
-			entry1003.remove(entry1016);
-			entry1003.remove(entry1017);
-			entry1003.remove(entry1018);
-			entry1003.remove(entry1019);
+			entry1003.remove(buttonCancel);
+			entry1003.remove(buttonAccept);
+			entry1003.remove(savePassword);
+			entry1003.remove(redownloadClient);
+			entry1003.remove(fullscreen);
+			entry1003.remove(offline);
+			entry1003.remove(memory);
 		}
 	}
 	
@@ -265,12 +263,12 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(entry101);
-			entry1003.add(entry1010);
+			entry1003.add(buttonExit);
+			entry1003.add(buttonRefresh);
 		} else
 		{
-			entry1003.remove(entry101);
-			entry1003.remove(entry1010);
+			entry1003.remove(buttonExit);
+			entry1003.remove(buttonRefresh);
 		}
 	}
 	
@@ -278,34 +276,34 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(entry1009);
+			entry1003.add(buttonLaunch);
 		} else
 		{
-			entry1003.remove(entry1009);
+			entry1003.remove(buttonLaunch);
 		}
 	}
 	
 	@Override public final void focusGained(FocusEvent var1)
 	{
-		if(var1.getSource() == entry1007 && entry1007.getText().equals("Логин"))
+		if(var1.getSource() == login && login.getText().equals("Логин"))
 		{
-			entry1007.setText("");
+			login.setText("");
 		}
-		if(var1.getSource() == entry1008 && new String(entry1008.getPassword()).equals("Пароль"))
+		if(var1.getSource() == password && new String(password.getPassword()).equals("Пароль"))
 		{
-			entry1008.setText("");
+			password.setText("");
 		}
 	}
 	
 	@Override public final void focusLost(FocusEvent var1)
 	{
-		if(var1.getSource() == entry1007 && entry1007.getText().equals(""))
+		if(var1.getSource() == login && login.getText().equals(""))
 		{
-			entry1007.setText("Логин");
+			login.setText("Логин");
 		}
-		if(var1.getSource() == entry1008 && new String(entry1008.getPassword()).equals(""))
+		if(var1.getSource() == password && new String(password.getPassword()).equals(""))
 		{
-			entry1008.setText("Пароль");
+			password.setText("Пароль");
 		}
 	}
 	
@@ -319,10 +317,10 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 		{
 			if(entry1003.entry10 == 0)
 			{
-				entry1011.doClick();
+				buttonLaunch2.doClick();
 			} else if(entry1003.entry10 == 4)
 			{
-				entry1009.doClick();
+				buttonLaunch.doClick();
 			}
 		}
 	}
@@ -381,12 +379,12 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	
 	public static final void showLauncherFrame(LauncherSplashFrame var0) throws UnsupportedEncodingException
 	{
-		entry1001 = new LauncherAuthFrame();
-		entry1001.entry1003.entry0();
-		LauncherUtils.entry0(entry1001);
-		entry1001.entry1003.entry0(true);
+		frame = new LauncherAuthFrame();
+		frame.entry1003.entry0();
+		LauncherUtils.entry0(frame);
+		frame.entry1003.entry0(true);
 		class1008.entry1();
 		SwingUtilities.invokeLater(new LauncherRunnableDisposer(var0));
-		entry1001.setVisible(true);
+		frame.setVisible(true);
 	}
 }

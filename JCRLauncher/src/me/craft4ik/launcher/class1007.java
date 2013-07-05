@@ -6,18 +6,18 @@ final class class1007 extends Thread
 	{
 		try
 		{
-			LauncherAuthFrame.entry1001.entry1010.setEnabled(false);
-			LauncherAuthFrame.entry1001.entry1003.entry0(true, 382);
-			LauncherAuthFrame.entry1001.entry0("", 0);
+			LauncherAuthFrame.frame.buttonRefresh.setEnabled(false);
+			LauncherAuthFrame.frame.entry1003.entry0(true, 382);
+			LauncherAuthFrame.frame.entry0("", 0);
 			LauncherUtils.sleep(1.0D);
 			LauncherUtils.entry1009();
 		} catch(Exception var2)
 		{
-			LauncherAuthFrame.entry1001.entry0("Ошибка при обновлении", 3, 391);
+			LauncherAuthFrame.frame.entry0("Ошибка при обновлении", 3, 391);
 			LauncherAuthFrame.error("Ошибка при обновлении программы");
-			LauncherAuthFrame.entry1001.entry1010.setEnabled(true);
-			LauncherAuthFrame.entry1001.entry1010.setText("Еще раз");
-			LauncherAuthFrame.entry1001.entry1003.entry0(false);
+			LauncherAuthFrame.frame.buttonRefresh.setEnabled(true);
+			LauncherAuthFrame.frame.buttonRefresh.setText("Еще раз");
+			LauncherAuthFrame.frame.entry1003.entry0(false);
 		}
 	}
 }

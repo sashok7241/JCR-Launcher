@@ -15,8 +15,8 @@ public class class1045 extends JFrame
 	
 	public class1045(String[] var1)
 	{
-		String var2 = LauncherAuthFrame.entry1001.entry1018.isSelected() ? "Player" : LauncherAuthFrame.entry1001.entry1007.getText();
-		String var3 = LauncherAuthFrame.entry1001.entry1018.isSelected() ? "123456" : LauncherGuard.getMD5String(var1[7]);
+		String var2 = LauncherAuthFrame.frame.offline.isSelected() ? "Player" : LauncherAuthFrame.frame.login.getText();
+		String var3 = LauncherAuthFrame.frame.offline.isSelected() ? "123456" : LauncherGuard.getMD5String(var1[7]);
 		LauncherGuard.entry0(LauncherAuthFrame.settings, true);
 		new Timer(30000, new class1046(this)).start();
 		try
@@ -30,7 +30,7 @@ public class class1045 extends JFrame
 			entry0.entry0.put("username", var2);
 			entry0.entry0.put("sessionid", var3);
 			entry0.entry0.put("stand-alone", "true");
-			if(!LauncherAuthFrame.entry1001.entry1018.isSelected())
+			if(!LauncherAuthFrame.frame.offline.isSelected())
 			{
 				entry0.entry0.put("server", LauncherUtils.entry1001()[1]);
 				entry0.entry0.put("port", LauncherUtils.entry1001()[2]);
@@ -48,7 +48,7 @@ public class class1045 extends JFrame
 			entry0.setBackground(Color.BLACK);
 			this.add(entry0, "Center");
 			validate();
-			LauncherAuthFrame.entry1001.setVisible(false);
+			LauncherAuthFrame.frame.setVisible(false);
 			setVisible(true);
 			entry0.init();
 			entry0.start();

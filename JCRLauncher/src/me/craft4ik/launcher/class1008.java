@@ -7,7 +7,7 @@ public class class1008
 	public static final void entry0()
 	{
 		entry0(entry0);
-		entry0 = new class1001();
+		entry0 = new LauncherRunnableAuthenticate();
 		entry0.setName("doLogin");
 		entry0.start();
 	}
