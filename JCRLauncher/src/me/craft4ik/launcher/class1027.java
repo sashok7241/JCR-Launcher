@@ -26,7 +26,7 @@ public class class1027 extends JButton
 	public static BufferedImage entry1005 = class100.entry1005.getSubimage(0, 76, 112, 38);
 	public static BufferedImage entry1006 = class100.entry1005.getSubimage(0, 114, 112, 38);
 	
-	public class1027(class1 var1, String var2) throws FontFormatException
+	public class1027(ImageUtils var1, String var2) throws FontFormatException
 	{
 		setText(var2);
 		setBorderPainted(false);

@@ -6,7 +6,7 @@ final class class1004 extends Thread
 		String var1 = class1014.entry10(class1014.entry0());
 		if(!var1.isEmpty())
 		{
-			class1033.entry10 = var1;
+			Frame.entry10 = var1;
 		}
 	}
 }

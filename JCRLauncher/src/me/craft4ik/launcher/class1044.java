@@ -63,13 +63,13 @@ public class class1044 extends Thread
 			entry1002 = "загрузка файлов...";
 			if(!entry1001.isEmpty())
 			{
-				class1033.entry0("Запуск процесса загрузки файлов: ");
+				Frame.log("Запуск процесса загрузки файлов: ");
 			}
 			byte[] var16 = new byte[65536];
 			for(int var17 = 0; var17 < entry1001.size(); ++var17)
 			{
 				entry100 = (String) entry1001.get(var17);
-				class1033.entry0(" * Загрузка файла: " + entry100);
+				Frame.log(" * Загрузка файла: " + entry100);
 				BufferedInputStream var6 = new BufferedInputStream(new URL(var2 + (String) entry1001.get(var17)).openStream());
 				FileOutputStream var7 = new FileOutputStream(var1 + (String) entry1001.get(var17));
 				long var8 = System.currentTimeMillis();
@@ -94,7 +94,7 @@ public class class1044 extends Thread
 				}
 				var6.close();
 				var7.close();
-				class1033.entry0(" * * Файл " + entry100 + " загружен");
+				Frame.log(" * * Файл " + entry100 + " загружен");
 			}
 			entry1002 = "завершение...";
 			if(entry1003)

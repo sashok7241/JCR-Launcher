@@ -8,7 +8,7 @@ public class class1019 extends class100
 	public static boolean[] entry1016;
 	public static String entry1017;
 	
-	public static final JButton entry0(class1 var0) throws FontFormatException
+	public static final JButton entry0(ImageUtils var0) throws FontFormatException
 	{
 		class1027 var1 = new class1027(var0, "");
 		class101 var2 = new class101();
@@ -16,7 +16,7 @@ public class class1019 extends class100
 		return var1;
 	}
 	
-	public static final JButton entry0(class1 var0, String var1) throws FontFormatException
+	public static final JButton entry0(ImageUtils var0, String var1) throws FontFormatException
 	{
 		class1027 var2 = new class1027(var0, var1);
 		class1011 var3 = new class1011();
@@ -24,7 +24,7 @@ public class class1019 extends class100
 		return var2;
 	}
 	
-	public static final JButton entry1(class1 var0) throws FontFormatException
+	public static final JButton entry1(ImageUtils var0) throws FontFormatException
 	{
 		class1027 var1 = new class1027(var0, "");
 		class1010 var2 = new class1010();
@@ -32,7 +32,7 @@ public class class1019 extends class100
 		return var1;
 	}
 	
-	public static final JButton entry1(class1 var0, String var1) throws FontFormatException
+	public static final JButton entry1(ImageUtils var0, String var1) throws FontFormatException
 	{
 		class1027 var2 = new class1027(var0, var1);
 		class1015 var3 = new class1015();
@@ -40,7 +40,7 @@ public class class1019 extends class100
 		return var2;
 	}
 	
-	public static final void entry1(class1033 var0) throws FontFormatException
+	public static final void entry1(Frame var0) throws FontFormatException
 	{
 		var0.entry100 = entry1(class1035.entry1002);
 		var0.entry1000 = entry0(class1035.entry1003);

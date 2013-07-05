@@ -33,14 +33,14 @@ public class Launcher
 	
 	private static final void entry10()
 	{
-		class1033.entry0("Подготовка к запуску программы...");
+		Frame.log("Подготовка к запуску программы...");
 		SwingUtilities.invokeLater(new class105());
 	}
 	
 	private static final void entry100() throws InterruptedException
 	{
 		entry0("загрузка изображений...");
-		class1033.entry0();
+		Frame.entry0();
 		entry0("запуск программы...");
 	}
 	

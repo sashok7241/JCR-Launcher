@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-public class class1033 extends JFrame implements FocusListener, KeyListener
+public class Frame extends JFrame implements FocusListener, KeyListener
 {
 	private static final long serialVersionUID = 1L;
 	public static String[] entry0 = null;
@@ -34,7 +34,7 @@ public class class1033 extends JFrame implements FocusListener, KeyListener
 	public JButton entry1000 = new JButton();
 	private int entry1020 = 0;
 	private int entry1021 = 0;
-	public static class1033 entry1001;
+	public static Frame entry1001;
 	public class1014 entry1002 = new class1014();
 	public class1039 entry1003 = new class1039();
 	public class103 entry1004 = new class103((String[]) null, 324);
@@ -55,7 +55,7 @@ public class class1033 extends JFrame implements FocusListener, KeyListener
 	public JCheckBox entry1018;
 	public JTextField entry1019;
 	
-	public class1033()
+	public Frame()
 	{
 		entry1006 = new JScrollPane(entry1005);
 		entry1007 = new JTextField();
@@ -139,7 +139,7 @@ public class class1033 extends JFrame implements FocusListener, KeyListener
 	
 	public final void entry0(int var1)
 	{
-		BufferedImage var2 = class1.entry0(entry1003).getSubimage(0, 0, entry1003.getWidth(), entry1003.getHeight());
+		BufferedImage var2 = ImageUtils.screenshot(entry1003).getSubimage(0, 0, entry1003.getWidth(), entry1003.getHeight());
 		entry1003.removeAll();
 		class1039 var10000 = entry1003;
 		class1039.entry1.entry0(var2, var1);
@@ -332,14 +332,14 @@ public class class1033 extends JFrame implements FocusListener, KeyListener
 	
 	public static final void entry0()
 	{
-		entry0("Запуск qoobworld launcher v5.0");
+		log("Запуск qoobworld launcher v5.0");
 		try
 		{
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			entry0("Установка системного LnF успешно завершена");
+			log("Установка системного LnF успешно завершена");
 		} catch(Exception var1)
 		{
-			entry0("Не удалось установить системный LnF");
+			log("Не удалось установить системный LnF");
 		}
 		class1008.entry10();
 		entry1 = class100.entry10();
@@ -347,20 +347,20 @@ public class class1033 extends JFrame implements FocusListener, KeyListener
 	}
 	
 	// $FF: synthetic method
-	static final int entry0(class1033 var0)
+	static final int entry0(Frame var0)
 	{
 		return var0.entry1020;
 	}
 	
 	// $FF: synthetic method
-	static final int entry0(class1033 var0, int var1)
+	static final int entry0(Frame var0, int var1)
 	{
 		return var0.entry1020 = var1;
 	}
 	
 	public static final void entry0(class1050 var0) throws UnsupportedEncodingException
 	{
-		entry1001 = new class1033();
+		entry1001 = new Frame();
 		entry1001.entry1003.entry0();
 		class100.entry0(entry1001);
 		entry1001.entry1003.entry0(true);
@@ -369,18 +369,18 @@ public class class1033 extends JFrame implements FocusListener, KeyListener
 		entry1001.show();
 	}
 	
-	public static final void entry0(String var0)
+	public static final void log(String var0)
 	{
 	}
 	
 	// $FF: synthetic method
-	static final int entry1(class1033 var0)
+	static final int entry1(Frame var0)
 	{
 		return var0.entry1021;
 	}
 	
 	// $FF: synthetic method
-	static final int entry1(class1033 var0, int var1)
+	static final int entry1(Frame var0, int var1)
 	{
 		return var0.entry1021 = var1;
 	}

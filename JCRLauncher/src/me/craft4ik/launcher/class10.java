@@ -184,11 +184,8 @@ public class class10
 		try
 		{
 			if(entry1.booleanValue()) return Integer.valueOf(Integer.parseInt((String) entry100.get(var1)));
-			else
-			{
-				HashMap var2 = this.entry1();
-				return Integer.valueOf(Integer.parseInt((String) var2.get(var1)));
-			}
+			HashMap var2 = this.entry1();
+			return Integer.valueOf(Integer.parseInt((String) var2.get(var1)));
 		} catch(Exception var3)
 		{
 			return null;

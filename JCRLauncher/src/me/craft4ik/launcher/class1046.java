@@ -14,6 +14,6 @@ class class1046 implements ActionListener
 	
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		class1014.entry0(class1033.entry0, false);
+		class1014.entry0(Frame.entry0, false);
 	}
 }

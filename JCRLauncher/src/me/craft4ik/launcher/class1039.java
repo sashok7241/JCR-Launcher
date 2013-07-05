@@ -175,7 +175,7 @@ public class class1039 extends JPanel
 	
 	public final void entry1001()
 	{
-		class1033.entry1001.setSize(346 + class100.entry1010.getWidth(), 498);
+		Frame.entry1001.setSize(346 + class100.entry1010.getWidth(), 498);
 		entry1015 = class100.entry1010.getWidth();
 		entry1004 = true;
 		entry100 = new Timer(50, new class1025(this));
@@ -240,7 +240,7 @@ public class class1039 extends JPanel
 				e.printStackTrace();
 			}
 			var2.setColor(new Color(0, 0, 0, entry0(5)));
-			entry0(class1.entry0(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
+			entry0(ImageUtils.genPanel(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
 			var2.setColor(new Color(0, 0, 0, entry0(100)));
 			try
 			{
@@ -279,7 +279,7 @@ public class class1039 extends JPanel
 				e.printStackTrace();
 			}
 			var2.setColor(new Color(0, 0, 0, entry0(5)));
-			entry0(class1.entry0(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
+			entry0(ImageUtils.genPanel(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
 			var2.setColor(new Color(0, 0, 0));
 			try
 			{
@@ -294,7 +294,7 @@ public class class1039 extends JPanel
 			var2.drawString("Размер обновления: " + class100.entry0.entry1 / 1024L + " kB", 66, 260);
 			var2.drawString("Загружено: " + class100.entry0.entry10 / 1024L + " kB", 66, 275);
 			var2.drawString("До завершения: " + var5 + " секунд", 66, 303);
-			var2.drawImage(class1.entry0(0, 232, 24, 26, 100, class100.entry1009), 57, 324, 232, 26, (ImageObserver) null);
+			var2.drawImage(ImageUtils.genProgressbar(0, 232, 24, 26, 100, class100.entry1009), 57, 324, 232, 26, (ImageObserver) null);
 			var2.setColor(new Color(245, 245, 245));
 			try
 			{
@@ -302,7 +302,7 @@ public class class1039 extends JPanel
 			} catch(FontFormatException e)
 			{
 			}
-			BufferedImage var6 = class1.entry0(24, 232, 24, 26, class100.entry0.entry0, class100.entry1009);
+			BufferedImage var6 = ImageUtils.genProgressbar(24, 232, 24, 26, class100.entry0.entry0, class100.entry1009);
 			try
 			{
 				int var7 = class100.entry0.entry0 * 232 / 100;
@@ -327,7 +327,7 @@ public class class1039 extends JPanel
 			{
 				e.printStackTrace();
 			}
-			entry0(class1.entry0(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
+			entry0(ImageUtils.genPanel(232, 139, class100.entry101), var3, 179, Color.BLACK, var2);
 			var2.setColor(new Color(0, 0, 0));
 			try
 			{

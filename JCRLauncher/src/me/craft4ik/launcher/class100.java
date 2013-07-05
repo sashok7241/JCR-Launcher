@@ -115,7 +115,7 @@ public class class100
 		entry1015 = entry0("char.png");
 	}
 	
-	public static final void entry0(class1033 var0) throws UnsupportedEncodingException
+	public static final void entry0(Frame var0) throws UnsupportedEncodingException
 	{
 		String var1 = class1000.entry1(entry1001("login"));
 		if(!var1.equals(""))
@@ -180,7 +180,7 @@ public class class100
 			}
 		} catch(Exception var5)
 		{
-			class1033.entry1("Удаление не удалось: " + var0.toString());
+			Frame.entry1("Удаление не удалось: " + var0.toString());
 		}
 	}
 	
@@ -189,11 +189,11 @@ public class class100
 		try
 		{
 			BufferedImage var1 = ImageIO.read(class100.class.getResource(entry0().getImagesDirectory() + var0));
-			class1033.entry0("Открыто локальное изображение: " + var0);
+			Frame.log("Открыто локальное изображение: " + var0);
 			return var1;
 		} catch(Exception var2)
 		{
-			class1033.entry1("Ошибка при открытии изображения: " + var0);
+			Frame.entry1("Ошибка при открытии изображения: " + var0);
 			return new BufferedImage(1, 1, 2);
 		}
 	}
@@ -215,11 +215,11 @@ public class class100
 		try
 		{
 			var2 = ImageIO.read(new URL(var0 + var1));
-			class1033.entry0(" * Загружено изображение: " + var1);
+			Frame.log(" * Загружено изображение: " + var1);
 			return var2;
 		} catch(Exception var4)
 		{
-			class1033.entry1(" * Загрузка прервана на элементе: " + var1);
+			Frame.entry1(" * Загрузка прервана на элементе: " + var1);
 			entry100 = true;
 			return null;
 		}
@@ -236,7 +236,7 @@ public class class100
 			{
 				if(var2)
 				{
-					class1033.entry0("Утановка соединения с: " + var0 + var1);
+					Frame.log("Утановка соединения с: " + var0 + var1);
 				}
 				URL var4 = new URL(var0 + var1);
 				var3 = (HttpURLConnection) var4.openConnection();
@@ -286,7 +286,7 @@ public class class100
 				var30 = var6.toString();
 				if(var2)
 				{
-					class1033.entry0("Соединение установлено. Получен ответ: \'" + var30 + "\'");
+					Frame.log("Соединение установлено. Получен ответ: \'" + var30 + "\'");
 				}
 				String var31 = var30;
 				return var31;
@@ -294,7 +294,7 @@ public class class100
 			{
 				if(var2)
 				{
-					class1033.entry1("Не удалось установить соединение с: " + var0 + ", возвращаю null");
+					Frame.entry1("Не удалось установить соединение с: " + var0 + ", возвращаю null");
 				}
 			}
 			var5 = null;
@@ -325,29 +325,29 @@ public class class100
 		try
 		{
 			String var1 = entry1001()[3];
-			String[] var2 = class1033.entry0[10].split("<:f:>");
-			class1033.entry0("Запуск процесса патчинга: ");
-			class1033.entry0(" * Обнаружение клиента...");
-			class1033.entry0(" * Клиент: " + entry1002() + " :: " + var1);
-			class1033.entry0(" * Поиск версии в библиотеке...");
+			String[] var2 = Frame.entry0[10].split("<:f:>");
+			Frame.log("Запуск процесса патчинга: ");
+			Frame.log(" * Обнаружение клиента...");
+			Frame.log(" * Клиент: " + entry1002() + " :: " + var1);
+			Frame.log(" * Поиск версии в библиотеке...");
 			for(String element : var2)
 			{
 				if(var1.contains(element.split("::")[0].replace("x", "")))
 				{
-					class1033.entry0(" * Патчинг клиента...");
+					Frame.log(" * Патчинг клиента...");
 					Field var4 = var0.loadClass("net.minecraft.client.Minecraft").getDeclaredField(element.split("::")[1]);
 					AccessibleObject.setAccessible(new Field[] { var4 }, true);
 					var4.set((Object) null, new File(entry1004()));
-					class1033.entry0(" * Файл пропатчен: net.minecraft.client.Minecraft :: " + element.split("::")[1]);
-					class1033.entry0(" * Патчинг клиента успешно завершен");
+					Frame.log(" * Файл пропатчен: net.minecraft.client.Minecraft :: " + element.split("::")[1]);
+					Frame.log(" * Патчинг клиента успешно завершен");
 					return;
 				}
 			}
-			class1033.entry1(" * Данная версия клиента не обнаружена!");
-			class1033.entry1(" * Не удалось произвести патчинг клиента");
+			Frame.entry1(" * Данная версия клиента не обнаружена!");
+			Frame.entry1(" * Не удалось произвести патчинг клиента");
 		} catch(Exception var5)
 		{
-			class1033.entry1(" * Ошибка: поле клиента не корректно");
+			Frame.entry1(" * Ошибка: поле клиента не корректно");
 		}
 	}
 	
@@ -358,8 +358,8 @@ public class class100
 		{
 			if(entry100())
 			{
-				class1033.entry0("Загужаю online тему...");
-				String[] var1 = class1033.entry1[1].split("<:i:>");
+				Frame.log("Загужаю online тему...");
+				String[] var1 = Frame.entry1[1].split("<:i:>");
 				for(int var2 = 0; var2 < var1.length; ++var2)
 				{
 					entry0(entry0(entry10(var0), var1[var2]), var2);
@@ -370,10 +370,10 @@ public class class100
 				}
 				if(!entry100)
 				{
-					class1033.entry0("Online тема успешо загружена");
+					Frame.log("Online тема успешо загружена");
 				} else
 				{
-					class1033.entry1("Не удалось загрузить элементы online темы, запускаю тему по умолчанию");
+					Frame.entry1("Не удалось загрузить элементы online темы, запускаю тему по умолчанию");
 				}
 			} else
 			{
@@ -382,7 +382,7 @@ public class class100
 		} catch(Exception var3)
 		{
 			entry100 = true;
-			class1033.entry1("Не удалось загрузить online тему, запускаю тему по умолчанию");
+			Frame.entry1("Не удалось загрузить online тему, запускаю тему по умолчанию");
 		}
 		if(entry100)
 		{
@@ -401,23 +401,23 @@ public class class100
 	
 	public static final String[] entry10()
 	{
-		class1033.entry0("Загружаю online настройки...");
+		Frame.log("Загружаю online настройки...");
 		try
 		{
 			String var0 = entry0(entry10("jcr_theme.php"), "?action=settings&request=elements&version=v5.0", false);
 			if(var0 == null)
 			{
-				class1033.entry1("Не удалось загрузить online настройки");
+				Frame.entry1("Не удалось загрузить online настройки");
 				return null;
 			} else if(var0.contains("<::>")) return var0.replaceAll("<br>", "").split("<::>");
 			else
 			{
-				class1033.entry1("Не удалось загрузить online настройки");
+				Frame.entry1("Не удалось загрузить online настройки");
 				return null;
 			}
 		} catch(Exception var1)
 		{
-			class1033.entry1("Не удалось загрузить online настройки");
+			Frame.entry1("Не удалось загрузить online настройки");
 			return null;
 		}
 	}
@@ -431,7 +431,7 @@ public class class100
 	{
 		try
 		{
-			return class1033.entry1[0].equals("true");
+			return Frame.entry1[0].equals("true");
 		} catch(Exception var1)
 		{
 			return false;
@@ -451,11 +451,11 @@ public class class100
 			String var1 = entry0(entry10("jcr_status.php"), "?action=servers", false);
 			if(var1 == null)
 			{
-				class1033.entry1("Не удалось загрузить список серверов");
+				Frame.entry1("Не удалось загрузить список серверов");
 				return var0;
 			} else if(!var1.contains(" :: "))
 			{
-				class1033.entry1("Не удалось загрузить список серверов");
+				Frame.entry1("Не удалось загрузить список серверов");
 				return var0;
 			} else
 			{
@@ -469,7 +469,7 @@ public class class100
 			}
 		} catch(Exception var4)
 		{
-			class1033.entry1("Не удалось загрузить список серверов");
+			Frame.entry1("Не удалось загрузить список серверов");
 			return var0;
 		}
 	}
@@ -484,7 +484,7 @@ public class class100
 	
 	public static final String[] entry1001()
 	{
-		int var0 = class1033.entry1001.entry1004.entry0();
+		int var0 = Frame.entry1001.entry1004.entry0();
 		return entry10 != null ? entry10[var0].split(" :: ") : null;
 	}
 	
@@ -528,7 +528,7 @@ public class class100
 			var1.getClass().getMethod("browse", new Class[] { URI.class }).invoke(var1, new Object[] { new URI(var0) });
 		} catch(URISyntaxException var2)
 		{
-			class1033.entry1("Не удалось открыть ссылку: " + var0);
+			Frame.entry1("Не удалось открыть ссылку: " + var0);
 		}
 	}
 	
@@ -566,14 +566,14 @@ public class class100
 		}
 		if(!var2.exists() && !var2.mkdirs())
 		{
-			class1033.entry1("Директория не найдена: " + var2);
+			Frame.entry1("Директория не найдена: " + var2);
 		}
 		return var2;
 	}
 	
 	public static final void entry1006() throws IOException
 	{
-		class1033 var0 = class1033.entry1001;
+		Frame var0 = Frame.entry1001;
 		if(var0.entry1015.isSelected())
 		{
 			entry0("login", (Object) class1000.entry0(var0.entry1007.getText()));
@@ -603,13 +603,13 @@ public class class100
 	
 	public static final void entry1008()
 	{
-		if(class1033.entry1001.entry1016.isSelected())
+		if(Frame.entry1001.entry1016.isSelected())
 		{
 			entry1000(entry1002() + "_hashZip");
 			entry0(new File(entry1004()));
 		}
 		boolean var0 = false;
-		String[] var1 = class1033.entry0;
+		String[] var1 = Frame.entry0;
 		String[] var2 = var1[9].split("<:m:>");
 		String[] var3 = var1[13].split("<:m:>");
 		String[] var4 = var1[15].split("<:n:>");
@@ -675,25 +675,25 @@ public class class100
 		}
 		if(!var5.isEmpty())
 		{
-			class1033.entry0("Список загружаемых файлов: ");
+			Frame.log("Список загружаемых файлов: ");
 			Object[] var15 = var5.toArray();
 			int var14 = var15.length;
 			for(int var12 = 0; var12 < var14; ++var12)
 			{
 				Object var13 = var15[var12];
-				class1033.entry0(" * " + var13.toString());
+				Frame.log(" * " + var13.toString());
 			}
 		}
 		entry0 = new class1044(var5, var0, var1);
-		class1033.entry1001.entry0(4);
+		Frame.entry1001.entry0(4);
 		entry0.start();
 	}
 	
 	public static final void entry1009() throws IOException, NoSuchAlgorithmException, InterruptedException
 	{
-		class1033.entry0("Запуск процесса обновления программы...");
-		String var0 = entry100("program/" + class1033.entry0[14]);
-		class1033.entry0("Загрузка файла: " + var0);
+		Frame.log("Запуск процесса обновления программы...");
+		String var0 = entry100("program/" + Frame.entry0[14]);
+		Frame.log("Загрузка файла: " + var0);
 		BufferedInputStream var1 = new BufferedInputStream(new URL(var0).openStream());
 		FileOutputStream var2 = new FileOutputStream(class1014.entry0());
 		boolean var3 = false;
@@ -707,15 +707,15 @@ public class class100
 		}
 		var1.close();
 		var2.close();
-		class1033.entry0("Файл загружен: " + var0);
+		Frame.log("Файл загружен: " + var0);
 		if(entry1005() == 3)
 		{
-			class1033.entry0("Обновление завершено успешно");
-			class1033.entry1001.entry1003.entry0(false);
-			class1033.entry1001.entry101.setEnabled(false);
-			class1033.entry1001.entry1010.setEnabled(false);
-			class1033.entry1001.entry0("Требуется перезапуск", 1, 391);
-			class1033.entry0("Требуется перезапуск программы");
+			Frame.log("Обновление завершено успешно");
+			Frame.entry1001.entry1003.entry0(false);
+			Frame.entry1001.entry101.setEnabled(false);
+			Frame.entry1001.entry1010.setEnabled(false);
+			Frame.entry1001.entry0("Требуется перезапуск", 1, 391);
+			Frame.log("Требуется перезапуск программы");
 		} else
 		{
 			class1024.entry0((String[]) null);
@@ -732,7 +732,7 @@ public class class100
 	
 	public static final void entry1010()
 	{
-		class1033.entry0("Перезапуск программы...");
+		Frame.log("Перезапуск программы...");
 		try
 		{
 			class1024.entry0((String[]) null);

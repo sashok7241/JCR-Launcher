@@ -136,9 +136,9 @@ public class class1021 extends Applet implements AppletStub
 	{
 		if(entry1 != null)
 		{
-			class1033.entry0("-------------------------------");
-			class1033.entry0("Перенаправление на Minecraft...");
-			class1033.entry0("-------------------------------");
+			Frame.log("-------------------------------");
+			Frame.log("Перенаправление на Minecraft...");
+			Frame.log("-------------------------------");
 			entry1.start();
 		}
 	}

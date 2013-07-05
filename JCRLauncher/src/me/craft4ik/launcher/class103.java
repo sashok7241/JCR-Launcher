@@ -84,7 +84,7 @@ public class class103 extends JComponent implements MouseListener, MouseMotionLi
 		if(entry1006 && var2 && entry1008 < entry0.length)
 		{
 			entry1007 = entry1008;
-			class1033.entry1001.entry1003.entry1003();
+			Frame.entry1001.entry1003.entry1003();
 		}
 		entry1006 = !entry1006;
 		this.repaint();

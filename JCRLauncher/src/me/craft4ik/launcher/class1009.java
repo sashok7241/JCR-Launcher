@@ -17,7 +17,7 @@ public class class1009
 			return Color.decode(var0);
 		} catch(Exception var1)
 		{
-			class1033.entry1("Не удалось загрузить online цветовую схему программы");
+			Frame.entry1("Не удалось загрузить online цветовую схему программы");
 			return Color.decode(class100.entry0().getColorScheme());
 		}
 	}
@@ -39,12 +39,12 @@ public class class1009
 					break;
 				default:
 					entry0 = new Font("Arial", 0, (int) var0);
-					class1033.entry1("Шрифт #" + var1 + " не обнаружен, установлен шрифт " + entry0.getFontName());
+					Frame.entry1("Шрифт #" + var1 + " не обнаружен, установлен шрифт " + entry0.getFontName());
 			}
 		} catch(IOException var3)
 		{
 			entry0 = new Font("Arial", 0, (int) var0);
-			class1033.entry1("Установка шрифта #" + var1 + " не удалась, установлен шрифт " + entry0.getFontName());
+			Frame.entry1("Установка шрифта #" + var1 + " не удалась, установлен шрифт " + entry0.getFontName());
 		}
 		return entry0.deriveFont(var0);
 	}

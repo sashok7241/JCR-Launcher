@@ -14,13 +14,13 @@ class class1025 implements ActionListener
 	
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		class1033.entry1001.entry1009.setEnabled(false);
+		Frame.entry1001.entry1009.setEnabled(false);
 		if(class1039.entry1004() == 0)
 		{
 			entry0.entry100.stop();
-			class1033.entry1001.entry1006.setViewportView(class1033.entry1001.entry1005);
-			entry0.add(class1033.entry1001.entry1006);
-			class1033.entry1001.entry1009.setEnabled(true);
+			Frame.entry1001.entry1006.setViewportView(Frame.entry1001.entry1005);
+			entry0.add(Frame.entry1001.entry1006);
+			Frame.entry1001.entry1009.setEnabled(true);
 			entry0.repaint();
 		} else
 		{

@@ -20,7 +20,7 @@ public class class1008
 				var0.join();
 			} catch(InterruptedException var2)
 			{
-				class1033.entry0("Не удалось дождаться завершения потока: " + var0.getName());
+				Frame.log("Не удалось дождаться завершения потока: " + var0.getName());
 			}
 		}
 	}

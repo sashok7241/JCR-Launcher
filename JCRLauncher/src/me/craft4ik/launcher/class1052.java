@@ -7,7 +7,7 @@ final class class1052 implements Runnable
 	{
 		try
 		{
-			class1033.entry0(Launcher.entry1());
+			Frame.entry0(Launcher.entry1());
 		} catch(UnsupportedEncodingException e)
 		{
 			e.printStackTrace();

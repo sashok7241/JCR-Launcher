@@ -50,7 +50,7 @@ public class class1014
 				var4[var5] = var2[var5].split("<:h:>")[1];
 			}
 		}
-		class1033.entry0("GUARD: Проверка модификаций в папке \"mods\"...");
+		Frame.log("GUARD: Проверка модификаций в папке \"mods\"...");
 		File var11 = new File(class100.entry1004() + File.separator + "mods");
 		String[] var6 = var11.list();
 		if(var6 != null && var6.length != 0)
@@ -69,7 +69,7 @@ public class class1014
 					{
 						var9 = "и удален ";
 					}
-					class1033.entry0("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
+					Frame.log("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
 					var1 = false;
 				}
 			} else
@@ -86,7 +86,7 @@ public class class1014
 						{
 							var10 = "и удалена ";
 						}
-						class1033.entry0("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
+						Frame.log("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
 						var1 = false;
 					}
 				}
@@ -102,7 +102,7 @@ public class class1014
 					{
 						var9 = "и удален ";
 					}
-					class1033.entry0("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
+					Frame.log("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
 					var1 = false;
 				}
 			}
@@ -112,9 +112,9 @@ public class class1014
 	
 	public static final void entry0(String[] var0, boolean var1)
 	{
-		if(!class1033.entry1001.entry1018.isSelected())
+		if(!Frame.entry1001.entry1018.isSelected())
 		{
-			class1033.entry0("GUARD: Проверка файлов игры...");
+			Frame.log("GUARD: Проверка файлов игры...");
 			boolean var2 = true;
 			String var3 = class100.entry1004() + File.separator + "bin" + File.separator;
 			if(!var0[1].equals(entry10(var3 + "minecraft.jar")))
@@ -139,12 +139,12 @@ public class class1014
 			}
 			if(var2)
 			{
-				class1033.entry0("GUARD: Проверка завершена успешно");
+				Frame.log("GUARD: Проверка завершена успешно");
 				return;
 			}
 			if(!var1 && !var2)
 			{
-				class1033.entry0("GUARD: Обнаружены посторонние объекты, игровой процесс будет прерван");
+				Frame.log("GUARD: Обнаружены посторонние объекты, игровой процесс будет прерван");
 				if(class1045.entry0 != null)
 				{
 					class1045.entry0.stop();
@@ -189,7 +189,7 @@ public class class1014
 				var4[var5] = var2[var5].split("<:h:>")[1];
 			}
 		}
-		class1033.entry0("GUARD: Проверка модификаций в папке \"coremods\"...");
+		Frame.log("GUARD: Проверка модификаций в папке \"coremods\"...");
 		File var11 = new File(class100.entry1004() + File.separator + "coremods");
 		String[] var6 = var11.list();
 		if(var6 != null && var6.length != 0)
@@ -208,7 +208,7 @@ public class class1014
 					{
 						var9 = "и удален ";
 					}
-					class1033.entry0("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
+					Frame.log("GUARD: Обнаружен " + var9 + "сторонний объект: " + var6[var7]);
 					var1 = false;
 				}
 			} else
@@ -225,7 +225,7 @@ public class class1014
 						{
 							var10 = "и удалена ";
 						}
-						class1033.entry0("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
+						Frame.log("GUARD: Обнаружена " + var10 + "сторонняя модификация: " + element);
 						var1 = false;
 					}
 				}
@@ -241,7 +241,7 @@ public class class1014
 					{
 						var9 = "и удален ";
 					}
-					class1033.entry0("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
+					Frame.log("GUARD: Обнаружен " + var9 + "файл подменённого мода: " + var3[var7]);
 					var1 = false;
 				}
 			}

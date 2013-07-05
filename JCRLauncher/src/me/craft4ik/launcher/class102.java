@@ -57,7 +57,7 @@ public class class102
 			new File(var1).delete();
 		} catch(Exception var18)
 		{
-			class1033.entry0(var18.toString());
+			Frame.log(var18.toString());
 		}
 	}
 	

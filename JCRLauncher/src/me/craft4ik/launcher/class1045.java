@@ -14,9 +14,9 @@ public class class1045 extends JFrame
 	
 	public class1045(String[] var1)
 	{
-		String var2 = class1033.entry1001.entry1018.isSelected() ? "Player" : class1033.entry1001.entry1007.getText();
-		String var3 = class1033.entry1001.entry1018.isSelected() ? "123456" : class1014.entry0(var1[7]);
-		class1014.entry0(class1033.entry0, true);
+		String var2 = Frame.entry1001.entry1018.isSelected() ? "Player" : Frame.entry1001.entry1007.getText();
+		String var3 = Frame.entry1001.entry1018.isSelected() ? "123456" : class1014.entry0(var1[7]);
+		class1014.entry0(Frame.entry0, true);
 		new Timer(30000, new class1046(this)).start();
 		try
 		{
@@ -29,7 +29,7 @@ public class class1045 extends JFrame
 			entry0.entry0.put("username", var2);
 			entry0.entry0.put("sessionid", var3);
 			entry0.entry0.put("stand-alone", "true");
-			if(!class1033.entry1001.entry1018.isSelected())
+			if(!Frame.entry1001.entry1018.isSelected())
 			{
 				entry0.entry0.put("server", class100.entry1001()[1]);
 				entry0.entry0.put("port", class100.entry1001()[2]);
@@ -47,7 +47,7 @@ public class class1045 extends JFrame
 			entry0.setBackground(Color.BLACK);
 			this.add(entry0, "Center");
 			validate();
-			class1033.entry1001.setVisible(false);
+			Frame.entry1001.setVisible(false);
 			setVisible(true);
 			entry0.init();
 			entry0.start();

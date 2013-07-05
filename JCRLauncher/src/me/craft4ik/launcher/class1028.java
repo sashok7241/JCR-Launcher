@@ -8,9 +8,9 @@ import javax.swing.event.HyperlinkEvent.EventType;
 class class1028 implements HyperlinkListener
 {
 	// $FF: synthetic field
-	final class1033 entry0;
+	final Frame entry0;
 	
-	class1028(class1033 var1)
+	class1028(Frame var1)
 	{
 		entry0 = var1;
 	}

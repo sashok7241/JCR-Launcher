@@ -25,17 +25,17 @@ public class class1034
 		var5.drawImage(var0.getSubimage(var2 * 8, var3 * 8, var2 * 8, var3 * 8), 4 * var1, var1, 8 * var1, 8 * var1, (ImageObserver) null);
 		var5.drawImage(var0.getSubimage(var2 * 20, var3 * 20, var2 * 8, var3 * 12), 4 * var1, 8 * var1 + var1, 8 * var1, 12 * var1, (ImageObserver) null);
 		var5.drawImage(var0.getSubimage(var2 * 44, var3 * 20, var2 * 4, var3 * 12), 0, 8 * var1 + var1, 4 * var1, 12 * var1, (ImageObserver) null);
-		var5.drawImage(class1.entry0(var0.getSubimage(var2 * 44, var3 * 20, var2 * 4, var3 * 12)), 12 * var1, 8 * var1 + var1, 4 * var1, 12 * var1, (ImageObserver) null);
+		var5.drawImage(ImageUtils.flipVertical(var0.getSubimage(var2 * 44, var3 * 20, var2 * 4, var3 * 12)), 12 * var1, 8 * var1 + var1, 4 * var1, 12 * var1, (ImageObserver) null);
 		var5.drawImage(var0.getSubimage(var2 * 4, var3 * 20, var2 * 4, var3 * 12), 4 * var1, 20 * var1 + var1, 4 * var1, 12 * var1, (ImageObserver) null);
-		var5.drawImage(class1.entry0(var0.getSubimage(var2 * 4, var3 * 20, var2 * 4, var3 * 12)), 8 * var1, 20 * var1 + var1, 4 * var1, 12 * var1, (ImageObserver) null);
+		var5.drawImage(ImageUtils.flipVertical(var0.getSubimage(var2 * 4, var3 * 20, var2 * 4, var3 * 12)), 8 * var1, 20 * var1 + var1, 4 * var1, 12 * var1, (ImageObserver) null);
 		var5.drawImage(var0.getSubimage(var2 * 40, var3 * 8, var2 * 8, var3 * 8), 3 * var1, 0, 10 * var1, 10 * var1, (ImageObserver) null);
 		return var4;
 	}
 	
 	public static final void entry0(Graphics2D var0) throws FontFormatException
 	{
-		var0.drawImage(class1.entry0(104, 189, class100.entry1011), 65, 65, (ImageObserver) null);
-		var0.drawImage(class1.entry0(74, 104, class100.entry1011), 207, 65, (ImageObserver) null);
+		var0.drawImage(ImageUtils.genPanel(104, 189, class100.entry1011), 65, 65, (ImageObserver) null);
+		var0.drawImage(ImageUtils.genPanel(74, 104, class100.entry1011), 207, 65, (ImageObserver) null);
 		var0.setColor(new Color(245, 245, 245, class1039.entry0(40)));
 		var0.setFont(class1009.entry0(13.0F, 1));
 		var0.drawString("Плащ не", 219, 113);
@@ -48,8 +48,8 @@ public class class1034
 	{
 		try
 		{
-			entry0 = class1.entry0(new URL(class100.entry100("skins/") + var0[11]), false);
-			entry1 = class1.entry0(new URL(class100.entry100("cloaks/") + var0[12]), false);
+			entry0 = ImageUtils.load(new URL(class100.entry100("skins/") + var0[11]), false);
+			entry1 = ImageUtils.load(new URL(class100.entry100("cloaks/") + var0[12]), false);
 		} catch(Exception var2)
 		{
 			;

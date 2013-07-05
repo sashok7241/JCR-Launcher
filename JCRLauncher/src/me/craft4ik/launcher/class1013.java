@@ -6,7 +6,7 @@ final class class1013 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		class1033 var2 = class1033.entry1001;
+		Frame var2 = Frame.entry1001;
 		String var3 = var2.entry1019.getText();
 		if(!class1019.entry1017.equals(var3))
 		{
