@@ -78,7 +78,7 @@ public class SettingsImpl implements Settings
 	
 	@Override public final String getImagesDirectory()
 	{
-		return "/ru/er_log/data/JCR_Style/";
+		return "/me/craft4ik/launcher/assets/";
 	}
 	
 	@Override public final String getLogotypeImage()
