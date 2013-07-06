@@ -116,10 +116,7 @@ public class LauncherUtils
 	{
 		for(int var2 = 0; var2 < var0.length; ++var2)
 		{
-			for(String element : var0)
-			{
-				if(var0[var2].equals(var1)) return var2;
-			}
+			if(var0[var2].equals(var1)) return var2;
 		}
 		return -1;
 	}
@@ -265,7 +262,7 @@ public class LauncherUtils
 		String[] var2 = var1[9].split("<:m:>");
 		String[] var3 = var1[13].split("<:m:>");
 		String[] var4 = var1[15].split("<:n:>");
-		ArrayList var5 = new ArrayList();
+		ArrayList<String> var5 = new ArrayList<>();
 		String var6 = getMinecraftDirectory() + File.separator + "bin" + File.separator;
 		String var7 = getMinecraftDirectory() + File.separator + "mods" + File.separator;
 		String var8 = getMinecraftDirectory() + File.separator + "coremods" + File.separator;
@@ -348,7 +345,6 @@ public class LauncherUtils
 		LauncherAuthFrame.log("Загрузка файла: " + var0);
 		BufferedInputStream var1 = new BufferedInputStream(new URL(var0).openStream());
 		FileOutputStream var2 = new FileOutputStream(LauncherGuard.getJarPath());
-		boolean var3 = false;
 		byte[] var4 = new byte[65536];
 		MessageDigest var5 = MessageDigest.getInstance("MD5");
 		int var6;
