@@ -36,7 +36,7 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	private int entry1021 = 0;
 	public static LauncherAuthFrame frame;
 	public LauncherGuard guard = new LauncherGuard();
-	public class1039 entry1003 = new class1039();
+	public LauncherAuthPanel entry1003 = new LauncherAuthPanel();
 	public class103 entry1004 = new class103((String[]) null, 324);
 	public JTextPane newsPane = new JTextPane();
 	public JScrollPane newsScroller;
@@ -140,8 +140,7 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		BufferedImage var2 = ImageUtils.screenshot(entry1003).getSubimage(0, 0, entry1003.getWidth(), entry1003.getHeight());
 		entry1003.removeAll();
-		class1039 var10000 = entry1003;
-		class1039.entry1.entry0(var2, var1);
+		LauncherAuthPanel.entry1.entry0(var2, var1);
 		entry1003.entry1(true);
 		this.entry1(false);
 		this.repaint();
@@ -159,17 +158,12 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 				break;
 			case 3:
 				entry1000(var2);
-			case 4:
+				break;
 			default:
 				break;
 			case 5:
 				entry1001(var2);
 		}
-	}
-	
-	public final void entry0(String var1, int var2)
-	{
-		entry1003.entry0(var1, var2);
 	}
 	
 	public final void entry0(String var1, int var2, int var3)
@@ -327,6 +321,11 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	
 	@Override public final void keyTyped(KeyEvent var1)
 	{
+	}
+	
+	public final void setState(String var1, int var2)
+	{
+		entry1003.entry0(var1, var2);
 	}
 	
 	// $FF: synthetic method

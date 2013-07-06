@@ -13,7 +13,7 @@ final class class1015 implements ActionListener
 			class1008.entry0();
 		} else
 		{
-			LauncherAuthFrame.frame.entry0("Неверный логин или пароль", 3);
+			LauncherAuthFrame.frame.setState("Неверный логин или пароль", 3);
 		}
 	}
 }

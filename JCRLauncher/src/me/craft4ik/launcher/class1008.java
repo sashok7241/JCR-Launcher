@@ -29,7 +29,7 @@ public class class1008
 	public static final void entry1()
 	{
 		entry0(entry0);
-		entry0 = new class1003();
+		entry0 = new LauncherRunnablePing();
 		entry0.setName("getServerOnline");
 		entry0.start();
 	}

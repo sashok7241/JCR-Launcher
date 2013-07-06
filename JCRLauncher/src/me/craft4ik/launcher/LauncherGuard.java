@@ -48,7 +48,7 @@ public class LauncherGuard
 				}
 			} else
 			{
-				String[] var12 = var11.list(new class1002());
+				String[] var12 = var11.list(new LauncherFilter());
 				for(String element : var12)
 				{
 					if(LauncherUtils.entry0(var3, element) == -1)

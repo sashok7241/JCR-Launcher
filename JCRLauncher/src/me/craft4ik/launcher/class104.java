@@ -11,7 +11,7 @@ import javax.swing.border.Border;
 public class class104 extends JPasswordField
 {
 	private static final long serialVersionUID = 1L;
-	public class1039 entry0;
+	public LauncherAuthPanel entry0;
 	public int entry1 = 0;
 	public int entry10 = 0;
 	public int entry100 = 0;
@@ -32,7 +32,7 @@ public class class104 extends JPasswordField
 		entry10 = var4;
 		entry100 = var1;
 		entry1000 = var2;
-		entry0 = new class1039();
+		entry0 = new LauncherAuthPanel();
 		entry0.entry1(var2);
 	}
 	

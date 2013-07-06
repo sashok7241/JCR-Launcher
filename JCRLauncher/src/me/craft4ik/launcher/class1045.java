@@ -32,8 +32,8 @@ public class class1045 extends JFrame
 			entry0.entry0.put("stand-alone", "true");
 			if(!LauncherAuthFrame.frame.offline.isSelected())
 			{
-				entry0.entry0.put("server", LauncherUtils.entry1001()[1]);
-				entry0.entry0.put("port", LauncherUtils.entry1001()[2]);
+				entry0.entry0.put("server", LauncherUtils.getSelectedServer()[1]);
+				entry0.entry0.put("port", LauncherUtils.getSelectedServer()[2]);
 			}
 			setTitle("qoobworld.ru - уютные майнкрафт сервера");
 			this.setSize(880, 520);

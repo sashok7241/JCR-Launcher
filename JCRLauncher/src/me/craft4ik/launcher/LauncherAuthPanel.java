@@ -13,7 +13,7 @@ import java.awt.image.ImageObserver;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class class1039 extends JPanel
+public class LauncherAuthPanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 	public static class1043 entry0;
@@ -38,7 +38,7 @@ public class class1039 extends JPanel
 	private static int entry1014;
 	private static int entry1015;
 	
-	public class1039()
+	public LauncherAuthPanel()
 	{
 		entry0 = new class1043();
 		entry1 = new class1036();
@@ -387,21 +387,21 @@ public class class1039 extends JPanel
 		var6.drawImage(var0, var7, var2, (ImageObserver) null);
 	}
 	
+	public static final int entry0(int var0)
+	{
+		return (int) (2.55F * var0);
+	}
+	
 	// $FF: synthetic method
-	static final int entry0(class1039 var0)
+	static final int entry0(LauncherAuthPanel var0)
 	{
 		return var0.entry1010;
 	}
 	
 	// $FF: synthetic method
-	static final int entry0(class1039 var0, int var1)
+	static final int entry0(LauncherAuthPanel var0, int var1)
 	{
 		return var0.entry1010 = var1;
-	}
-	
-	public static final int entry0(int var0)
-	{
-		return (int) (2.55F * var0);
 	}
 	
 	public static final void entry0(String var0, int var1, int var2, Color var3, Graphics2D var4)

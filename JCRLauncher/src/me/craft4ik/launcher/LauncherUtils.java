@@ -68,69 +68,6 @@ public class LauncherUtils
 		}
 	}
 	
-	public static final void getCachedImage(BufferedImage cached, int index)
-	{
-		if(cached == null && index == -1)
-		{
-			iconImage = loadLocalImage(getSettings().getFaviconImage());
-			background = loadLocalImage(getSettings().getBackgroundImage());
-			logotype = loadLocalImage(getSettings().getLogotypeImage());
-			elements = loadLocalImage(getSettings().getAuthElementsImage());
-			frameIcons = loadLocalImage(getSettings().getFrameIconsImage());
-			button = loadLocalImage(getSettings().getButtonsImage());
-			combobox = loadLocalImage(getSettings().getComboboxImage());
-			checkbox = loadLocalImage(getSettings().getCheckboxImage());
-			field = loadLocalImage(getSettings().getFieldBackgroundImage());
-			progressbar = loadLocalImage(getSettings().getProgressbarImage());
-			modalBackground = loadLocalImage(getSettings().getModalBackgroundImage());
-			newsBackground = loadLocalImage(getSettings().getNewsBackgroundImage());
-			pressedBorder = loadLocalImage(getSettings().getPressedBorderImage());
-			waitAnimation = loadLocalImage(getSettings().getWaitAntimationImage());
-			alertIcons = loadLocalImage(getSettings().getAlertIconsImage());
-			bandColors = loadLocalImage(getSettings().getBandColorsImage());
-		} else
-		{
-			switch(index)
-			{
-				case 0:
-					iconImage = cached;
-				case 1:
-					background = cached;
-				case 2:
-					logotype = cached;
-				case 3:
-					elements = cached;
-				case 4:
-					frameIcons = cached;
-				case 5:
-					button = cached;
-				case 6:
-					combobox = cached;
-				case 7:
-					checkbox = cached;
-				case 8:
-					field = cached;
-				case 9:
-					progressbar = cached;
-				case 10:
-					modalBackground = cached;
-				case 11:
-					newsBackground = cached;
-				case 12:
-					pressedBorder = cached;
-				case 13:
-					waitAnimation = cached;
-				case 14:
-					alertIcons = cached;
-				case 15:
-					bandColors = cached;
-				default:
-					break;
-			}
-		}
-		player = loadLocalImage("char.png");
-	}
-	
 	public static final void entry0(LauncherAuthFrame frame) throws UnsupportedEncodingException
 	{
 		String var1 = class1000.entry1(entry1001("login"));
@@ -187,48 +124,6 @@ public class LauncherUtils
 		return -1;
 	}
 	
-	public static final void loadTheme()
-	{
-		try
-		{
-			if(isNeedLoadTheme())
-			{
-				LauncherAuthFrame.log("Загужаю online тему...");
-				String[] var1 = LauncherAuthFrame.config[1].split("<:i:>");
-				for(int var2 = 0; var2 < var1.length; ++var2)
-				{
-					getCachedImage(loadRemoteImage(resolveScript("jcr_theme.php?action=theme&version=v5.0&request="), var1[var2]), var2);
-					if(errorLoading)
-					{
-						break;
-					}
-				}
-				if(!errorLoading)
-				{
-					LauncherAuthFrame.log("Online тема успешо загружена");
-				} else
-				{
-					LauncherAuthFrame.error("Не удалось загрузить элементы online темы, запускаю тему по умолчанию");
-				}
-			} else
-			{
-				errorLoading = true;
-			}
-		} catch(Exception var3)
-		{
-			errorLoading = true;
-			LauncherAuthFrame.error("Не удалось загрузить online тему, запускаю тему по умолчанию");
-		}
-		if(errorLoading)
-		{
-			getCachedImage((BufferedImage) null, -1);
-			class1035.entry0 = Color.decode(getSettings().getColorScheme());
-		} else
-		{
-			class1035.entry0 = LauncherFontManager.entry0();
-		}
-	}
-	
 	public static final String entry1(String var0)
 	{
 		return "http://qoobworld.ru//MineCraft/MinecraftDownload/" + var0;
@@ -254,17 +149,6 @@ public class LauncherUtils
 		{
 			LauncherAuthFrame.error("Не удалось загрузить online настройки");
 			return null;
-		}
-	}
-	
-	public static final boolean isNeedLoadTheme()
-	{
-		try
-		{
-			return LauncherAuthFrame.config[0].equals("true");
-		} catch(Exception var1)
-		{
-			return false;
 		}
 	}
 	
@@ -312,12 +196,6 @@ public class LauncherUtils
 		}
 	}
 	
-	public static final String[] entry1001()
-	{
-		int var0 = LauncherAuthFrame.frame.entry1004.entry0();
-		return entry10 != null ? entry10[var0].split(" :: ") : null;
-	}
-	
 	public static final String entry1001(String var0)
 	{
 		return entry1.entry100(var0).booleanValue() ? entry1.get(var0) : null;
@@ -331,11 +209,6 @@ public class LauncherUtils
 	public static final String entry1003()
 	{
 		return resolveMinecraftDirectory(".qoob") + "";
-	}
-	
-	public static final int getIntegerFromConfig(String var0)
-	{
-		return entry1.entry100(var0).booleanValue() ? entry1.entry1(var0).intValue() : 0;
 	}
 	
 	public static final void entry1004(String var0) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException
@@ -585,6 +458,74 @@ public class LauncherUtils
 		return var30;
 	}
 	
+	public static final void getCachedImage(BufferedImage cached, int index)
+	{
+		if(cached == null && index == -1)
+		{
+			iconImage = loadLocalImage(getSettings().getFaviconImage());
+			background = loadLocalImage(getSettings().getBackgroundImage());
+			logotype = loadLocalImage(getSettings().getLogotypeImage());
+			elements = loadLocalImage(getSettings().getAuthElementsImage());
+			frameIcons = loadLocalImage(getSettings().getFrameIconsImage());
+			button = loadLocalImage(getSettings().getButtonsImage());
+			combobox = loadLocalImage(getSettings().getComboboxImage());
+			checkbox = loadLocalImage(getSettings().getCheckboxImage());
+			field = loadLocalImage(getSettings().getFieldBackgroundImage());
+			progressbar = loadLocalImage(getSettings().getProgressbarImage());
+			modalBackground = loadLocalImage(getSettings().getModalBackgroundImage());
+			newsBackground = loadLocalImage(getSettings().getNewsBackgroundImage());
+			pressedBorder = loadLocalImage(getSettings().getPressedBorderImage());
+			waitAnimation = loadLocalImage(getSettings().getWaitAntimationImage());
+			alertIcons = loadLocalImage(getSettings().getAlertIconsImage());
+			bandColors = loadLocalImage(getSettings().getBandColorsImage());
+		} else
+		{
+			switch(index)
+			{
+				case 0:
+					iconImage = cached;
+				case 1:
+					background = cached;
+				case 2:
+					logotype = cached;
+				case 3:
+					elements = cached;
+				case 4:
+					frameIcons = cached;
+				case 5:
+					button = cached;
+				case 6:
+					combobox = cached;
+				case 7:
+					checkbox = cached;
+				case 8:
+					field = cached;
+				case 9:
+					progressbar = cached;
+				case 10:
+					modalBackground = cached;
+				case 11:
+					newsBackground = cached;
+				case 12:
+					pressedBorder = cached;
+				case 13:
+					waitAnimation = cached;
+				case 14:
+					alertIcons = cached;
+				case 15:
+					bandColors = cached;
+				default:
+					break;
+			}
+		}
+		player = loadLocalImage("char.png");
+	}
+	
+	public static final int getIntegerFromConfig(String var0)
+	{
+		return entry1.entry100(var0).booleanValue() ? entry1.entry1(var0).intValue() : 0;
+	}
+	
 	public static final String getMinecraftDirectory()
 	{
 		return resolveMinecraftDirectory(".qoob") + File.separator + resolveClient();
@@ -596,9 +537,26 @@ public class LauncherUtils
 		return os.contains("win") ? 2 : os.contains("mac") ? 3 : os.contains("solaris") ? 1 : os.contains("sunos") ? 1 : os.contains("linux") ? 0 : os.contains("unix") ? 0 : 4;
 	}
 	
+	public static final String[] getSelectedServer()
+	{
+		int var0 = LauncherAuthFrame.frame.entry1004.entry0();
+		return entry10 != null ? entry10[var0].split(" :: ") : null;
+	}
+	
 	public static final LauncherSettings getSettings()
 	{
 		return LauncherSettignsStorage.settings;
+	}
+	
+	public static final boolean isNeedLoadTheme()
+	{
+		try
+		{
+			return LauncherAuthFrame.config[0].equals("true");
+		} catch(Exception var1)
+		{
+			return false;
+		}
 	}
 	
 	public static final BufferedImage loadLocalImage(String name)
@@ -631,11 +589,53 @@ public class LauncherUtils
 		}
 	}
 	
+	public static final void loadTheme()
+	{
+		try
+		{
+			if(isNeedLoadTheme())
+			{
+				LauncherAuthFrame.log("Загужаю online тему...");
+				String[] var1 = LauncherAuthFrame.config[1].split("<:i:>");
+				for(int var2 = 0; var2 < var1.length; ++var2)
+				{
+					getCachedImage(loadRemoteImage(resolveScript("jcr_theme.php?action=theme&version=v5.0&request="), var1[var2]), var2);
+					if(errorLoading)
+					{
+						break;
+					}
+				}
+				if(!errorLoading)
+				{
+					LauncherAuthFrame.log("Online тема успешо загружена");
+				} else
+				{
+					LauncherAuthFrame.error("Не удалось загрузить элементы online темы, запускаю тему по умолчанию");
+				}
+			} else
+			{
+				errorLoading = true;
+			}
+		} catch(Exception var3)
+		{
+			errorLoading = true;
+			LauncherAuthFrame.error("Не удалось загрузить online тему, запускаю тему по умолчанию");
+		}
+		if(errorLoading)
+		{
+			getCachedImage((BufferedImage) null, -1);
+			class1035.entry0 = Color.decode(getSettings().getColorScheme());
+		} else
+		{
+			class1035.entry0 = LauncherFontManager.entry0();
+		}
+	}
+	
 	public static final void patchMinecraft(URLClassLoader loader)
 	{
 		try
 		{
-			String version = entry1001()[3];
+			String version = getSelectedServer()[3];
 			String[] versions = LauncherAuthFrame.settings[10].split("<:f:>");
 			LauncherAuthFrame.log("Запуск процесса патчинга: ");
 			LauncherAuthFrame.log(" * Обнаружение клиента...");
@@ -664,7 +664,7 @@ public class LauncherUtils
 	
 	public static final String resolveClient()
 	{
-		String[] var0 = entry1001();
+		String[] var0 = getSelectedServer();
 		return var0 != null ? (var0[1] + "_" + var0[2]).toLowerCase() : null;
 	}
 	

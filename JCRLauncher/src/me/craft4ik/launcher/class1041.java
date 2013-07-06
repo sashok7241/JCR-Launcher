@@ -14,7 +14,7 @@ import javax.swing.border.Border;
 public class class1041 extends JTextField
 {
 	private static final long serialVersionUID = 1L;
-	public class1039 entry0;
+	public LauncherAuthPanel entry0;
 	public BufferedImage entry1;
 	public int entry10 = 0;
 	public int entry100 = 0;
@@ -36,7 +36,7 @@ public class class1041 extends JTextField
 		entry100 = var4;
 		entry1000 = var1;
 		entry1001 = var2;
-		entry0 = new class1039();
+		entry0 = new LauncherAuthPanel();
 		entry0.entry0(var4, var2);
 	}
 	

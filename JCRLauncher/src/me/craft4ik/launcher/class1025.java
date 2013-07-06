@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 class class1025 implements ActionListener
 {
 	// $FF: synthetic field
-	final class1039 entry0;
+	final LauncherAuthPanel entry0;
 	
-	class1025(class1039 var1)
+	class1025(LauncherAuthPanel var1)
 	{
 		entry0 = var1;
 	}
@@ -16,7 +16,7 @@ class class1025 implements ActionListener
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
 		LauncherAuthFrame.frame.buttonLaunch.setEnabled(false);
-		if(class1039.entry1004() == 0)
+		if(LauncherAuthPanel.entry1004() == 0)
 		{
 			entry0.entry100.stop();
 			LauncherAuthFrame.frame.newsScroller.setViewportView(LauncherAuthFrame.frame.newsPane);
@@ -25,7 +25,7 @@ class class1025 implements ActionListener
 			entry0.repaint();
 		} else
 		{
-			class1039.entry10(5);
+			LauncherAuthPanel.entry10(5);
 			entry0.repaint();
 		}
 	}

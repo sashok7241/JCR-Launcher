@@ -8,7 +8,7 @@ final class class1007 extends Thread
 		{
 			LauncherAuthFrame.frame.buttonRefresh.setEnabled(false);
 			LauncherAuthFrame.frame.entry1003.entry0(true, 382);
-			LauncherAuthFrame.frame.entry0("", 0);
+			LauncherAuthFrame.frame.setState("", 0);
 			LauncherUtils.sleep(1.0D);
 			LauncherUtils.entry1009();
 		} catch(Exception var2)

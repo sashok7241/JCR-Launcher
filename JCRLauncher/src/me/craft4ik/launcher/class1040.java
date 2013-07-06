@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 class class1040 implements ActionListener
 {
 	// $FF: synthetic field
-	final class1039 entry0;
+	final LauncherAuthPanel entry0;
 	
-	class1040(class1039 var1)
+	class1040(LauncherAuthPanel var1)
 	{
 		entry0 = var1;
 	}

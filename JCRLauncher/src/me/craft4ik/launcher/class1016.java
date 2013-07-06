@@ -7,7 +7,7 @@ final class class1016 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		if(class1039.entry1005)
+		if(LauncherAuthPanel.entry1005)
 		{
 			LauncherUtils.entry1007();
 		} else

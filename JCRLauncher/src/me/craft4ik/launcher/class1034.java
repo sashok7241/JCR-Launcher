@@ -37,7 +37,7 @@ public class class1034
 	{
 		var0.drawImage(ImageUtils.genPanel(104, 189, LauncherUtils.pressedBorder), 65, 65, (ImageObserver) null);
 		var0.drawImage(ImageUtils.genPanel(74, 104, LauncherUtils.pressedBorder), 207, 65, (ImageObserver) null);
-		var0.setColor(new Color(245, 245, 245, class1039.entry0(40)));
+		var0.setColor(new Color(245, 245, 245, LauncherAuthPanel.entry0(40)));
 		var0.setFont(LauncherFontManager.createFont(13.0F, 1));
 		var0.drawString("Плащ не", 219, 113);
 		var0.drawString("куплен", 224, 129);
