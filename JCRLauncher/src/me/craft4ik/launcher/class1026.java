@@ -17,14 +17,14 @@ class class1026 implements MouseListener
 	{
 		if(!entry0.entry1004.entry100)
 		{
-			entry0.entry1003.entry1(true);
+			entry0.panel.entry1(true);
 			if(entry0.entry1004.entry10() || var1.getButton() != 1) return;
 			if(entry0.entry1004.entry1())
 			{
-				entry0.entry1003.entry0(true);
+				entry0.panel.entry0(true);
 				class1008.entry1();
 			}
-			entry0.entry1003.entry1(false);
+			entry0.panel.entry1(false);
 		}
 	}
 	

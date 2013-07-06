@@ -363,7 +363,7 @@ public class LauncherUtils
 		if(getOS() == 3)
 		{
 			LauncherAuthFrame.log("Обновление завершено успешно");
-			LauncherAuthFrame.frame.entry1003.entry0(false);
+			LauncherAuthFrame.frame.panel.entry0(false);
 			LauncherAuthFrame.frame.buttonExit.setEnabled(false);
 			LauncherAuthFrame.frame.buttonRefresh.setEnabled(false);
 			LauncherAuthFrame.frame.entry0("Требуется перезапуск", 1, 391);

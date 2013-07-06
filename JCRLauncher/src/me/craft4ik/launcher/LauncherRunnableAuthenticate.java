@@ -9,10 +9,10 @@ final class LauncherRunnableAuthenticate extends Thread
 		LauncherAuthFrame.log("Авторизация...");
 		LauncherAuthFrame.frame.buttonSettings.setEnabled(false);
 		LauncherAuthFrame.frame.buttonLaunch2.setEnabled(false);
-		LauncherAuthFrame.frame.entry1003.entry0(true);
+		LauncherAuthFrame.frame.panel.entry0(true);
 		String var1 = LauncherUtils.execute(LauncherUtils.resolveScript("jcr_auth.php"), "?action=auth&login=" + LauncherAuthFrame.frame.login.getText() + "&password=" + new String(LauncherAuthFrame.frame.password.getPassword()) + "&hash=" + LauncherAuthFrame.entry10 + "&format=" + LauncherUtils.resolveExtension() + "&client=" + LauncherUtils.resolveClient() + "&code=" + LauncherGuard.entry1("89@vbs\'21R_BHq;05"), true);
 		LauncherUtils.sleep(1.0D);
-		LauncherAuthFrame.frame.entry1003.entry1003();
+		LauncherAuthFrame.frame.panel.entry1003();
 		if(var1 == null)
 		{
 			LauncherAuthFrame.frame.setState("Ошибка подключения", 2);
@@ -47,7 +47,7 @@ final class LauncherRunnableAuthenticate extends Thread
 					LauncherAuthFrame.frame.entry0(3);
 				}
 				class1034.entry0(LauncherAuthFrame.settings);
-				LauncherAuthFrame.frame.entry1003.repaint();
+				LauncherAuthFrame.frame.panel.repaint();
 			} else
 			{
 				LauncherAuthFrame.frame.setState("Неверный логин или пароль", 3);

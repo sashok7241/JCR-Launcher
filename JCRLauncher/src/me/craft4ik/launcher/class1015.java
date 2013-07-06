@@ -7,7 +7,7 @@ final class class1015 implements ActionListener
 {
 	@Override public final void actionPerformed(ActionEvent var1)
 	{
-		LauncherAuthFrame.frame.entry1003.entry1003();
+		LauncherAuthFrame.frame.panel.entry1003();
 		if(!LauncherAuthFrame.frame.login.getText().equals("Логин") && !new String(LauncherAuthFrame.frame.password.getPassword()).equals("Пароль"))
 		{
 			class1008.entry0();

@@ -36,8 +36,8 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	private int entry1021 = 0;
 	public static LauncherAuthFrame frame;
 	public LauncherGuard guard = new LauncherGuard();
-	public LauncherAuthPanel entry1003 = new LauncherAuthPanel();
-	public class103 entry1004 = new class103((String[]) null, 324);
+	public LauncherAuthPanel panel = new LauncherAuthPanel();
+	public LauncherCombobox entry1004 = new LauncherCombobox((String[]) null, 324);
 	public JTextPane newsPane = new JTextPane();
 	public JScrollPane newsScroller;
 	public JTextField login;
@@ -109,12 +109,12 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 		newsScroller.setBorder((Border) null);
 		newsScroller.setBounds(371, 45, LauncherUtils.newsBackground.getWidth() - 50, 360);
 		entry1004.addMouseListener(new class1026(this));
-		entry1003.addKeyListener(this);
+		panel.addKeyListener(this);
 		login.addKeyListener(this);
 		password.addKeyListener(this);
 		this.entry1(false);
 		entry10(false);
-		setContentPane(entry1003);
+		setContentPane(panel);
 	}
 	
 	public final void entry0(boolean var1)
@@ -138,10 +138,10 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	
 	public final void entry0(int var1)
 	{
-		BufferedImage var2 = ImageUtils.screenshot(entry1003).getSubimage(0, 0, entry1003.getWidth(), entry1003.getHeight());
-		entry1003.removeAll();
+		BufferedImage var2 = ImageUtils.screenshot(panel).getSubimage(0, 0, panel.getWidth(), panel.getHeight());
+		panel.removeAll();
 		LauncherAuthPanel.entry1.entry0(var2, var1);
-		entry1003.entry1(true);
+		panel.entry1(true);
 		this.entry1(false);
 		this.repaint();
 	}
@@ -168,7 +168,7 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	
 	public final void entry0(String var1, int var2, int var3)
 	{
-		entry1003.entry0(var1, var2, var3);
+		panel.entry0(var1, var2, var3);
 	}
 	
 	private void entry1()
@@ -181,12 +181,12 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(entry100);
-			entry1003.add(entry1000);
+			panel.add(entry100);
+			panel.add(entry1000);
 		} else
 		{
-			entry1003.remove(entry100);
-			entry1003.remove(entry1000);
+			panel.remove(entry100);
+			panel.remove(entry1000);
 		}
 	}
 	
@@ -195,19 +195,19 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 		switch(var1)
 		{
 			case 1:
-				entry1003.entry0();
+				panel.entry0();
 				break;
 			case 2:
-				entry1003.entry1();
+				panel.entry1();
 				break;
 			case 3:
-				entry1003.entry10();
+				panel.entry10();
 				break;
 			case 4:
-				entry1003.entry1000();
+				panel.entry1000();
 				break;
 			case 5:
-				entry1003.entry100();
+				panel.entry100();
 		}
 	}
 	
@@ -215,18 +215,18 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(entry1004);
-			entry1003.add(buttonLaunch2);
-			entry1003.add(buttonSettings);
-			entry1003.add(login);
-			entry1003.add(password);
+			panel.add(entry1004);
+			panel.add(buttonLaunch2);
+			panel.add(buttonSettings);
+			panel.add(login);
+			panel.add(password);
 		} else
 		{
-			entry1003.remove(entry1004);
-			entry1003.remove(buttonLaunch2);
-			entry1003.remove(buttonSettings);
-			entry1003.remove(login);
-			entry1003.remove(password);
+			panel.remove(entry1004);
+			panel.remove(buttonLaunch2);
+			panel.remove(buttonSettings);
+			panel.remove(login);
+			panel.remove(password);
 		}
 	}
 	
@@ -234,22 +234,22 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(buttonCancel);
-			entry1003.add(buttonAccept);
-			entry1003.add(savePassword);
-			entry1003.add(redownloadClient);
-			entry1003.add(fullscreen);
-			entry1003.add(offline);
-			entry1003.add(memory);
+			panel.add(buttonCancel);
+			panel.add(buttonAccept);
+			panel.add(savePassword);
+			panel.add(redownloadClient);
+			panel.add(fullscreen);
+			panel.add(offline);
+			panel.add(memory);
 		} else
 		{
-			entry1003.remove(buttonCancel);
-			entry1003.remove(buttonAccept);
-			entry1003.remove(savePassword);
-			entry1003.remove(redownloadClient);
-			entry1003.remove(fullscreen);
-			entry1003.remove(offline);
-			entry1003.remove(memory);
+			panel.remove(buttonCancel);
+			panel.remove(buttonAccept);
+			panel.remove(savePassword);
+			panel.remove(redownloadClient);
+			panel.remove(fullscreen);
+			panel.remove(offline);
+			panel.remove(memory);
 		}
 	}
 	
@@ -257,12 +257,12 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(buttonExit);
-			entry1003.add(buttonRefresh);
+			panel.add(buttonExit);
+			panel.add(buttonRefresh);
 		} else
 		{
-			entry1003.remove(buttonExit);
-			entry1003.remove(buttonRefresh);
+			panel.remove(buttonExit);
+			panel.remove(buttonRefresh);
 		}
 	}
 	
@@ -270,10 +270,10 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(!var1)
 		{
-			entry1003.add(buttonLaunch);
+			panel.add(buttonLaunch);
 		} else
 		{
-			entry1003.remove(buttonLaunch);
+			panel.remove(buttonLaunch);
 		}
 	}
 	
@@ -309,10 +309,10 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	{
 		if(KeyEvent.getKeyText(var1.getKeyCode()).equals("Enter"))
 		{
-			if(entry1003.entry10 == 0)
+			if(panel.entry10 == 0)
 			{
 				buttonLaunch2.doClick();
-			} else if(entry1003.entry10 == 4)
+			} else if(panel.entry10 == 4)
 			{
 				buttonLaunch.doClick();
 			}
@@ -325,7 +325,7 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	
 	public final void setState(String var1, int var2)
 	{
-		entry1003.entry0(var1, var2);
+		panel.entry0(var1, var2);
 	}
 	
 	// $FF: synthetic method
@@ -379,9 +379,9 @@ public class LauncherAuthFrame extends JFrame implements FocusListener, KeyListe
 	public static final void showLauncherFrame(LauncherSplashFrame var0) throws UnsupportedEncodingException
 	{
 		frame = new LauncherAuthFrame();
-		frame.entry1003.entry0();
+		frame.panel.entry0();
 		LauncherUtils.entry0(frame);
-		frame.entry1003.entry0(true);
+		frame.panel.entry0(true);
 		class1008.entry1();
 		SwingUtilities.invokeLater(new LauncherRunnableDisposer(var0));
 		frame.setVisible(true);

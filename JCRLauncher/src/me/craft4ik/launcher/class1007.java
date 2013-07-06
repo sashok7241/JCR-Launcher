@@ -7,7 +7,7 @@ final class class1007 extends Thread
 		try
 		{
 			LauncherAuthFrame.frame.buttonRefresh.setEnabled(false);
-			LauncherAuthFrame.frame.entry1003.entry0(true, 382);
+			LauncherAuthFrame.frame.panel.entry0(true, 382);
 			LauncherAuthFrame.frame.setState("", 0);
 			LauncherUtils.sleep(1.0D);
 			LauncherUtils.entry1009();
@@ -17,7 +17,7 @@ final class class1007 extends Thread
 			LauncherAuthFrame.error("Ошибка при обновлении программы");
 			LauncherAuthFrame.frame.buttonRefresh.setEnabled(true);
 			LauncherAuthFrame.frame.buttonRefresh.setText("Еще раз");
-			LauncherAuthFrame.frame.entry1003.entry0(false);
+			LauncherAuthFrame.frame.panel.entry0(false);
 		}
 	}
 }

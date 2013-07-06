@@ -8,12 +8,12 @@ final class LauncherRunnablePing extends Thread
 		{
 			String[] server = LauncherUtils.getSelectedServer();
 			String result = LauncherUtils.execute(LauncherUtils.resolveScript("jcr_status.php"), "?action=status&ip=" + server[1] + "&port=" + server[2], false);
-			LauncherAuthFrame.frame.entry1003.entry1003();
+			LauncherAuthFrame.frame.panel.entry1003();
 			if(result == null)
 			{
 				LauncherAuthFrame.error("Ошибка подключения к серверу: " + result);
 				LauncherAuthFrame.frame.setState("Ошибка подключения", 2);
-				LauncherAuthFrame.frame.entry1003.entry0(false);
+				LauncherAuthFrame.frame.panel.entry0(false);
 			} else if(result.contains("<::>"))
 			{
 				String[] var3 = result.split("<::>");
@@ -24,15 +24,15 @@ final class LauncherRunnablePing extends Thread
 				{
 					LauncherAuthFrame.frame.setState("Сервер онлайн " + var3[0] + " из " + var3[1], 1);
 				}
-				LauncherAuthFrame.frame.entry1003.entry0(false);
+				LauncherAuthFrame.frame.panel.entry0(false);
 			} else if(result.trim().equals("OFF"))
 			{
 				LauncherAuthFrame.frame.setState("Сервер недоступен", 2);
-				LauncherAuthFrame.frame.entry1003.entry0(false);
+				LauncherAuthFrame.frame.panel.entry0(false);
 			} else if(result.trim().equals("TechWork"))
 			{
 				LauncherAuthFrame.frame.setState("Профилактика", 3);
-				LauncherAuthFrame.frame.entry1003.entry0(false);
+				LauncherAuthFrame.frame.panel.entry0(false);
 			} else
 			{
 				LauncherAuthFrame.error("Внутренняя ошибка");

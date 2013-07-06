@@ -28,14 +28,14 @@ public class class1000
 				var2.close();
 			} catch(Throwable var14)
 			{
-				;
+				
 			}
 			try
 			{
 				var3.close();
 			} catch(Throwable var13)
 			{
-				;
+				
 			}
 		}
 		return var3.toByteArray();
@@ -83,7 +83,7 @@ public class class1000
 				var1.close();
 			} catch(Throwable var10)
 			{
-				;
+				
 			}
 		}
 		return var2.toByteArray();

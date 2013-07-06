@@ -54,7 +54,7 @@ public class class1019 extends LauncherUtils
 		var0.buttonLaunch = entry1009(var0.buttonLaunch.getText());
 		var0.login = new class1041(57, 179, 232, 46, class1035.entry0);
 		var0.password = new class104(57, 226, 232, 46, class1035.entry0);
-		var0.entry1004 = new class103(entry1000(), 324);
+		var0.entry1004 = new LauncherCombobox(entry1000(), 324);
 		var0.savePassword = new class1029(68, 188, 162, 16, var0.savePassword.getText(), true);
 		var0.redownloadClient = new class1029(68, 214, 135, 16, var0.redownloadClient.getText(), var0.redownloadClient.isSelected());
 		var0.fullscreen = new class1029(68, 240, 160, 16, var0.fullscreen.getText(), var0.fullscreen.isSelected());
