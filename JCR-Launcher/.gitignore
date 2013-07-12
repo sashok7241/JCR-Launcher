@@ -1,10 +1,7 @@
 *
 
-!/sources
-!/scripts
+!/sources/*
 !/scripts/*
-!/scripts/news
-!/scripts/news/*
 !.project
 !.classpath
 !.gitignore
