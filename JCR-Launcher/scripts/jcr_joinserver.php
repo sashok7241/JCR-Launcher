@@ -1,14 +1,14 @@
 <?php
 define('IMPASS_CHECK', true);
-include ("../jcr_connect.php");
-include ("../jcr_settings.php");
+include ("jcr_connect.php");
+include ("jcr_settings.php");
 $user = sql_param($_GET ['user']);
 $sessionid = sql_param($_GET ['sessionId']);
 $serverid = sql_param($_GET ['serverId']);
 $hash = mysql_real_escape_string($_GET ['hash']);
 $client = mysql_real_escape_string($_GET ['client']);
 $action = mysql_real_escape_string($_GET ['action']);
-if(!(strtolower($hash) == strtolower(md5_file("../files/clients/$client/bin/minecraft.jar")))) die("Bad session"); // Bad hash
+if(!(strtolower($hash) == strtolower(md5_file("files/clients/$client/bin/minecraft.jar")))) die("Bad session"); // Bad hash
 if($action == "setServerId")
 {
 	$secureSesId = sha1($sessionid . $sessionKey);

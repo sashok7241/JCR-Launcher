@@ -1,7 +1,7 @@
 <?php
 define("IMPASS_CHECK", true);
-include ("../jcr_connect.php");
-include ("../jcr_settings.php");
+include ("jcr_connect.php");
+include ("jcr_settings.php");
 $action = mysql_real_escape_string($_GET ["action"]);
 $getLogin = mysql_real_escape_string($_GET ["login"]);
 $getPass = mysql_real_escape_string($_GET ["password"]);
@@ -45,14 +45,14 @@ if($action == "auth")
 		else if(!($realPass == $hashPass)) die("BadData");
 		else
 		{
-			if(!file_exists("../files/clients/$client/bin/minecraft.jar") || !file_exists("../files/clients/$client/bin/lwjgl.jar") || !file_exists("../files/clients/$client/bin/lwjgl_util.jar") || !file_exists("../files/clients/$client/bin/jinput.jar") || !file_exists("../files/clients/$client/extra.zip")) die("Error: Some elements of client '" . $client . "' not detected");
-			if(!file_exists("../files/program/" . $programName . $appForm)) die("Error: Program update file is not detected");
-			$md5_zip = md5_file("../files/clients/$client/extra.zip");
-			$md5_jar = md5_file("../files/clients/$client/bin/minecraft.jar");
-			$md5_lwjql = md5_file("../files/clients/$client/bin/lwjgl.jar");
-			$md5_lwjql_util = md5_file("../files/clients/$client/bin/lwjgl_util.jar");
-			$md5_jinput = md5_file("../files/clients/$client/bin/jinput.jar");
-			$md5_program = md5_file("../files/program/" . $programName . $appForm);
+			if(!file_exists("files/clients/$client/bin/minecraft.jar") || !file_exists("files/clients/$client/bin/lwjgl.jar") || !file_exists("files/clients/$client/bin/lwjgl_util.jar") || !file_exists("files/clients/$client/bin/jinput.jar") || !file_exists("files/clients/$client/extra.zip")) die("Error: Some elements of client '" . $client . "' not detected");
+			if(!file_exists("files/program/" . $programName . $appForm)) die("Error: Program update file is not detected");
+			$md5_zip = md5_file("files/clients/$client/extra.zip");
+			$md5_jar = md5_file("files/clients/$client/bin/minecraft.jar");
+			$md5_lwjql = md5_file("files/clients/$client/bin/lwjgl.jar");
+			$md5_lwjql_util = md5_file("files/clients/$client/bin/lwjgl_util.jar");
+			$md5_jinput = md5_file("files/clients/$client/bin/jinput.jar");
+			$md5_program = md5_file("files/program/" . $programName . $appForm);
 			$sha1_md5zip = sha1($md5_zip);
 			$sha1_pass = sha1($realPass);
 			$sha1_version = sha1($version);
@@ -62,12 +62,12 @@ if($action == "auth")
 			echo $sha1_md5zip . "<::>" . $md5_jar . "<::>" . $md5_lwjql . "<::>" . $md5_lwjql_util . "<::>" . $md5_jinput . "<::>" . "<br>" . $sha1_version . "<::>" . $sha1_pass . "<::>" . $sha1_seskey . "<::>" . $last_version . "<::>" . "<br>";
 			$mods = "";
 			$numMods = 0;
-			$modsfiles = scandir("../files/clients/$client/mods");
+			$modsfiles = scandir("files/clients/$client/mods");
 			for($i = 0; $i < count($modsfiles); $i++)
 			{
 				if(substr($modsfiles [$i], -4) == ".zip" || substr($modsfiles [$i], -4) == ".jar")
 				{
-					$mods = $modsfiles [$i] . "<:h:>" . md5_file("../files/clients/$client/mods/" . $modsfiles [$i]) . "<:m:>" . $mods;
+					$mods = $modsfiles [$i] . "<:h:>" . md5_file("files/clients/$client/mods/" . $modsfiles [$i]) . "<:m:>" . $mods;
 					$numMods++;
 				}
 			}
@@ -92,12 +92,12 @@ if($action == "auth")
 			echo "<::>" . get_image_url("skin") . "<::>" . get_image_url("cloak") . "<::>";
 			$coremods = "";
 			$numCoreMods = 0;
-			$cmodsfiles = scandir("../files/clients/$client/coremods");
+			$cmodsfiles = scandir("files/clients/$client/coremods");
 			for($i = 0; $i < count($cmodsfiles); $i++)
 			{
 				if(substr($cmodsfiles [$i], -4) == ".zip" || substr($cmodsfiles [$i], -4) == ".jar")
 				{
-					$coremods = $cmodsfiles [$i] . "<:h:>" . md5_file("../files/clients/$client/coremods/" . $cmodsfiles [$i]) . "<:m:>" . $coremods;
+					$coremods = $cmodsfiles [$i] . "<:h:>" . md5_file("files/clients/$client/coremods/" . $cmodsfiles [$i]) . "<:m:>" . $coremods;
 					$numCoreMods++;
 				}
 			}
@@ -106,10 +106,10 @@ if($action == "auth")
 			echo "<::>" . $programName . $appForm . "<::>";
 			$all_natives = "";
 			$num_natives = 0;
-			$natives = scandir("../files/clients/$client/bin/natives");
+			$natives = scandir("files/clients/$client/bin/natives");
 			for($i = 0; $i < count($natives); $i++)
 			{
-				if(!is_dir("../files/clients/$client/bin/natives/" . $natives [$i]))
+				if(!is_dir("files/clients/$client/bin/natives/" . $natives [$i]))
 				{
 					$all_natives = $natives [$i] . "<:n:>" . $all_natives;
 					$num_natives++;
@@ -148,11 +148,11 @@ function get_image_url($type)
 	global $getLogin;
 	if($type == "skin")
 	{
-		if(file_exists("../files/skins/" . $getLogin . ".png")) return $getLogin . ".png";
+		if(file_exists("files/skins/" . $getLogin . ".png")) return $getLogin . ".png";
 		else return "default.png";
 	} else if($type == "cloak")
 	{
-		if(file_exists("../files/cloaks/" . $getLogin . ".png")) return $getLogin . ".png";
+		if(file_exists("files/cloaks/" . $getLogin . ".png")) return $getLogin . ".png";
 		else return "default.png";
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 define('IMPASS_CHECK', true);
-include ("../jcr_settings.php");
+include ("jcr_settings.php");
 $action = $_GET ['action'];
 $getIP = $_GET ['ip'];
 $getPort = $_GET ['port'];

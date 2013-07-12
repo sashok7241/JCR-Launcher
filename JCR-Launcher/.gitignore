@@ -2,6 +2,9 @@
 
 !/sources
 !/scripts
+!/scripts/*
+!/scripts/news
+!/scripts/news/*
 !.project
 !.classpath
 !.gitignore

@@ -35,7 +35,7 @@ img {
 <body>
   <?php
 		
-$file = fopen("../news/news.txt", "r");
+$file = fopen("news/news.txt", "r");
 		while(!feof($file))
 		{
 			$line = fgets($file);

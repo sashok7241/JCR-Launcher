@@ -1,6 +1,6 @@
 <?php
 define('IMPASS_CHECK', true);
-include ("../jcr_connect.php");
+include ("jcr_connect.php");
 $user = sql_param(mysql_real_escape_string($_GET ['user']));
 $serverid = sql_param(mysql_real_escape_string($_GET ['serverId']));
 $result = mysql_query("SELECT $db_colUser FROM $db_table WHERE $db_colUser='$user' AND $db_colServer='$serverid'") or die("Ошибка");
