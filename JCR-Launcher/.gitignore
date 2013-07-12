@@ -1,0 +1,7 @@
+*
+
+!/sources
+!/scripts
+!.project
+!.classpath
+!.gitignore
