@@ -1,7 +1,7 @@
 <?php
 define('IMPASS_CHECK', true);
-include ("../jcr_connect.php");
-include ("../jcr_settings.php");
+include ("jcr_connect.php");
+include ("jcr_settings.php");
 $user = sql_param($_GET ['user']);
 $sessionid = sql_param($_GET ['sessionId']);
 $serverid = sql_param($_GET ['serverId']);

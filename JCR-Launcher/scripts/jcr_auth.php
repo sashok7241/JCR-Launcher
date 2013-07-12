@@ -1,7 +1,7 @@
 <?php
 define("IMPASS_CHECK", true);
-include ("../jcr_connect.php");
-include ("../jcr_settings.php");
+include ("jcr_connect.php");
+include ("jcr_settings.php");
 $action = mysql_real_escape_string($_GET ["action"]);
 $getLogin = mysql_real_escape_string($_GET ["login"]);
 $getPass = mysql_real_escape_string($_GET ["password"]);
