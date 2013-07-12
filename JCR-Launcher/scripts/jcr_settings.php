@@ -14,6 +14,14 @@ $db_user = "root";
 $db_pass = "password";
 $db_database = "launcher";
 
+$db_table = "users";
+$db_colId = "user_id";
+$db_colUser = "username";
+$db_colPass = "pass";
+$db_colSalt = "salt";
+$db_tableOther = "xf_user_authenticate";
+$db_colSesId = "session";
+
 # Версия
 $version = "1";
 # Защитный ключ
@@ -25,6 +33,15 @@ $themeFolder = "";
 
 
 # НЕИЗВЕСТНО, ЧТО ИЗ СЕБЯ ПРЕДСТАВЛЯЮТ
+# Раздел авторизации
 $programName = "";
+# Раздел мониторинга
 $pauseMon = "";
+$servers = Array(); //?!?
+$serverList = Array(); //?!?
+$pauseSelMon = Array(); //?!?
+# Раздел тем
+$online_elements = Array();
+$themeColor = "";
+$online_theme = "";
 ?>
