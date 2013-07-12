@@ -8,7 +8,7 @@ if($action == 'theme')
 {
 	if($version == $verApp) for($i = 0; $i < count($online_elements); $i++)
 	{
-		if($request == $online_elements [$i]) header('Location: ' . '../files/' . $themeFolder . '/' . $online_elements [$i]);
+		if($request == $online_elements [$i]) header('Location: ' . 'files/' . $themeFolder . '/' . $online_elements [$i]);
 	}
 	if($request == 'color') echo $themeColor;
 } else if($action == 'settings')
