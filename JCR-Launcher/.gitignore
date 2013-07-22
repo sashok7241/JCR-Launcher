@@ -1,7 +1,8 @@
 *
 
-!/sources/*
-!/scripts/*
+!/sources/
+!/scripts/
 !.project
 !.classpath
 !.gitignore
+!162.patch
